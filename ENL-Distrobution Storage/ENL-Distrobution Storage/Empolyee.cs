@@ -8,13 +8,13 @@ namespace ENL_Distrobution_Storage
 {
     public class Empolyee
     {
-        int ID;
-        int Amount;
-        string Tlf;
-        string FirstName;
-        string LastName;
-        string Email;
-        string Jobtitel;
+        public int ID;
+        public int Amount;
+        public string Tlf;
+        public string FirstName;
+        public string LastName;
+        public string Email;
+        public string Jobtitel;
 
         public Empolyee(int iD, int amount, string tlf, string firstName, string lastName, string email, string jobtitel)
         {

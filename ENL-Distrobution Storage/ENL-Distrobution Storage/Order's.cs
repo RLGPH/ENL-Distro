@@ -9,11 +9,11 @@ namespace ENL_Distrobution_Storage
 {
     public class Order_s
     {
-        int OrdersID;
-        int ProduktID;
-        int OrderAmount;
-        string Status;
-        string Worker;
+        public int OrdersID;
+        public int ProduktID;
+        public int OrderAmount;
+        public string Status;
+        public string Worker;
         
         public Order_s(int ordersID, int produktID, int orderamount, string status, string worker) 
         {

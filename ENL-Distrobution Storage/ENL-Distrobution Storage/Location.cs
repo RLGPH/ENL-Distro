@@ -8,9 +8,9 @@ namespace ENL_Distrobution_Storage
 {
     public class Location
     {
-        int Row;
+        public int Row;
 
-        int Shelf;
+        public int Shelf;
 
         public Location(int row, int shelf)
         {
