@@ -8,15 +8,15 @@ namespace ENL_Distrobution_Storage
 {
     public class Product
     {
-        public int ID;
+        public int ID { get; set; }
 
-        public int Antal;
+        public int Antal { get; set; }
 
-        public int Location;
+        public int Location { get; set; }
 
-        public string ProductName;
+        public string ProductName { get; set; }
 
-        public string Description;
+        public string Description { get; set; }
 
         public Product(int id, int antal, int location, string productName, string description) 
         {

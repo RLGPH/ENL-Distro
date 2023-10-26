@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENL_Distrobution_Storage
 {
-    internal class Database
+    class Database
     {
 
     }
