@@ -5,6 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        Title="MainWindow" Height="190" Width="150">
+    <Grid>
+        <Button Content="Products" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="27" Width="78"/>
+        <Button Content="Workers" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Height="27" Width="78"/>
+        <Button Content="Orders" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="27" Width="78"/>
+        <Label Content="ENL-Distrobution" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="32" Width="105"/>
+        <Label Content="Manegement Software" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="29" Width="133"/>
+    </Grid>
 </Window>

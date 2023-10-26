@@ -1,0 +1,20 @@
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\bin\Debug\net7.0-windows\ENL-Distrobution Storage.exe
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\bin\Debug\net7.0-windows\ENL-Distrobution Storage.deps.json
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\bin\Debug\net7.0-windows\ENL-Distrobution Storage.runtimeconfig.json
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\bin\Debug\net7.0-windows\ENL-Distrobution Storage.dll
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\bin\Debug\net7.0-windows\ENL-Distrobution Storage.pdb
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\MainWindow.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\App.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage_MarkupCompile.cache
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage_MarkupCompile.lref
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\MainWindow.baml
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.g.resources
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.AssemblyInfoInputs.cache
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.AssemblyInfo.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.csproj.CoreCompileInputs.cache
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.dll
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\refint\ENL-Distrobution Storage.dll
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.pdb
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.genruntimeconfig.cache
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ref\ENL-Distrobution Storage.dll
