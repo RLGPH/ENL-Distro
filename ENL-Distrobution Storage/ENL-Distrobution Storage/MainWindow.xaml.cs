@@ -22,5 +22,20 @@ namespace ENL_Distrobution_Storage
         {
             InitializeComponent();
         }
+
+        private void btn_Orders_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Workers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Products_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
