@@ -8,7 +8,7 @@ namespace ENL_Distrobution_Storage
 {
     public class Product
     {
-        public int ID { get; set; }
+        public int ID { get; private set; }
 
         public int Antal { get; set; }
 
@@ -23,7 +23,7 @@ namespace ENL_Distrobution_Storage
             ID = id;
             
             Antal = antal;
-            
+
             Location = location;
             
             ProductName = productName;

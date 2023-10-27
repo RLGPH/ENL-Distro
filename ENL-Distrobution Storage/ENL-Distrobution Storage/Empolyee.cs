@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ENL_Distrobution_Storage
 {
-    public class Empolyee
+    public class Employee
     {
-        public int ID { get; set; }
+        public int workerID { get; private set; }
         public int Amount { get; set; }
         public string Tlf { get; set; }
         public string FirstName {get; set; }
@@ -16,9 +16,9 @@ namespace ENL_Distrobution_Storage
         public string Email { get; set; }
         public string Jobtitel { get; set; }
 
-        public Empolyee(int iD, int amount, string tlf, string firstName, string lastName, string email, string jobtitel)
+        public Employee(int workeriD, int amount, string tlf, string firstName, string lastName, string email, string jobtitel)
         {
-            ID = iD;
+            workerID = workeriD;
             Amount = amount;
             Tlf = tlf;
             FirstName = firstName;

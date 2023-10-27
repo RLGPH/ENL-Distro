@@ -9,8 +9,8 @@ namespace ENL_Distrobution_Storage
 {
     public class Order_s
     {
-        public int OrdersID { get; set; }
-        public int ProduktID { get; set; }
+        public int OrdersID { get; private set; }
+        public int ProduktID { get; private set; }
         public int OrderAmount { get; set; }
         public string Status { get; set; }
         public string Worker { get; set; }
