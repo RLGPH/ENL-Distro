@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ENL_Distrobution_Storage
 {
     /// <summary>
-    /// Interaction logic for Products.xaml
+    /// Interaction logic for Employee_Window.xaml
     /// </summary>
-    public partial class Products : Window
+    public partial class Employee_Window : Window
     {
-        public Products()
+        public Employee_Window()
         {
             InitializeComponent();
         }
