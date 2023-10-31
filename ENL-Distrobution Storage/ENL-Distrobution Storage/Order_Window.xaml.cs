@@ -23,5 +23,10 @@ namespace ENL_Distrobution_Storage
         {
             InitializeComponent();
         }
+
+        private void btn_add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

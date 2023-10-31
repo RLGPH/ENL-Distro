@@ -18,3 +18,9 @@ C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-D
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.pdb
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.genruntimeconfig.cache
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ref\ENL-Distrobution Storage.dll
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Employee_Window.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Order_Window.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Productpage.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Employee_Window.baml
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Order_Window.baml
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Productpage.baml

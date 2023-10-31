@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Order_Window" Height="450" Width="800">
     <Grid>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,143" HorizontalAlignment="Center" Width="780" AutoGenerateColumns="False">
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,143" HorizontalAlignment="Center" Width="780" AutoGenerateColumns="False" Height="281" VerticalAlignment="Bottom">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order ID"/>
                 <DataGridTextColumn Header="Produkt Name"/>
@@ -16,9 +16,9 @@
                 <DataGridTextColumn Header="Amount"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btn_close_window" Content="close" HorizontalAlignment="Left" Margin="45,320,0,0" VerticalAlignment="Top" Height="32" Width="64"/>
-        <Button x:Name="btn_Order" Content="Order" HorizontalAlignment="Left" Margin="171,320,0,0" VerticalAlignment="Top" Height="32" Width="64" Click="btn_add_Click"/>
-        <Button x:Name="btn_remove" Content="REMOVE" HorizontalAlignment="Left" Margin="292,320,0,0" VerticalAlignment="Top" Height="32" Width="64"/>
+        <Button x:Name="btn_close_window" Content="close" HorizontalAlignment="Right" Margin="0,0,691,82" VerticalAlignment="Bottom" Height="32" Width="64"/>
+        <Button x:Name="btn_Order" Content="Order" HorizontalAlignment="Right" Margin="0,0,565,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="btn_add_Click"/>
+        <Button x:Name="btn_remove" Content="REMOVE" HorizontalAlignment="Right" Margin="0,0,444,82" VerticalAlignment="Bottom" Height="32" Width="64"/>
         <Button x:Name="btn_edit_Order" Content="Edit" HorizontalAlignment="Right" Margin="0,0,565,45" VerticalAlignment="Bottom" Height="32" Width="64"/>
     </Grid>
 </Window>
