@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 
 namespace ENL_Distrobution_Storage
 {
-    
     public partial class MainWindow : Window
     {
+        public Database database = new Database();
         public MainWindow()
         {
             InitializeComponent();

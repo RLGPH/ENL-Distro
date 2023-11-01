@@ -24,3 +24,5 @@ C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-D
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Employee_Window.baml
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Order_Window.baml
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Productpage.baml
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Product_add_window.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Product_add_window.baml

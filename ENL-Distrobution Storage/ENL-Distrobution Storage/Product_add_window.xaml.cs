@@ -15,22 +15,16 @@ using System.Windows.Shapes;
 namespace ENL_Distrobution_Storage
 {
     /// <summary>
-    /// Interaction logic for Productpage.xaml
+    /// Interaction logic for Product_add_window.xaml
     /// </summary>
-    public partial class Productpage : Window
+    public partial class Product_add_window : Window
     {
-        public Productpage()
+        public Product_add_window()
         {
             InitializeComponent();
         }
 
-        private void btn_add_Click(object sender, RoutedEventArgs e)
-        {
-            Product_add_window product_Add_Window = new Product_add_window();
-            product_Add_Window.Show();
-        }
-
-        private void btn_close_window_Click(object sender, RoutedEventArgs e)
+        private void btn_cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

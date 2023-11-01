@@ -16,7 +16,7 @@
                 <DataGridTextColumn Header="Amount"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btn_close_window" Content="close" HorizontalAlignment="Right" Margin="0,0,710,93" VerticalAlignment="Bottom" Height="32" Width="64"/>
+        <Button x:Name="btn_close_window" Content="close" HorizontalAlignment="Right" Margin="0,0,710,93" VerticalAlignment="Bottom" Height="32" Width="64" Click="btn_close_window_Click"/>
         <Button x:Name="btn_add" Content="ADD" HorizontalAlignment="Right" Margin="0,0,584,93" VerticalAlignment="Bottom" Height="32" Width="64" Click="btn_add_Click"/>
         <Button x:Name="btn_remove" Content="Remove" HorizontalAlignment="Right" Margin="0,0,463,93" VerticalAlignment="Bottom" Height="32" Width="64"/>
         <Button x:Name="btn_edit" Content="Edit" HorizontalAlignment="Right" Margin="0,0,584,56" VerticalAlignment="Bottom" Height="32" Width="64"/>

@@ -1,0 +1,22 @@
+﻿<Window x:Class="ENL_Distrobution_Storage.Product_add_window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ENL_Distrobution_Storage"
+        mc:Ignorable="d"
+        Title="Product_add_window" Height="241" Width="214">
+    <Grid>
+        <TextBox x:Name="tb_name" HorizontalAlignment="Right" Margin="0,0,5,180" TextWrapping="Wrap" Text="insert name" VerticalAlignment="Bottom" Height="22" Width="82"/>
+        <Label x:Name="dev_here_pls_kill_me" Content="Product name" HorizontalAlignment="Right" Margin="0,0,92,180" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tb_shelf" HorizontalAlignment="Right" Margin="0,0,5,156" TextWrapping="Wrap" Text="insert Shelf" VerticalAlignment="Bottom" Width="82" Height="19"/>
+        <Label Content="location" HorizontalAlignment="Right" Margin="0,0,100,139" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="tb_row" HorizontalAlignment="Right" Margin="0,0,5,132" TextWrapping="Wrap" Text="insert Row" VerticalAlignment="Bottom" Width="82" Height="19"/>
+        <TextBox x:Name="tb_amount" HorizontalAlignment="Right" Margin="0,0,5,108" TextWrapping="Wrap" Text="insert amount" VerticalAlignment="Bottom" Width="82" Height="19" />
+        <Label Content="Amount of product" HorizontalAlignment="Right" Margin="0,0,92,104" VerticalAlignment="Bottom"/>
+        <Label Content="Description" HorizontalAlignment="Right" Margin="0,0,92,73" VerticalAlignment="Bottom" Width="78"/>
+        <TextBox x:Name="tb_desription" HorizontalAlignment="Right" Margin="0,0,5,31" TextWrapping="Wrap" Text="Descripe it" VerticalAlignment="Bottom" Width="82" Height="60"/>
+        <Button x:Name="btn_save" Content="Save" HorizontalAlignment="Right" Margin="0,0,100,31" VerticalAlignment="Bottom" Height="37" Width="43"/>
+        <Button x:Name="btn_cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,148,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="btn_cancel_Click"/>
+    </Grid>
+</Window>

@@ -17,7 +17,7 @@ namespace ENL_Distrobution_Storage
     /// <summary>
     /// Interaction logic for Employee_Window.xaml
     /// </summary>
-    public partial class Employee_Window : Window
+    public partial class Employee_Window  : Window
     {
         public Employee_Window()
         {

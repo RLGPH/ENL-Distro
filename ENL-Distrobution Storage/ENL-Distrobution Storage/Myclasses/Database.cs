@@ -8,9 +8,10 @@ namespace ENL_Distrobution_Storage
 {
     public class Database
     {
+        
         public List<Product> products = new List<Product>();
 
-        // Add a product to the database
+        // Add a product to the database not complete
         public void AddProduct(Product product)
         {
             products.Add(product);
@@ -23,14 +24,14 @@ namespace ENL_Distrobution_Storage
         }
 
         // Remove a product by its ID
-        public void RemoveProductById(int id)
+        /*public void RemoveProductById(int id)
         {
             Product productToRemove = GetProductById(id);
             if (productToRemove != null)
             {
                 products.Remove(productToRemove);
             }
-        }
+        }*/
 
         // Update a product by its ID
         public void UpdateProductById(int id, Product updatedProduct)
@@ -61,14 +62,14 @@ namespace ENL_Distrobution_Storage
         }
 
         // Remove an employee by their worker ID
-        public void RemoveEmployeeById(int workerID)
+        /*public void RemoveEmployeeById(int workerID)
         {
             Employee employeeToRemove = GetEmployeeById(workerID);
             if (employeeToRemove != null)
             {
                 employees.Remove(employeeToRemove);
             }
-        }
+        }*/
 
         // Update an employee by their worker ID
         public void UpdateEmployeeById(int workerID, Employee updatedEmployee)
@@ -88,23 +89,23 @@ namespace ENL_Distrobution_Storage
 
         public List<Order_s> order_S = new List<Order_s>();
 
-        public void ADDOrder_s(Order_s order_s) 
+        public void ADDOrder_s(Order_s order_s)
         {
             order_S.Add(order_s);
         }
         public Order_s GetOrder_SById(int OrdersID)
         {
-            return order_S.FirstOrDefault(o=>o.OrdersID == OrdersID);
+            return order_S.FirstOrDefault(o => o.OrdersID == OrdersID);
         }
 
-        public void RemoveOrder_SByID(int OrdersID) 
+        /*public void RemoveOrder_SByID(int OrdersID) 
         {
             Order_s orderToRemove = GetOrder_SById(OrdersID);
             {
                 order_S.Remove(orderToRemove);
             }
-        }
-        public void UpdateOrder_SByID(int  OrderID, Order_s updateOrder_S) 
+        }*/
+        public void UpdateOrder_SByID(int OrderID, Order_s updateOrder_S)
         {
             Order_s existingOrder = GetOrder_SById(OrderID);
             if (existingOrder != null)
