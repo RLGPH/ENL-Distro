@@ -12,10 +12,11 @@ namespace ENL_Distrobution_Storage
 
         public int Shelf { get; set; }
 
-        public Location(int row, int shelf)
+        public Location(int row, int shelf, string Place)
         {
             Row = row;
             Shelf = shelf;
+            Place = row + "," + Place;
         }
     }
 }

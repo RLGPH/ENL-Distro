@@ -15,8 +15,8 @@
         <TextBox x:Name="tb_amount" HorizontalAlignment="Right" Margin="0,0,5,108" TextWrapping="Wrap" Text="insert amount" VerticalAlignment="Bottom" Width="82" Height="19" />
         <Label Content="Amount of product" HorizontalAlignment="Right" Margin="0,0,92,104" VerticalAlignment="Bottom"/>
         <Label Content="Description" HorizontalAlignment="Right" Margin="0,0,92,73" VerticalAlignment="Bottom" Width="78"/>
-        <TextBox x:Name="tb_desription" HorizontalAlignment="Right" Margin="0,0,5,31" TextWrapping="Wrap" Text="Descripe it" VerticalAlignment="Bottom" Width="82" Height="60"/>
-        <Button x:Name="btn_save" Content="Save" HorizontalAlignment="Right" Margin="0,0,100,31" VerticalAlignment="Bottom" Height="37" Width="43"/>
+        <TextBox x:Name="tb_description" HorizontalAlignment="Right" Margin="0,0,5,31" TextWrapping="Wrap" Text="Descripetion" VerticalAlignment="Bottom" Width="82" Height="60"/>
+        <Button x:Name="btn_save" Content="Save" HorizontalAlignment="Right" Margin="0,0,100,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="btn_save_Click"/>
         <Button x:Name="btn_cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,148,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="btn_cancel_Click"/>
     </Grid>
 </Window>

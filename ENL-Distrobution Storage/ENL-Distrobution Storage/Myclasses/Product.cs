@@ -8,9 +8,9 @@ namespace ENL_Distrobution_Storage
 {
     public class Product
     {
-        public int ID { get; private set; }
+        public int ID { get; set; }
 
-        public int Antal { get; set; }
+        public int Amount { get; set; }
 
         public int Location { get; set; }
 
@@ -20,11 +20,11 @@ namespace ENL_Distrobution_Storage
 
         public string Description { get; set; }
 
-        public Product(int id, int antal, int location, decimal price, string productName, string description) 
+        public Product(int id, int amount, int location, decimal price, string productName, string description) 
         {
             ID = id;
             
-            Antal = antal;
+            Amount = amount;
 
             Location = location;
 

@@ -8,6 +8,7 @@ namespace ENL_Distrobution_Storage
 {
     public class Database
     {
+
         
         public List<Product> products = new List<Product>();
 
@@ -40,7 +41,7 @@ namespace ENL_Distrobution_Storage
             if (existingProduct != null)
             {
                 // Update the existing product properties
-                existingProduct.Antal = updatedProduct.Antal;
+                existingProduct.Amount = updatedProduct.Amount;
                 existingProduct.Location = updatedProduct.Location;
                 existingProduct.ProductName = updatedProduct.ProductName;
                 existingProduct.Description = updatedProduct.Description;
