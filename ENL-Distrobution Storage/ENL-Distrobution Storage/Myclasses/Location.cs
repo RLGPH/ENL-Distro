@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ENL_Distrobution_Storage
+﻿namespace ENL_Distrobution_Storage
 {
     public class Location
     {
@@ -16,7 +10,7 @@ namespace ENL_Distrobution_Storage
         {
             Row = row;
             Shelf = shelf;
-            Place = row + "," + Place;
+            Place = row + "," + shelf;
         }
     }
 }

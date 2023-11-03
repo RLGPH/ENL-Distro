@@ -16,7 +16,7 @@
         <Label Content="Amount of product" HorizontalAlignment="Right" Margin="0,0,92,104" VerticalAlignment="Bottom"/>
         <Label Content="Description" HorizontalAlignment="Right" Margin="0,0,92,73" VerticalAlignment="Bottom" Width="78"/>
         <TextBox x:Name="tb_description" HorizontalAlignment="Right" Margin="0,0,5,31" TextWrapping="Wrap" Text="Descripetion" VerticalAlignment="Bottom" Width="82" Height="60"/>
-        <Button x:Name="btn_save" Content="Save" HorizontalAlignment="Right" Margin="0,0,100,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="btn_save_Click"/>
-        <Button x:Name="btn_cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,148,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="btn_cancel_Click"/>
+        <Button x:Name="Btn_save" Content="Save" HorizontalAlignment="Right" Margin="0,0,100,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="Btn_save_Click"/>
+        <Button x:Name="Btn_cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,148,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="Btn_Cancel_Click"/>
     </Grid>
 </Window>

@@ -1,4 +1,12 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace ENL_Distrobution_Storage
 {
@@ -29,18 +37,6 @@ namespace ENL_Distrobution_Storage
                 MessageBox.Show("Invalid amount. Please enter a valid number.");
                 return;
             }
-
-
-            var newProduct = new Product
-            {
-                Amount = amount,
-                PLocation = plocation,
-                ProductName = productName,
-                Description = description
-            };
-
-
-            _database.products.Add(newProduct);
 
             // Optionally, you can clear the text boxes after adding the product
             tb_name.Text = "Insert Name";

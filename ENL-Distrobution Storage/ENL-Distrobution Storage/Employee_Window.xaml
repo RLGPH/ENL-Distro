@@ -17,7 +17,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btn_close_window" Content="close" HorizontalAlignment="Right" Margin="0,0,691,82" VerticalAlignment="Bottom" Height="32" Width="64"/>
-        <Button x:Name="btn_add" Content="ADD" HorizontalAlignment="Right" Margin="0,0,565,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="btn_add_Click"/>
+        <Button x:Name="Btn_add" Content="ADD" HorizontalAlignment="Right" Margin="0,0,565,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="Btn_add_Click"/>
         <Button x:Name="btn_remove" Content="REMOVE" HorizontalAlignment="Right" Margin="0,0,444,82" VerticalAlignment="Bottom" Height="32" Width="64"/>
         <Button x:Name="btn_edit" Content="Edit" HorizontalAlignment="Right" Margin="0,0,565,45" VerticalAlignment="Bottom" Height="32" Width="64"/>
     </Grid>
