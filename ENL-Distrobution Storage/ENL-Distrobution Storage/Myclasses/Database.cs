@@ -9,8 +9,8 @@ namespace ENL_Distrobution_Storage
         private string connectionString; // Connection string for your SQL Server database
 
         public Database(string connectionString)
-        {
-            this.connectionString = "LAPTOP - BOMR24KV";
+        { 
+            this.connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True; version=16.00.1000";
         }
 
         public Product GetProductById(int productId)

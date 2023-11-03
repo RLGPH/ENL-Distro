@@ -11,7 +11,6 @@ namespace ENL_Distrobution_Storage
         public Productpage()
         {
             InitializeComponent();
-
         }
 
         private void Btn_add_Click(object sender, RoutedEventArgs e)
