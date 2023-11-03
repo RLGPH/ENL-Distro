@@ -10,9 +10,9 @@ namespace ENL_Distrobution_Storage
 
         public Database(string connectionString)
         { 
-            this.connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True; version=16.00.1000";
+            connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True; version=16.00.1000";
         }
-
+        
         public Product GetProductById(int productId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
