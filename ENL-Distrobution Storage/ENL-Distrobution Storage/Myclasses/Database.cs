@@ -146,7 +146,5 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
             cmd.ExecuteNonQuery();
         }
-
-        // Other methods and classes can be added as needed
     }
 }
