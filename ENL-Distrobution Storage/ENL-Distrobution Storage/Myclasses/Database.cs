@@ -146,5 +146,38 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
             cmd.ExecuteNonQuery();
         }
+
+        public Order_s GetOrder_sByID(int OrdersId)
+        {
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            string sql = "SELECT * FROM Products WHERE ID = @OrdersID";
+            using SqlCommand cmd = new(sql, connection);
+
+            cmd.Parameters.AddWithValue("@OrdersID", OrdersId);
+            using SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                Order_s order_S = new(
+                    (int)reader["OrdersID"],
+                    (int)reader["ProduktID"],
+                    (int)reader["OrderAmount"],
+                    (string)reader["Status"],
+                    (string)reader["Worker"]
+                    );
+
+                return order_S;
+            }
+            return null; // Order not found
+        }
+
+        public void InsertOrder_sByID(Order_s order_S) 
+        {
+            using SqlConnection connection =new(connectionString);
+            connection.Open();
+
+            
+        }
     }
 }
