@@ -4,7 +4,7 @@ namespace ENL_Distrobution_Storage
 {
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -12,19 +12,19 @@ namespace ENL_Distrobution_Storage
 
         private void btn_Orders_Click(object sender, RoutedEventArgs e)
         {
-            Order_Window order_Window = new Order_Window();
+            Order_Window order_Window = new();
             order_Window.Show();
         }
 
         private void btn_Workers_Click(object sender, RoutedEventArgs e)
         {
-            Employee_Window employee_Window = new Employee_Window();
+            Employee_Window employee_Window = new();
             employee_Window.Show();
         }
 
         private void btn_Products_Click(object sender, RoutedEventArgs e)
         {
-            Productpage productPage = new Productpage();
+            Productpage productPage = new();
             productPage.Show();
         }
     }

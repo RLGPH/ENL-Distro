@@ -4,33 +4,33 @@ using Microsoft.Data.SqlClient; // Use Microsoft.Data.SqlClient for .NET 7.0
 
 namespace ENL_Distrobution_Storage
 {
-    public class ProductDataAccess
+    public class Database
     {
-        string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True";
+        private string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True";
 
-        public ProductDataAccess(string connectionString)
+        public Database(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
         public Product GetProductById(int productId)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "SELECT * FROM Products WHERE ID = @ProductId";
-            using SqlCommand cmd = new SqlCommand(sql, connection);
+            using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@ProductId", productId);
 
             using SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                Product product = new Product(
+                Product product = new(
                     (int)reader["Amount"],
                     (int)reader["PLocation"],
                     (string)reader["ProductName"],
                     (string)reader["Description"]
-                )
+                    )
                 {
                     ID = (int)reader["ID"]
                 };
@@ -42,12 +42,12 @@ namespace ENL_Distrobution_Storage
 
         public void InsertProduct(Product product)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "INSERT INTO Products (Amount, PLocation, ProductName, Description) " +
-                         "VALUES (@Amount, @PLocation, @ProductName, @Description";
-            using SqlCommand cmd = new SqlCommand(sql, connection);
+                         "VALUES (@Amount, @PLocation, @ProductName, @Description)";
+            using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@Amount", product.Amount);
             cmd.Parameters.AddWithValue("@PLocation", product.PLocation);
             cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
@@ -57,13 +57,13 @@ namespace ENL_Distrobution_Storage
 
         public void UpdateProduct(Product product)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "UPDATE Products " +
                          "SET Amount = @Amount, PLocation = @PLocation, ProductName = @ProductName, Description = @Description " +
                          "WHERE ID = @ProductId";
-            using SqlCommand cmd = new SqlCommand(sql, connection);
+            using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@ProductId", product.ID);
             cmd.Parameters.AddWithValue("@Amount", product.Amount);
             cmd.Parameters.AddWithValue("@PLocation", product.PLocation);
@@ -71,5 +71,82 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@Description", product.Description);
             cmd.ExecuteNonQuery();
         }
+
+
+        public Employee GetEmployeeById(int employeeId)
+        {
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            string sql = "SELECT * FROM Employees WHERE WorkerID = @EmployeeId";
+            using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@EmployeeId", employeeId);
+
+            using SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                Employee employee = new(
+                    (int)reader["WorkerID"],
+                    (int)reader["Amount"],
+                    (string)reader["Tlf"],
+                    (string)reader["FirstName"],
+                    (string)reader["LastName"],
+                    (string)reader["Email"],
+                    (string)reader["Jobtitel"]
+                );
+                return employee;
+            }
+
+            return null; // Employee not found
+        }
+
+        public void InsertEmployee(Employee employee)
+        {
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            string sql = "INSERT INTO Employees (Amount, Tlf, FirstName, LastName, Email, Jobtitel) " +
+                         "VALUES (@Amount, @Tlf, @FirstName, @LastName, @Email, @Jobtitel)";
+            using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@Amount", employee.Amount);
+            cmd.Parameters.AddWithValue("@Tlf", employee.Tlf);
+            cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", employee.LastName);
+            cmd.Parameters.AddWithValue("@Email", employee.Email);
+            cmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void DeleteEmployee(int employeeId)
+        {
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            string sql = "DELETE FROM Employees WHERE WorkerID = @EmployeeId";
+            using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@EmployeeId", employeeId);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void UpdateEmployee(Employee employee)
+        {
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            string sql = "UPDATE Employees " +
+                         "SET Amount = @Amount, Tlf = @Tlf, FirstName = @FirstName, LastName = @LastName, Email = @Email, Jobtitel = @Jobtitel " +
+                         "WHERE WorkerID = @EmployeeId";
+            using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@EmployeeId", employee.WorkerID);
+            cmd.Parameters.AddWithValue("@Amount", employee.Amount);
+            cmd.Parameters.AddWithValue("@Tlf", employee.Tlf);
+            cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", employee.LastName);
+            cmd.Parameters.AddWithValue("@Email", employee.Email);
+            cmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
+            cmd.ExecuteNonQuery();
+        }
+
+        // Other methods and classes can be added as needed
     }
 }

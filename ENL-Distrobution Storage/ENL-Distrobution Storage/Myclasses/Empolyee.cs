@@ -2,7 +2,7 @@
 {
     public class Employee
     {
-        public int workerID { get; private set; }
+        public int WorkerID { get; set; }
         public int Amount { get; set; }
         public string Tlf { get; set; }
         public string FirstName { get; set; }
@@ -12,7 +12,7 @@
 
         public Employee(int workeriD, int amount, string tlf, string firstName, string lastName, string email, string jobtitel)
         {
-            workerID = workeriD;
+            WorkerID = workeriD;
             Amount = amount;
             Tlf = tlf;
             FirstName = firstName;
