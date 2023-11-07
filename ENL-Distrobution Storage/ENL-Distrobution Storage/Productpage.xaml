@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Productpage" Height="450" Width="800">
     <Grid Height="434" VerticalAlignment="Center" HorizontalAlignment="Right" Width="800">
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,0,143" HorizontalAlignment="Left" Width="780" AutoGenerateColumns="False" Grid.ColumnSpan="2">
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,10,157" HorizontalAlignment="Right" Width="780" AutoGenerateColumns="False" Grid.ColumnSpan="2" Height="226" VerticalAlignment="Bottom">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"/>
                 <DataGridTextColumn Header="Name"/>
@@ -16,9 +16,9 @@
                 <DataGridTextColumn Header="Amount"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Btn_close_window" Content="close" HorizontalAlignment="Right" Margin="0,0,710,93" VerticalAlignment="Bottom" Height="32" Width="64" Click="Btn_close_window_Click"/>
-        <Button x:Name="Btn_add" Content="ADD" HorizontalAlignment="Right" Margin="0,0,584,93" VerticalAlignment="Bottom" Height="32" Width="64" Click="Btn_add_Click"/>
-        <Button x:Name="btn_remove" Content="Remove" HorizontalAlignment="Right" Margin="0,0,463,93" VerticalAlignment="Bottom" Height="32" Width="64"/>
-        <Button x:Name="btn_edit" Content="Edit" HorizontalAlignment="Right" Margin="0,0,584,56" VerticalAlignment="Bottom" Height="32" Width="64"/>
+        <Button x:Name="btn_close_window" Content="close" HorizontalAlignment="Right" Margin="0,0,691,82" VerticalAlignment="Bottom" Height="32" Width="64"/>
+        <Button x:Name="Btn_add" Content="ADD" HorizontalAlignment="Right" Margin="0,0,565,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="Btn_add_Click"/>
+        <Button x:Name="btn_remove" Content="REMOVE" HorizontalAlignment="Right" Margin="0,0,444,82" VerticalAlignment="Bottom" Height="32" Width="64"/>
+        <Button x:Name="btn_edit" Content="Edit" HorizontalAlignment="Right" Margin="0,0,565,45" VerticalAlignment="Bottom" Height="32" Width="64"/>
     </Grid>
 </Window>

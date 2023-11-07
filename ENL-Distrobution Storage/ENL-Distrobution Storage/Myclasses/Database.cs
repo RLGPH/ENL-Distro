@@ -13,7 +13,7 @@ namespace ENL_Distrobution_Storage
             this.connectionString = connectionString;
         }
 
-        public Product GetProductById(int productId)
+        public Product? GetProductById(int productId)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
@@ -73,7 +73,7 @@ namespace ENL_Distrobution_Storage
         }
 
 
-        public Employee GetEmployeeById(int employeeId)
+        public Employee? GetEmployeeById(int employeeId)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
@@ -147,7 +147,7 @@ namespace ENL_Distrobution_Storage
             cmd.ExecuteNonQuery();
         }
 
-        public Order_s GetOrder_sByID(int OrdersId)
+        public Order_s? GetOrder_sByID(int OrdersId)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
