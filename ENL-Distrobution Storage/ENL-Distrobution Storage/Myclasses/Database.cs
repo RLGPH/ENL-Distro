@@ -205,7 +205,13 @@ namespace ENL_Distrobution_Storage
             connection.Open();
 
             string sql = "UPDATE Orders" +
-                         "SET OrdersID = @OrdersID, ProduktID = @ProduktID, OrderAmount = @OrderAmount, Status = @Status, Worker=@Worker"; 
+                         "SET OrdersID = @OrdersID, ProduktID = @ProduktID, OrderAmount = @OrderAmount, Status = @Status, Worker=@Worker";
+            using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@OrdersID", order_S.OrdersID);
+            cmd.Parameters.AddWithValue("@ProduktID", order_S.ProduktID);
+            cmd.Parameters.AddWithValue("@OrderAmount", order_S.OrderAmount);
+            cmd.Parameters.AddWithValue("@Status", order_S.Status);
+            cmd.Parameters.AddWithValue("@Worker", order_S.Worker);
         }
     }
 }
