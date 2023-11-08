@@ -10,9 +10,9 @@
         public string Email { get; set; }
         public string Jobtitel { get; set; }
 
-        public Employee(int workeriD, int amount, string tlf, string firstName, string lastName, string email, string jobtitel)
+        public Employee(int workerID, int amount, string tlf, string firstName, string lastName, string email, string jobtitel)
         {
-            WorkerID = workeriD;
+            WorkerID = workerID;
             Amount = amount;
             Tlf = tlf;
             FirstName = firstName;

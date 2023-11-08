@@ -18,22 +18,9 @@ namespace ENL_Distrobution_Storage
             Close();
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        private void Btn_save_Click(object sender, RoutedEventArgs e)
         {
-            // Get data from the text boxes
-            string productName = tb_name.Text;
-            string description = tb_description.Text;
 
-            if (!int.TryParse(tb_amount.Text, out int amount))
-            {
-                MessageBox.Show("Invalid amount. Please enter a valid number.");
-                return;
-            }
-
-            // Optionally, you can clear the text boxes after adding the product
-            tb_name.Text = "Insert Name";
-            tb_description.Text = "Description";
-            tb_amount.Text = "0";
         }
     }
 }
