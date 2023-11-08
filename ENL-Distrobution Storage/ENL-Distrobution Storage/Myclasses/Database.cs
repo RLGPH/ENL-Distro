@@ -18,47 +18,61 @@ namespace ENL_Distrobution_Storage
             this.connectionString = connectionString;
         }
 
-        public Product GetProductById(int productId)
+        // Get product by ID
+        public List<Product> GetAllProducts()
         {
+            List<Product> productList = new List<Product>();
+
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            string sql = "SELECT * FROM Products WHERE ID = @ProductId";
+            string sql = "SELECT * FROM Products";
             using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@ProductId", productId);
 
             using SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            while (reader.Read())
             {
-                Product product = new(
+                Product product = new Product(
                     (int)reader["ID"],
                     (int)reader["Amount"],
                     (int)reader["PLocation"],
                     (string)reader["ProductName"],
                     (string)reader["Description"]
-                    );
-                
-                return product;
+                );
+
+                productList.Add(product);
             }
 
-            return null; // Product not found
+            return productList;
         }
 
-        public void InsertProduct(Product product)
+
+        // Add a new product to the database and the list
+        public void AddProduct(Product product)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "INSERT INTO Products (Amount, PLocation, ProductName, Description) " +
-                         "VALUES (@Amount, @PLocation, @ProductName, @Description)";
+                         "VALUES (@Amount, @PLocation, @ProductName, @Description); " +
+                         "SELECT SCOPE_IDENTITY()"; // Retrieve the inserted product ID
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@Amount", product.Amount);
             cmd.Parameters.AddWithValue("@PLocation", product.PLocation);
             cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
             cmd.Parameters.AddWithValue("@Description", product.Description);
-            cmd.ExecuteNonQuery();
+
+            // Execute the command and retrieve the inserted product ID
+            int productId = Convert.ToInt32(cmd.ExecuteScalar());
+
+            // Set the product's ID to the retrieved value
+            product.ID = productId;
+
+            // Add the product to the local list
+            products.Add(product);
         }
 
+        // Update an existing product in the database and the list
         public void UpdateProduct(Product product)
         {
             using SqlConnection connection = new(connectionString);
@@ -74,6 +88,21 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
             cmd.Parameters.AddWithValue("@Description", product.Description);
             cmd.ExecuteNonQuery();
+        }
+
+        // Remove a product from the database and the list
+        public void RemoveProduct(Product product)
+        {
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+
+            string sql = "DELETE FROM Products WHERE ID = @ProductId";
+            using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@ProductId", product.ID);
+            cmd.ExecuteNonQuery();
+
+            // Remove the product from the local list
+            products.Remove(product);
         }
 
 

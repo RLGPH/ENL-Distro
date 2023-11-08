@@ -4,10 +4,12 @@ namespace ENL_Distrobution_Storage
 {
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
+            Database database = new Database("Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distribution;Integrated Security=True");
+
+            database.GetAllProducts();
         }
 
         private void btn_Orders_Click(object sender, RoutedEventArgs e)
