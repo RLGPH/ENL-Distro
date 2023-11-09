@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Controls;
-using Microsoft.Data.SqlClient; // Use Microsoft.Data.SqlClient for .NET 7.0
+using Microsoft.Data.SqlClient;
 
 namespace ENL_Distrobution_Storage
 {
     public class Database
     {
-        private string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True";
+        private string connectionString = "Data Source=LAPTOP-BOMR24KV;ID=LAPTOP-BOMR24KV\\Casper s. jensen;Initial Catalog=ENL-Distribution;Integrated Security=True;Trusted_Connection=true;encrypy=false;";
         public List<Employee> employees = new List<Employee>();
         public List<Order_s> orders = new List<Order_s>();
         public List<Product> products = new List<Product>();

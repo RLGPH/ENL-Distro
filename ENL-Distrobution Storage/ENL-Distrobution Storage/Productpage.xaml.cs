@@ -7,14 +7,23 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Productpage : Window
     {
-        private Database database;
+        public Database database;
         public Productpage()
         {
             InitializeComponent();
+            Database database = new Database("Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distribution;Integrated Security=True;Encrypt=False;");
+
+            database.GetAllProducts();
         }
 
         private void Btn_add_Click(object sender, RoutedEventArgs e)
         {
+            // Create a new Product object
+            Product newProduct = new Product(1, 2, 1, "Example Product", "This is an example product.");
+
+            // Add the product to the database and list
+            database.AddProduct(newProduct);
+
             Product_add_window product_Add_Window = new(database);
             product_Add_Window.Show();
         }
@@ -25,5 +34,3 @@ namespace ENL_Distrobution_Storage
         }
     }
 }
-//Product_add_window product_Add_Window = new Product_add_window();
-//product_Add_Window.Show();
