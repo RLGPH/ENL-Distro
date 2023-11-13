@@ -77,7 +77,7 @@ namespace ENL_Distrobution_Storage
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
-
+            
             string sql = "UPDATE Products " +
                          "SET Amount = @Amount, PLocation = @PLocation, ProductName = @ProductName, Description = @Description " +
                          "WHERE ID = @ProductId";
