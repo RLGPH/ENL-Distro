@@ -11,9 +11,9 @@ namespace ENL_Distrobution_Storage
         public Productpage()
         {
             InitializeComponent();
-            //Database database = new Database("Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distribution;Integrated Security=True;Encrypt=False;");
+            Database database = new Database("Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distribution;User Id=John Doe;Password=PassWord1234;Encrypt=False");
 
-            //database.GetAllProducts();
+            database.GetAllProducts();
         }
 
         private void Btn_add_Click(object sender, RoutedEventArgs e)

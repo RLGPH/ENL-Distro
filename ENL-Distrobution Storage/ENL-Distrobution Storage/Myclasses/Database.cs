@@ -8,7 +8,7 @@ namespace ENL_Distrobution_Storage
 {
     public class Database
     {
-        private string connectionString = "Data Source=LAPTOP-BOMR24KV;User Id=LAPTOP-BOMR24KV\\Casper s. jensen;Initial Catalog=ENL-Distribution;Integrated Security=True;Trusted_Connection=true;TrustServerCertificate=True;Encrypt=False";
+        private string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distribution;User Id=John Doe;Password=PassWord1234;Encrypt=False";
         public List<Employee> employees = new List<Employee>();
         public List<Order_s> orders = new List<Order_s>();
         public List<Product> products = new List<Product>();
