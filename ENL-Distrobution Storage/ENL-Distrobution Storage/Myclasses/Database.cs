@@ -41,7 +41,7 @@ namespace ENL_Distrobution_Storage
         }
 
 
-        // Add a new product to the database and the list
+        // Add a new product to the database
         public void AddProduct(Product product)
         {
             using SqlConnection connection = new(connectionString);
