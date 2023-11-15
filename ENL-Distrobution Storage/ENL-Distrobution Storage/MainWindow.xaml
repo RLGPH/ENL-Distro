@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="190" Width="150">
     <Grid>
-        <Button x:Name="btn_Products" Content="Products" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="btn_Products_Click"/>
-        <Button x:Name="btn_Workers" Content="Workers" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="btn_Workers_Click"/>
-        <Button x:Name="btn_Orders" Content="Orders" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="btn_Orders_Click"/>
+        <Button x:Name="BTN_Products" Content="Products" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Products_Click"/>
+        <Button x:Name="BTN_Workers" Content="Workers" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Workers_Click"/>
+        <Button x:Name="BTN_Orders" Content="Orders" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Orders_Click"/>
         <Label Content="ENL-Distrobution" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="32" Width="105"/>
         <Label Content="Manegement Software" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="29" Width="133"/>
     </Grid>

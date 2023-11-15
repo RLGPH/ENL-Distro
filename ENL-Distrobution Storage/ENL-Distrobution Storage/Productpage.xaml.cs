@@ -11,15 +11,13 @@ namespace ENL_Distrobution_Storage
         public Productpage()
         {
             InitializeComponent();
-            Database database = new Database("Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distribution;User Id=John Doe;Password=PassWord1234;Encrypt=False");
-
             database.GetAllProducts();
         }
 
         private void Btn_add_Click(object sender, RoutedEventArgs e)
         {
             // Create a new Product object
-            Product newProduct = new Product(1, 2, 1, "Example Product", "This is an example product.");
+            Product newProduct = new(1, 2, 1, "Example Product", "This is an example product.");
 
             // Add the product to the database and list
             database.AddProduct(newProduct);

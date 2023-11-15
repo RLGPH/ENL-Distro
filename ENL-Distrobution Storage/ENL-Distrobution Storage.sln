@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENL-Distrobution Storage", "ENL-Distrobution Storage\ENL-Distrobution Storage.csproj", "{0E542F65-6DF8-435F-B78A-F73219DCC5F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ENL-Distrobution Storage", "ENL-Distrobution Storage\ENL-Distrobution Storage.csproj", "{0E542F65-6DF8-435F-B78A-F73219DCC5F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3A2BCFE0-A45D-4BC6-A281-D9F8B4F598EF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

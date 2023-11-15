@@ -8,20 +8,14 @@ namespace ENL_Distrobution_Storage
 {
     public class Database
     {
-        private string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distribution;User Id=John Doe;Password=PassWord1234;Encrypt=False";
-        public List<Employee> employees = new List<Employee>();
-        public List<Order_s> orders = new List<Order_s>();
-        public List<Product> products = new List<Product>();
-
-        public Database(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
-
+        public string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True;User ID=\"LAPTOP-BOMR24KV\\Casper s. jensen\"";
+        public List<Employee> employees = new();
+        public List<Order_s> orders = new();
+        public List<Product> products = new();
         // Get product by ID
         public List<Product> GetAllProducts()
         {
-            List<Product> productList = new List<Product>();
+            List<Product> productList = new();
 
             using SqlConnection connection = new(connectionString);
             connection.Open();
@@ -32,7 +26,7 @@ namespace ENL_Distrobution_Storage
             using SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                Product product = new Product(
+                Product product = new(
                     (int)reader["ID"],
                     (int)reader["Amount"],
                     (int)reader["PLocation"],
@@ -106,7 +100,7 @@ namespace ENL_Distrobution_Storage
         }
 
 
-        public Employee GetEmployeeById(int employeeId)
+        public Employee? GetEmployeeById(int employeeId)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
@@ -180,7 +174,7 @@ namespace ENL_Distrobution_Storage
             cmd.ExecuteNonQuery();
         }
 
-        public Order_s GetOrder_sByID(int OrdersId)
+        public Order_s? GetOrder_sByID(int OrdersId)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
