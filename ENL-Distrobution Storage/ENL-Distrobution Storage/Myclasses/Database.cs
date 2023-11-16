@@ -3,42 +3,58 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Controls;
 using System.Data.SqlClient;
-
+//public List<Employee> employees = new();
+//public List<Order_s> orders = new();
 namespace ENL_Distrobution_Storage
 {
     public class Database
     {
         public string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True;User ID=\"LAPTOP-BOMR24KV\\Casper s. jensen\"";
-        public List<Employee> employees = new();
-        public List<Order_s> orders = new();
-        public List<Product> products = new();
-        // Get product by ID
+        
+        public List<Product> products = new List<Product>();
+
         public List<Product> GetAllProducts()
         {
-            List<Product> productList = new();
-
-            using SqlConnection connection = new(connectionString);
-            connection.Open();
-
-            string sql = "SELECT * FROM Products";
-            using SqlCommand cmd = new(sql, connection);
-
-            using SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            // Ensure products list is initialized
+            if (products == null)
             {
-                Product product = new(
-                    (int)reader["ID"],
-                    (int)reader["Amount"],
-                    (int)reader["PLocation"],
-                    (string)reader["ProductName"],
-                    (string)reader["Description"]
-                );
-
-                productList.Add(product);
+                products = new List<Product>();
+            }
+            else
+            {
+                products.Clear();
             }
 
-            return productList;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM Products";
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Product product = new Product(
+                                (int)reader["ID"],
+                                (int)reader["Amount"],
+                                (int)reader["PLocation"],
+                                (string)reader["ProductName"],
+                                (string)reader["Description"]
+                            );
+
+                            // Add the product to the list
+                            products.Add(product);
+                        }
+                    }
+                }
+            }
+
+            return products;
         }
+
+
 
 
         // Add a new product to the database
@@ -61,9 +77,6 @@ namespace ENL_Distrobution_Storage
 
             // Set the product's ID to the retrieved value
             product.ID = productId;
-
-            // Add the product to the local list
-            products.Add(product);
         }
 
         // Update an existing product in the database and the list
@@ -275,7 +288,7 @@ namespace ENL_Distrobution_Storage
             cmd.ExecuteNonQuery();
 
             // After inserting into the database, add the employee to the local list
-            employees.Add(employee);
+            //employees.Add(employee);
         }
 
         public void InsertOrder_sAndAddToList(Order_s order_S)
@@ -293,7 +306,7 @@ namespace ENL_Distrobution_Storage
             cmd.ExecuteNonQuery();
 
             // After inserting into the database, add the order to the local list
-            orders.Add(order_S);
+            //orders.Add(order_S);
         }
     }
 }

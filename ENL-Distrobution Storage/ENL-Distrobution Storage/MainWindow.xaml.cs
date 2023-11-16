@@ -8,8 +8,6 @@ namespace ENL_Distrobution_Storage
         public MainWindow()
         {
             InitializeComponent();
-            Product newProduct = new(1, 2, 1, "Example Product", "This is an example product.");
-            database.AddProduct(newProduct);
         }
 
         private void BTN_Orders_Click(object sender, RoutedEventArgs e)
