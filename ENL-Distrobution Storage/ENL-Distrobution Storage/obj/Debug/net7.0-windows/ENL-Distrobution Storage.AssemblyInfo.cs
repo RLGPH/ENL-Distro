@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ENL-Distrobution Storage")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bea87bfd08af252aa9cce2c255ffd6b19e6a6d27")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ENL-Distrobution Storage")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ENL-Distrobution Storage")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
