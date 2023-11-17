@@ -4,7 +4,6 @@ namespace ENL_Distrobution_Storage
 {
     public partial class MainWindow : Window
     {
-        Database database = new();
         public MainWindow()
         {
             InitializeComponent();

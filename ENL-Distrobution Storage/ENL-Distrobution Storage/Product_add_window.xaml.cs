@@ -7,12 +7,9 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Product_add_window : Window
     {
-        private Database _database = new();
-        Productpage _productpage = new();
-        public Product_add_window(Database database)
+        public Product_add_window()
         {
             InitializeComponent();
-            _database = database;
         }
         private void Btn_Cancel_Click(object sender, RoutedEventArgs e)
         {

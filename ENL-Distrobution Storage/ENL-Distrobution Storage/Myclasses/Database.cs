@@ -11,7 +11,7 @@ namespace ENL_Distrobution_Storage
     {
         public string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True;User ID=\"LAPTOP-BOMR24KV\\Casper s. jensen\"";
         
-        public List<Product> products = new List<Product>();
+        public List<Product> products = new();
 
         public List<Product> GetAllProducts()
         {
@@ -25,29 +25,25 @@ namespace ENL_Distrobution_Storage
                 products.Clear();
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new(connectionString))
             {
                 connection.Open();
 
                 string sql = "SELECT * FROM Products";
-                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                using SqlCommand cmd = new(sql, connection);
+                using SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Product product = new Product(
-                                (int)reader["ID"],
-                                (int)reader["Amount"],
-                                (int)reader["PLocation"],
-                                (string)reader["ProductName"],
-                                (string)reader["Description"]
-                            );
+                    Product product = new(
+                        (int)reader["ID"],
+                        (int)reader["Amount"],
+                        (int)reader["PLocation"],
+                        (string)reader["ProductName"],
+                        (string)reader["Description"]
+                    );
 
-                            // Add the product to the list
-                            products.Add(product);
-                        }
-                    }
+                    // Add the product to the list
+                    products.Add(product);
                 }
             }
 
@@ -104,9 +100,6 @@ namespace ENL_Distrobution_Storage
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@ProductId", product.ID);
             cmd.ExecuteNonQuery();
-
-            // Remove the product from the local list
-            products.Remove(product);
         }
 
 
