@@ -8,7 +8,7 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Productpage : Window
     {
-        public Database database= new();
+        public Database database = new();
         public Productpage()
         {
             InitializeComponent();
@@ -20,20 +20,17 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_add_Click(object sender, RoutedEventArgs e)
         {
-            List<Product> products = database.products;
-            // Create a new Product object (temp)
-            Product newProduct = new(1, 2, 1, "Example Product", "This is an example product.");
-
-            // Add the product to the database and list (temp)
-            database.AddProduct(newProduct);
-
             Product_add_window product_Add_Window = new();
-            product_Add_Window.Show();
-
-            database.GetAllProducts();
-            DTG_products.ItemsSource = null;
-            DTG_products.ItemsSource = products;
+            bool? result = product_Add_Window.ShowDialog();
+            if (result == true)
+            {
+                List<Product> products = database.products;
+                database.GetAllProducts();
+                DTG_products.ItemsSource = null;
+                DTG_products.ItemsSource = products;
+            }
         }
+    
 
         private void BTN_close_window_Click_1(object sender, RoutedEventArgs e)
         {

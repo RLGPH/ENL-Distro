@@ -9,13 +9,16 @@ namespace ENL_Distrobution_Storage
 {
     public class Database
     {
+        //connecting string used to get a connection to a specifik server/database
         public string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True;User ID=\"LAPTOP-BOMR24KV\\Casper s. jensen\"";
         
+        //contains list for products
         public List<Product> products = new();
 
+        //this is used to get all the products and after used to show whats in the server in a datagrid 
         public List<Product> GetAllProducts()
         {
-            // Ensure products list is initialized
+            // checks if the list products if it does clear the list
             if (products == null)
             {
                 products = new List<Product>();
@@ -27,6 +30,7 @@ namespace ENL_Distrobution_Storage
 
             using (SqlConnection connection = new(connectionString))
             {
+                //opens connection between server and the script
                 connection.Open();
 
                 string sql = "SELECT * FROM Products";
@@ -34,6 +38,7 @@ namespace ENL_Distrobution_Storage
                 using SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    //reads the elements in the Products table
                     Product product = new(
                         (int)reader["ID"],
                         (int)reader["Amount"],
@@ -42,17 +47,19 @@ namespace ENL_Distrobution_Storage
                         (string)reader["Description"]
                     );
 
-                    // Add the product to the list
+                    // Adds the product to the product list
                     products.Add(product);
                 }
             }
-
+            //returns the products list
             return products;
         }
+        //this is used to get all the products and after used to show whats in the server in a datagrid
 
-        // Add a new product to the database
+        // Adds a new product to the database
         public void AddProduct(Product product)
         {
+
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
@@ -71,26 +78,17 @@ namespace ENL_Distrobution_Storage
             // Set the product's ID to the retrieved value
             product.ID = productId;
         }
+        // Adds a new product to the database
 
-        // Update an existing product in the database and the list
+        //to be edited(is going to update the product in the database)
         public void UpdateProduct(Product product)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
-            
-            string sql = "UPDATE Products " +
-                         "SET Amount = @Amount, PLocation = @PLocation, ProductName = @ProductName, Description = @Description " +
-                         "WHERE ID = @ProductId";
-            using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@ProductId", product.ID);
-            cmd.Parameters.AddWithValue("@Amount", product.Amount);
-            cmd.Parameters.AddWithValue("@PLocation", product.PLocation);
-            cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
-            cmd.Parameters.AddWithValue("@Description", product.Description);
-            cmd.ExecuteNonQuery();
         }
+        //to be edited(is going to update the product in the database
 
-        // Remove a product from the database and the list
+        // Remove a product from the database
         public void RemoveProduct(Product product)
         {
             using SqlConnection connection = new(connectionString);
@@ -101,8 +99,9 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@ProductId", product.ID);
             cmd.ExecuteNonQuery();
         }
+        // Remove a product from the database
 
-
+        /*
         public Employee? GetEmployeeById(int employeeId)
         {
             using SqlConnection connection = new(connectionString);
@@ -297,6 +296,6 @@ namespace ENL_Distrobution_Storage
 
             // After inserting into the database, add the order to the local list
             //orders.Add(order_S);
-        }
+        }*/
     }
 }
