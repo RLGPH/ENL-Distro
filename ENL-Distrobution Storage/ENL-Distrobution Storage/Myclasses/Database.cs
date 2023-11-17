@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Controls;
 using System.Data.SqlClient;
-//public List<Employee> employees = new();
-//public List<Order_s> orders = new();
 namespace ENL_Distrobution_Storage
 {
     public class Database
