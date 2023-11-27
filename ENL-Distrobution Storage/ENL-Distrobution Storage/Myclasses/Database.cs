@@ -99,7 +99,7 @@ namespace ENL_Distrobution_Storage
         }
         // Remove a product from the database
 
-        /*
+        
         public Employee? GetEmployeeById(int employeeId)
         {
             using SqlConnection connection = new(connectionString);
@@ -294,6 +294,6 @@ namespace ENL_Distrobution_Storage
 
             // After inserting into the database, add the order to the local list
             //orders.Add(order_S);
-        }*/
+        }
     }
 }

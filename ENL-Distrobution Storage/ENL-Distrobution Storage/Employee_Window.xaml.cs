@@ -14,7 +14,8 @@ namespace ENL_Distrobution_Storage
 
         private void Btn_add_Click(object sender, RoutedEventArgs e)
         {
-
+            EmployeeAddwindow employeeaddwindow = new();
+            employeeaddwindow.ShowDialog();
         }
 
     }
