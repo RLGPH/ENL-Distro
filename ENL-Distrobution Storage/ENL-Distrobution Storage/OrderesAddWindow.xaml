@@ -5,21 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
-        Title="Product_add_window" Height="241" Width="340">
+        Title="Product_add_window" Height="400" Width="540">
     <Grid>
-        <TextBox x:Name="TB_First_name" HorizontalAlignment="Right" Margin="0,0,5,180" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Bottom" Height="22" Width="204"/>
-        <Label x:Name="dev_here_pls_kill_me" Content="First Name" HorizontalAlignment="Right" Margin="0,0,214,180" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="TB_Last_Name" HorizontalAlignment="Right" Margin="0,0,5,156" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Bottom" Width="204" Height="19"/>
-        <TextBox x:Name="TB_Mail" HorizontalAlignment="Right" Margin="0,0,5,132" TextWrapping="Wrap" Text="Exampl@mail.com" VerticalAlignment="Bottom" Width="204" Height="19"/>
-        <TextBox x:Name="TB_Tlf_number" HorizontalAlignment="Right" Margin="0,0,5,108" TextWrapping="Wrap" Text="Example +45 12345678" VerticalAlignment="Bottom" Width="204" Height="19" />
-        <TextBox x:Name="TB_Job_Tital" HorizontalAlignment="Right" Margin="0,0,5,83" TextWrapping="Wrap" Text="Job Tital" VerticalAlignment="Bottom" Width="204" Height="19"/>
-        <Button x:Name="BTN_save" Content="Save" HorizontalAlignment="Right" Margin="0,0,222,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="BTN_save_Click"/>
-        <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,270,31" VerticalAlignment="Bottom" Height="37" Width="43" Click="BTN_Cancel_Click"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="61,45,0,0" VerticalAlignment="Top" Width="65"/>
-        <Label Content="Mail" HorizontalAlignment="Left" Margin="61,67,0,0" VerticalAlignment="Top" Width="65"/>
-        <Label Content="TLF" HorizontalAlignment="Left" Margin="61,91,0,0" VerticalAlignment="Top" Width="65"/>
-        <Label Content="Job Tital" HorizontalAlignment="Left" Margin="59,116,0,0" VerticalAlignment="Top" Width="67"/>
-        <ComboBox x:Name="CB_Status" HorizontalAlignment="Left" Margin="215,154,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Status" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Height="24"/>
+        <Button x:Name="BTN_save" Content="Save" HorizontalAlignment="Right" Margin="0,0,400,10" VerticalAlignment="Bottom" Height="37" Width="44" Click="BTN_save_Click"/>
+        <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,448,10" VerticalAlignment="Bottom" Height="37" Width="44" Click="BTN_Cancel_Click"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,52,292,57"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="120"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="270,52,10,57"/>
+        <Button x:Name="BTN_add" Content="ADD" HorizontalAlignment="Left" Margin="145,337,0,0" VerticalAlignment="Top" Height="37" Width="44"/>
+        <Button x:Name="BTN_Remove" Content="Remove" HorizontalAlignment="Left" Margin="194,337,0,0" VerticalAlignment="Top" Height="37" Width="54"/>
     </Grid>
 </Window>
