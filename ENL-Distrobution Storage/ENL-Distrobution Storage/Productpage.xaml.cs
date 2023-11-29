@@ -61,5 +61,10 @@ namespace ENL_Distrobution_Storage
             }
 
         }
+
+        private void BTN_edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -34,3 +34,7 @@ C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-D
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\bin\Debug\net7.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\bin\Debug\net7.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\bin\Debug\net7.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\EmployeeAddwindow.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\OrderesAddWindow.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\EmployeeAddwindow.baml
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\OrderesAddWindow.baml
