@@ -13,7 +13,7 @@ namespace ENL_Distrobution_Storage
         //contains list for products
         public List<Product> products = new();
 
-        //this is used to get all the products and after used to show whats in the server in a datagrid 
+        //this is used to get all the product's and after used to show whats in the server in a datagrid 
         public List<Product> GetAllProducts()
         {
             // checks if the list products if it does clear the list
