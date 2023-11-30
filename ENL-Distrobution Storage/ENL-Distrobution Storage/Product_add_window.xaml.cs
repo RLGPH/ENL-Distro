@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ENL_Distrobution_Storage
 {
@@ -25,10 +26,16 @@ namespace ENL_Distrobution_Storage
             string description = TB_description.Text;
             string amount = TB_amount.Text;
             int Amount = int.Parse(amount);
+            string row = TB_row.Text;
+            string shelf = TB_shelf.Text;
 
             Product Newproduct = new(0,Amount,1,name,description);
             database.AddProduct(Newproduct);
 
+            int Row = int.Parse(row);
+            int Shelf = int.Parse(shelf);
+            
+            
             database.GetAllProducts();
             DialogResult = true;
             Close();

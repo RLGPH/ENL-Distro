@@ -4,14 +4,12 @@
     {
         public int ID { get; set; }
         public int Amount { get; set; }
-        public int PLocation { get; set; }
         public string ProductName { get; set; }
         public string Description { get; set; }
         public Product(int id, int amount, int pLocation, string productName, string description)
         {
             ID = id;
             Amount = amount;
-            PLocation = pLocation;
             ProductName = productName;
             Description = description;
         }

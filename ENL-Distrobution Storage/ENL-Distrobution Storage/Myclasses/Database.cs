@@ -9,11 +9,25 @@ namespace ENL_Distrobution_Storage
     {
         //connecting string used to get a connection to a specifik server/database
         public string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True;User ID=\"LAPTOP-BOMR24KV\\Casper s. jensen\"";
-        
+
         //contains list for products
         public List<Product> products = new();
 
         //this is used to get all the product's and after used to show whats in the server in a datagrid 
+        public void AddPLocation(Location location)
+        {
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+            // Insert PLocation
+            string sql = "INSERT INTO PLocation (Shelf, Row) VALUES (@Shelf, @Row); SELECT SCOPE_IDENTITY()";
+
+            using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@Shelf", location.Shelf);
+            cmd.Parameters.AddWithValue("@Row", location.Row);
+
+            // Execute the command and retrieve the inserted PLocationID
+            int pLocationID = Convert.ToInt32(cmd.ExecuteScalar());
+        }
         public List<Product> GetAllProducts()
         {
             // checks if the list products if it does clear the list
@@ -31,11 +45,12 @@ namespace ENL_Distrobution_Storage
                 //opens connection between server and the script
                 connection.Open();
 
-                string sql = "SELECT * FROM Products";
+                string sql = "\"SELECT * FROM Products JOIN PLocation ON Products.PLocation = PLocation.PLocationID\"";
                 using SqlCommand cmd = new(sql, connection);
                 using SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+
                     //reads the elements in the Products table
                     Product product = new(
                         (int)reader["ID"],
@@ -66,7 +81,6 @@ namespace ENL_Distrobution_Storage
                          "SELECT SCOPE_IDENTITY()"; // Retrieve the inserted product ID
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@Amount", product.Amount);
-            cmd.Parameters.AddWithValue("@PLocation", product.PLocation);
             cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
             cmd.Parameters.AddWithValue("@Description", product.Description);
 
@@ -99,7 +113,7 @@ namespace ENL_Distrobution_Storage
         }
         // Remove a product from the database
 
-        
+
         public Employee? GetEmployeeById(int employeeId)
         {
             using SqlConnection connection = new(connectionString);
@@ -199,12 +213,12 @@ namespace ENL_Distrobution_Storage
             return null; // Order not found
         }
 
-        public void InsertOrder_sByID(Order_s order_S) 
+        public void InsertOrder_sByID(Order_s order_S)
         {
-            using SqlConnection connection =new(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            string sql = "INSERT INTO Orders(OrdersID,ProduktID,OrderAmount,Status,Worker)" + 
+            string sql = "INSERT INTO Orders(OrdersID,ProduktID,OrderAmount,Status,Worker)" +
                          "(@OrdersID, @ProduktID, @OrderAmount, @Status, @Worker)";
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@OrdersID", order_S.OrdersID);
@@ -215,9 +229,9 @@ namespace ENL_Distrobution_Storage
             cmd.ExecuteNonQuery();
         }
 
-        public void DeleteOrder_sByID(int order_ID) 
+        public void DeleteOrder_sByID(int order_ID)
         {
-            using SqlConnection connection =new(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "DELETE FROM Orders WHERE OrdersID = @OrdersID";
@@ -226,9 +240,9 @@ namespace ENL_Distrobution_Storage
             cmd.ExecuteNonQuery();
         }
 
-        public void UpdateOrdersByID(Order_s order_S) 
+        public void UpdateOrdersByID(Order_s order_S)
         {
-            using SqlConnection connection =new(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "UPDATE Orders" +
@@ -249,7 +263,6 @@ namespace ENL_Distrobution_Storage
                          "VALUES (@Amount, @PLocation, @ProductName, @Description)";
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@Amount", product.Amount);
-            cmd.Parameters.AddWithValue("@PLocation", product.PLocation);
             cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
             cmd.Parameters.AddWithValue("@Description", product.Description);
             cmd.ExecuteNonQuery();
