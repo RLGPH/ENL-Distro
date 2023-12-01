@@ -28,14 +28,17 @@ namespace ENL_Distrobution_Storage
             int Amount = int.Parse(amount);
             string row = TB_row.Text;
             string shelf = TB_shelf.Text;
-
-            Product Newproduct = new(0,Amount,1,name,description);
-            database.AddProduct(Newproduct);
-
             int Row = int.Parse(row);
             int Shelf = int.Parse(shelf);
+            string PLocationID = Shelf + "." + Row;
+            float plocationID = float.Parse(PLocationID);
+            Location location = new(Row, Shelf, plocationID);
+            database.AddPLocation(location);
+            Product Newproduct = new(0,Amount, name,description);
+            database.AddProduct(Newproduct);
             
-            
+
+
             database.GetAllProducts();
             DialogResult = true;
             Close();

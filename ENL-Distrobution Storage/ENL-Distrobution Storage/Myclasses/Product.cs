@@ -6,7 +6,7 @@
         public int Amount { get; set; }
         public string ProductName { get; set; }
         public string Description { get; set; }
-        public Product(int id, int amount, int pLocation, string productName, string description)
+        public Product(int id, int amount, string productName, string description)
         {
             ID = id;
             Amount = amount;

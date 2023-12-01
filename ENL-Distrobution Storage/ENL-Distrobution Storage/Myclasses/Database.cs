@@ -19,14 +19,12 @@ namespace ENL_Distrobution_Storage
             using SqlConnection connection = new(connectionString);
             connection.Open();
             // Insert PLocation
-            string sql = "INSERT INTO PLocation (Shelf, Row) VALUES (@Shelf, @Row); SELECT SCOPE_IDENTITY()";
+            string sql = "INSERT INTO PLocation (PLocationID, Shelf, Row) VALUES (@PLocationID,@Shelf, @Row); SELECT SCOPE_IDENTITY()";
 
             using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@PLocationID",location.PLocationID);
             cmd.Parameters.AddWithValue("@Shelf", location.Shelf);
             cmd.Parameters.AddWithValue("@Row", location.Row);
-
-            // Execute the command and retrieve the inserted PLocationID
-            int pLocationID = Convert.ToInt32(cmd.ExecuteScalar());
         }
         public List<Product> GetAllProducts()
         {
@@ -45,7 +43,7 @@ namespace ENL_Distrobution_Storage
                 //opens connection between server and the script
                 connection.Open();
 
-                string sql = "\"SELECT * FROM Products JOIN PLocation ON Products.PLocation = PLocation.PLocationID\"";
+                string sql = "SELECT * FROM Products";
                 using SqlCommand cmd = new(sql, connection);
                 using SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -55,7 +53,6 @@ namespace ENL_Distrobution_Storage
                     Product product = new(
                         (int)reader["ID"],
                         (int)reader["Amount"],
-                        (int)reader["PLocation"],
                         (string)reader["ProductName"],
                         (string)reader["Description"]
                     );
@@ -76,8 +73,8 @@ namespace ENL_Distrobution_Storage
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            string sql = "INSERT INTO Products (Amount, PLocation, ProductName, Description) " +
-                         "VALUES (@Amount, @PLocation, @ProductName, @Description); " +
+            string sql = "INSERT INTO Products (Amount, ProductName, Description) " +
+                         "VALUES (@Amount, @ProductName, @Description); " +
                          "SELECT SCOPE_IDENTITY()"; // Retrieve the inserted product ID
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@Amount", product.Amount);
