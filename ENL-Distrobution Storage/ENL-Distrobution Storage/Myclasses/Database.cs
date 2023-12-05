@@ -74,7 +74,7 @@ namespace ENL_Distrobution_Storage
                         (int)reader["Amount"],
                         (string)reader["ProductName"],
                         (string)reader["Description"],
-                        (string)reader["Location"]
+                        (string)reader["PLocationID"]
                     );
 
                     // Adds the product to the product list
