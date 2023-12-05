@@ -31,10 +31,10 @@ namespace ENL_Distrobution_Storage
             int Row = int.Parse(row);
             int Shelf = int.Parse(shelf);
             string PLocationID = Shelf + "." + Row;
-            float plocationID = float.Parse(PLocationID);
-            Location location = new(Row, Shelf, plocationID);
-            database.AddPLocation(location);
-            Product Newproduct = new(0,Amount, name,description);
+            
+            /*Location location = new(Row, Shelf, PLocationID);
+            database.AddPLocation(location);*/
+            Product Newproduct = new(0,Amount,name, description,PLocationID);
             database.AddProduct(Newproduct);
             
 

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Release\net7.0-windows\
+C:\Users\Casper s. jensen\Source\Repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Release\net7.0-windows\
 ENL_Distrobution_Storage
 none
 false
 TRACE;RELEASE;NET;NET7_0;NETCOREAPP
-C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\App.xaml
-5867279148
+C:\Users\Casper s. jensen\Source\Repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\App.xaml
+71049255819
 
-12-886778891
+141588714110
 199-969917683
-Employee_Window.xaml;MainWindow.xaml;Order_Window.xaml;Productpage.xaml;Product_add_window.xaml;
+EmployeeAddwindow.xaml;Employee_Window.xaml;MainWindow.xaml;OrderesAddWindow.xaml;Order_Window.xaml;Productpage.xaml;Product_add_window.xaml;
 
 True
 

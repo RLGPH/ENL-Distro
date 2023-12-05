@@ -14,7 +14,7 @@ namespace ENL_Distrobution_Storage
         public List<Product> products = new();
 
         //this is used to get all the product's and after used to show whats in the server in a datagrid 
-        public void AddPLocation(Location location)
+        /*public void AddPLocation(Location location)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
@@ -26,6 +26,25 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@Shelf", location.Shelf);
             cmd.Parameters.AddWithValue("@Row", location.Row);
         }
+
+        public void GetPLocation(Location location) 
+        {
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
+           
+            string sql = "SELECT * FROM PLocation";
+            using SqlCommand cmd = new(sql, connection);
+            using SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read()) 
+            {
+                Location location1 = new(
+                    (int)reader["PRow"],
+                    (int)reader["PShelf"],
+                    (string)reader["PLocationID"]
+                    );
+            }
+        }*/
+
         public List<Product> GetAllProducts()
         {
             // checks if the list products if it does clear the list
@@ -54,7 +73,8 @@ namespace ENL_Distrobution_Storage
                         (int)reader["ID"],
                         (int)reader["Amount"],
                         (string)reader["ProductName"],
-                        (string)reader["Description"]
+                        (string)reader["Description"],
+                        (string)reader["Location"]
                     );
 
                     // Adds the product to the product list
