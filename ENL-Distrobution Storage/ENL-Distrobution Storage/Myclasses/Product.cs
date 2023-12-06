@@ -2,19 +2,21 @@
 {
     public class Product
     {
-        public int ID { get; set; }
-        public int Amount { get; set; }
+        public int ProductID { get; set; }
+        public int ProductAmount { get; set; }
         public string ProductName { get; set; }
-        public string Description { get; set; }
+        public string ProductDescription { get; set; }
+        public string FormattedLocation => $"{ProductLocation?.Row}.{ProductLocation?.Shelf}";
 
-        public string PROLocation {  get; set; }
-        public Product(int id, int amount, string productName, string description, string PROlocation)
+        public Location ProductLocation { get; set; }
+
+        public Product(int productId, int productAmount, string productName, string productDescription, Location productLocation)
         {
-            ID = id;
-            Amount = amount;
+            ProductID = productId;
+            ProductAmount = productAmount;
             ProductName = productName;
-            Description = description;
-            PROLocation = PROlocation;
+            ProductDescription = productDescription;
+            ProductLocation = productLocation;
         }
     }
 }

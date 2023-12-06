@@ -44,7 +44,7 @@ namespace ENL_Distrobution_Storage
             List<Product> products = database.products;
             if (DTG_products.SelectedItem is Product selectedProduct)
             {
-                int id = selectedProduct.ID;
+                int id = selectedProduct.ProductID;
                 MessageBox.Show($"Selected ID: {id}");
 
                 // Call the RemoveProduct method directly from the Database class

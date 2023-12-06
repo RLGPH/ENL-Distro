@@ -24,17 +24,21 @@ namespace ENL_Distrobution_Storage
         {
             string name = TB_name.Text;
             string description = TB_description.Text;
+            
             string amount = TB_amount.Text;
             int Amount = int.Parse(amount);
+            
             string row = TB_row.Text;
             string shelf = TB_shelf.Text;
+            
             int Row = int.Parse(row);
             int Shelf = int.Parse(shelf);
-            string PLocationID = Shelf + "." + Row;
             
-            /*Location location = new(Row, Shelf, PLocationID);
-            database.AddPLocation(location);*/
-            Product Newproduct = new(0,Amount,name, description,PLocationID);
+            
+            Location location = new Location(Row, Shelf);
+            database.AddPLocation(location);
+
+            Product Newproduct = new(0,Amount,name, description, location);
             database.AddProduct(Newproduct);
             
 

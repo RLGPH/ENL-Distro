@@ -14,36 +14,25 @@ namespace ENL_Distrobution_Storage
         public List<Product> products = new();
 
         //this is used to get all the product's and after used to show whats in the server in a datagrid 
-        /*public void AddPLocation(Location location)
+        public void AddPLocation(Location location)
         {
-            using SqlConnection connection = new(connectionString);
-            connection.Open();
-            // Insert PLocation
-            string sql = "INSERT INTO PLocation (PLocationID, Shelf, Row) VALUES (@PLocationID,@Shelf, @Row); SELECT SCOPE_IDENTITY()";
-
-            using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@PLocationID",location.PLocationID);
-            cmd.Parameters.AddWithValue("@Shelf", location.Shelf);
-            cmd.Parameters.AddWithValue("@Row", location.Row);
-        }
-
-        public void GetPLocation(Location location) 
-        {
-            using SqlConnection connection = new(connectionString);
-            connection.Open();
-           
-            string sql = "SELECT * FROM PLocation";
-            using SqlCommand cmd = new(sql, connection);
-            using SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read()) 
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                Location location1 = new(
-                    (int)reader["PRow"],
-                    (int)reader["PShelf"],
-                    (string)reader["PLocationID"]
-                    );
+                connection.Open();
+
+                // Insert PLocation
+                string sql = "INSERT INTO PLocation (PShelf, PRow) VALUES (@PShelf, @PRow); SELECT SCOPE_IDENTITY()";
+
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@PShelf", location.Shelf);
+                    cmd.Parameters.AddWithValue("@PRow", location.Row);
+
+                    // Execute the query and get the last inserted identity
+                    int lastInsertedId = Convert.ToInt32(cmd.ExecuteScalar());
+                }
             }
-        }*/
+        }
 
         public List<Product> GetAllProducts()
         {
@@ -62,26 +51,28 @@ namespace ENL_Distrobution_Storage
                 //opens connection between server and the script
                 connection.Open();
 
-                string sql = "SELECT * FROM Products";
+                string sql = "SELECT * FROM Products " +
+                     "INNER JOIN PLocation ON Products.PLocationID = PLocation.PLocationID";
+
                 using SqlCommand cmd = new(sql, connection);
                 using SqlDataReader reader = cmd.ExecuteReader();
+
                 while (reader.Read())
                 {
+                    int productId = (int)reader["ID"];
+                    int amount = (int)reader["Amount"];
+                    string productName = (string)reader["ProductName"];
+                    string description = (string)reader["Description"];
+                    int pRow = (int)reader["PRow"];
+                    int pShelf = (int)reader["PShelf"];
 
-                    //reads the elements in the Products table
-                    Product product = new(
-                        (int)reader["ID"],
-                        (int)reader["Amount"],
-                        (string)reader["ProductName"],
-                        (string)reader["Description"],
-                        (string)reader["PLocationID"]
-                    );
+                    Location location = new Location(pRow, pShelf);
 
-                    // Adds the product to the product list
+                    Product product = new Product(productId, amount, productName, description, location);
                     products.Add(product);
                 }
             }
-            //returns the products list
+
             return products;
         }
         //this is used to get all the products and after used to show whats in the server in a datagrid
@@ -93,20 +84,27 @@ namespace ENL_Distrobution_Storage
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            string sql = "INSERT INTO Products (Amount, ProductName, Description) " +
-                         "VALUES (@Amount, @ProductName, @Description); " +
+            string getPlocationIdSql = "SELECT TOP 1 PLocationID FROM PLocation ORDER BY PLocationID DESC";
+            using SqlCommand getPlocationIdCmd = new(getPlocationIdSql, connection);
+            int plocationID = Convert.ToInt32(getPlocationIdCmd.ExecuteScalar());
+
+
+            string sql = "INSERT INTO Products (Amount, ProductName, Description,PLocationID)" +
+                         "VALUES (@Amount, @ProductName, @Description, @PLocationID)"+
                          "SELECT SCOPE_IDENTITY()"; // Retrieve the inserted product ID
             using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@Amount", product.Amount);
+            cmd.Parameters.AddWithValue("@Amount", product.ProductAmount);
             cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
-            cmd.Parameters.AddWithValue("@Description", product.Description);
+            cmd.Parameters.AddWithValue("@Description", product.ProductDescription);
+            cmd.Parameters.AddWithValue("@PLocationID", plocationID);
 
             // Execute the command and retrieve the inserted product ID
             int productId = Convert.ToInt32(cmd.ExecuteScalar());
-
+            
             // Set the product's ID to the retrieved value
-            product.ID = productId;
+            product.ProductID = productId;
         }
+
         // Adds a new product to the database
 
         //to be edited(is going to update the product in the database)
@@ -125,7 +123,7 @@ namespace ENL_Distrobution_Storage
 
             string sql = "DELETE FROM Products WHERE ID = @ProductId";
             using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@ProductId", product.ID);
+            cmd.Parameters.AddWithValue("@ProductId", product.ProductID);
             cmd.ExecuteNonQuery();
         }
         // Remove a product from the database
@@ -279,9 +277,9 @@ namespace ENL_Distrobution_Storage
             string sql = "INSERT INTO Products (Amount, PLocation, ProductName, Description) " +
                          "VALUES (@Amount, @PLocation, @ProductName, @Description)";
             using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@Amount", product.Amount);
+            cmd.Parameters.AddWithValue("@Amount", product.ProductAmount);
             cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
-            cmd.Parameters.AddWithValue("@Description", product.Description);
+            cmd.Parameters.AddWithValue("@Description", product.ProductDescription);
             cmd.ExecuteNonQuery();
 
             // After inserting into the database, add the product to the local list
