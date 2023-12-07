@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Productpage" Height="450" Width="800">
     <Grid Height="434" VerticalAlignment="Center" HorizontalAlignment="Right" Width="800">
-        <DataGrid x:Name="DTG_products" Margin="0,0,10,157" HorizontalAlignment="Right" Width="780" AutoGenerateColumns="False" Grid.ColumnSpan="2" Height="226" VerticalAlignment="Bottom">
+        <DataGrid x:Name="DTG_products" Margin="0,0,10,157" HorizontalAlignment="Right" Width="780" AutoGenerateColumns="False" Grid.ColumnSpan="2" Height="226" VerticalAlignment="Bottom" SelectionChanged="DTG_products_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ProductID}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding ProductName}" />

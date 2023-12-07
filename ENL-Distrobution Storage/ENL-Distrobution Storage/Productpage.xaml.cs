@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -66,7 +68,19 @@ namespace ENL_Distrobution_Storage
         private void BTN_edit_Click(object sender, RoutedEventArgs e)
         {
             string EditID = TB_ID_Select.Text;
+            int editID = int.Parse(EditID); 
 
+            
+        }
+
+        private void DTG_products_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DTG_products.SelectedItem != null)
+            {
+                Product selectedProduct = (Product)DTG_products.SelectedItem;
+                int selectedProductId = selectedProduct.ProductID;
+                TB_ID_Select.Text = selectedProductId.ToString();
+            }
         }
     }
 }
