@@ -34,6 +34,31 @@ namespace ENL_Distrobution_Storage
             }
         }
 
+        public void GetPlocation(Location location)
+        {
+            using (SqlConnection connection = new(connectionString))
+            {
+                //opens connection between server and the script
+                connection.Open();
+
+                string sql = "SELECT * FROM PLocation WHERE PlocationID = @ID";
+
+                using SqlCommand cmd = new SqlCommand(sql, connection);
+                cmd.Parameters.AddWithValue("@ID", location.LocationID);
+
+                using SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    int row = reader.GetInt32(reader.GetOrdinal("PRow"));
+                    int shelf = reader.GetInt32(reader.GetOrdinal("PShelf"));
+                    int id = reader.GetInt32(reader.GetOrdinal("PLocationID"));
+                    location = new Location(row, shelf,id);
+                }
+            }
+        }
+        
+
         public List<Product> GetAllProducts()
         {
             // checks if the list products if it does clear the list
@@ -66,7 +91,7 @@ namespace ENL_Distrobution_Storage
                     int pRow = (int)reader["PRow"];
                     int pShelf = (int)reader["PShelf"];
 
-                    Location location = new Location(pRow, pShelf);
+                    Location location = new Location(pRow, pShelf, 0);
 
                     Product product = new Product(productId, amount, productName, description, location);
                     products.Add(product);

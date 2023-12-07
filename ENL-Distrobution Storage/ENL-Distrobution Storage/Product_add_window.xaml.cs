@@ -9,10 +9,16 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Product_add_window : Window
     {
+        Location location;
         Database database = new();
         public Product_add_window()
         {
             InitializeComponent();
+            if (location.LocationID > 0)
+            {
+                int row = location.Row;
+                int shelf = location.Shelf;
+            }
         }
 
         private void BTN_Cancel_Click(object sender, RoutedEventArgs e)
@@ -35,7 +41,7 @@ namespace ENL_Distrobution_Storage
             int Shelf = int.Parse(shelf);
             
             
-            Location location = new Location(Row, Shelf);
+            Location location = new Location(Row, Shelf, 0);
             database.AddPLocation(location);
 
             Product Newproduct = new(0,Amount,name, description, location);
