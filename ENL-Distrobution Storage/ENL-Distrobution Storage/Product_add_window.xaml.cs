@@ -20,7 +20,7 @@ namespace ENL_Distrobution_Storage
             Close();
         }
 
-        private void BTN_save_Click(object sender, RoutedEventArgs e)
+        private void BTN_Add_Click(object sender, RoutedEventArgs e)
         {
             string name = TB_name.Text;
             string description = TB_description.Text;
@@ -46,6 +46,11 @@ namespace ENL_Distrobution_Storage
             database.GetAllProducts();
             DialogResult = true;
             Close();
+        }
+
+        private void BTN_save_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

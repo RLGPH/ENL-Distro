@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ENL_Distrobution_Storage
 {
@@ -64,6 +65,7 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_edit_Click(object sender, RoutedEventArgs e)
         {
+            string EditID = TB_ID_Select.Text;
 
         }
     }

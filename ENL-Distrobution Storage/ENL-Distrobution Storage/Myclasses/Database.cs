@@ -84,8 +84,8 @@ namespace ENL_Distrobution_Storage
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            string getPlocationIdSql = "SELECT TOP 1 PLocationID FROM PLocation ORDER BY PLocationID DESC";
-            using SqlCommand getPlocationIdCmd = new(getPlocationIdSql, connection);
+            string getPlocationId = "SELECT TOP 1 PLocationID FROM PLocation ORDER BY PLocationID DESC";
+            using SqlCommand getPlocationIdCmd = new(getPlocationId, connection);
             int plocationID = Convert.ToInt32(getPlocationIdCmd.ExecuteScalar());
 
 
@@ -112,8 +112,9 @@ namespace ENL_Distrobution_Storage
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
+
         }
-        //to be edited(is going to update the product in the database
+        
 
         // Remove a product from the database
         public void RemoveProduct(Product product)

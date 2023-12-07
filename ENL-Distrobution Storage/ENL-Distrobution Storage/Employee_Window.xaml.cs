@@ -18,5 +18,19 @@ namespace ENL_Distrobution_Storage
             employeeaddwindow.ShowDialog();
         }
 
+        private void btn_close_window_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_remove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

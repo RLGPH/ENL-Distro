@@ -7,12 +7,21 @@
         mc:Ignorable="d"
         Title="Productpage" Height="450" Width="800">
     <Grid Height="434" VerticalAlignment="Center" HorizontalAlignment="Right" Width="800">
-        <DataGrid x:Name="DTG_products" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,10,157" HorizontalAlignment="Right" Width="780" AutoGenerateColumns="True" Grid.ColumnSpan="2" Height="226" VerticalAlignment="Bottom"/>
+        <DataGrid x:Name="DTG_products" Margin="0,0,10,157" HorizontalAlignment="Right" Width="780" AutoGenerateColumns="False" Grid.ColumnSpan="2" Height="226" VerticalAlignment="Bottom">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ProductID}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding ProductName}" />
+                <DataGridTextColumn Header="Amount" Binding="{Binding ProductAmount}"/>
+                <DataGridTextColumn Header="Location(Row.Shelf)" Binding="{Binding FormattedLocation}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding ProductDescription}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
         <Button x:Name="BTN_close_window" Content="close" HorizontalAlignment="Right" Margin="0,0,691,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_close_window_Click_1"/>
         <Button x:Name="BTN_add" Content="ADD" HorizontalAlignment="Right" Margin="0,0,565,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_add_Click"/>
         <Button x:Name="BTN_remove" Content="REMOVE" HorizontalAlignment="Right" Margin="0,0,444,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_remove_Click"/>
         <Button x:Name="BTN_edit" Content="Edit" HorizontalAlignment="Right" Margin="0,0,565,45" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_edit_Click"/>
-        <TextBox x:Name="TB_ID_Select" HorizontalAlignment="Left" Height="23" Margin="572,324,0,0" TextWrapping="Wrap" Text="ID" VerticalAlignment="Top" Width="23"/>
+        <TextBox x:Name="TB_ID_Select" HorizontalAlignment="Left" Height="23" Margin="572,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" Background="Black" Foreground="White" BorderBrush="#FF898989"/>
         <Label Content="Use ID to select" HorizontalAlignment="Left" Margin="475,318,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
