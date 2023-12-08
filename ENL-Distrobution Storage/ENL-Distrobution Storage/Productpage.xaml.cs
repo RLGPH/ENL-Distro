@@ -12,6 +12,7 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Productpage : Window
     {
+        Location location;
         public Database database = new();
         public Productpage()
         {
@@ -24,7 +25,7 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_add_Click(object sender, RoutedEventArgs e)
         {
-            Product_add_window product_Add_Window = new();
+            Product_add_window product_Add_Window = new(location);
             bool? result = product_Add_Window.ShowDialog();
             if (result == true)
             {
@@ -74,37 +75,9 @@ namespace ENL_Distrobution_Storage
             Location location = new Location(0, 0, id);
             database.GetPlocation(location);
 
-            if (int.TryParse(EditID, out int editID))
-            {
-                // Find the item with the specified ID in the DataGrid
-                Product selectedProduct = null;
-                foreach (var item in DTG_products.Items)
-                {
-                    if (item is Product product && product.ProductID == editID)
-                    {
-                        selectedProduct = product;
-                        break; // Stop searching after finding the match
-                    }
-                }
-
-                if (selectedProduct != null)
-                {
-                    // Extract the ProductName from the selected item
-                    string PName = selectedProduct.ProductName;
-                    string PDescription = selectedProduct.ProductDescription;
-                    int PAmount = selectedProduct.ProductAmount;
-                }
-                else
-                {
-                    // If the item with the specified ID was not found
-                    MessageBox.Show("Product with the specified ID not found.");
-                }
-            }
-            else
-            {
-                // Invalid ID format in the TextBox
-                MessageBox.Show("Please enter a valid ID.");
-            }
+            Product_add_window product_Add_Window = new(location);
+            product_Add_Window.Show();
+            
         }
 
         private void DTG_products_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Controls;
 using System.Data.SqlClient;
+using System.Linq;
+
 namespace ENL_Distrobution_Storage
 {
     public class Database
@@ -12,6 +14,7 @@ namespace ENL_Distrobution_Storage
 
         //contains list for products
         public List<Product> products = new();
+        public List<Location> locationlist = new();
 
         //this is used to get all the product's and after used to show whats in the server in a datagrid 
         public void AddPLocation(Location location)
@@ -34,13 +37,13 @@ namespace ENL_Distrobution_Storage
             }
         }
 
-        public void GetPlocation(Location location)
+        public List<Location> GetPlocation(Location location)
         {
             using (SqlConnection connection = new(connectionString))
             {
                 //opens connection between server and the script
                 connection.Open();
-
+                locationlist.Clear();
                 string sql = "SELECT * FROM PLocation WHERE PlocationID = @ID";
 
                 using SqlCommand cmd = new SqlCommand(sql, connection);
@@ -53,9 +56,12 @@ namespace ENL_Distrobution_Storage
                     int row = reader.GetInt32(reader.GetOrdinal("PRow"));
                     int shelf = reader.GetInt32(reader.GetOrdinal("PShelf"));
                     int id = reader.GetInt32(reader.GetOrdinal("PLocationID"));
-                    location = new Location(row, shelf,id);
+                    location = new Location(row, shelf, id);
+                    locationlist.Add(location);
+                    
                 }
             }
+            return locationlist;
         }
         
 
@@ -102,6 +108,11 @@ namespace ENL_Distrobution_Storage
         }
         //this is used to get all the products and after used to show whats in the server in a datagrid
 
+        public Product GetProductById(int productId)
+        {
+            return products.FirstOrDefault(product => product.ProductID == productId);
+        }
+
         // Adds a new product to the database
         public void AddProduct(Product product)
         {
@@ -133,13 +144,33 @@ namespace ENL_Distrobution_Storage
         // Adds a new product to the database
 
         //to be edited(is going to update the product in the database)
-        public void UpdateProduct(Product product)
+        public void UpdateProductandlocation(Product product,Location location)
         {
-            using SqlConnection connection = new(connectionString);
+            using SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
+            // Update Products table
+            string updateProductSql = "UPDATE Products SET Amount = @Amount, ProductName = @ProductName, Description = @Description WHERE ID = @ProductID";
+
+            using SqlCommand updateProductCmd = new SqlCommand(updateProductSql, connection);
+            updateProductCmd.Parameters.AddWithValue("@Amount", product.ProductAmount);
+            updateProductCmd.Parameters.AddWithValue("@ProductName", product.ProductName);
+            updateProductCmd.Parameters.AddWithValue("@Description", product.ProductDescription);
+            updateProductCmd.Parameters.AddWithValue("@ProductID", product.ProductID);
+
+            updateProductCmd.ExecuteNonQuery();
+
+            // Update PLocation table
+            string updateLocationSql = "UPDATE PLocation SET PShelf = @Shelf, PRow = @Row WHERE PLocationID = @LocationID";
+
+            using SqlCommand updateLocationCmd = new SqlCommand(updateLocationSql, connection);
+            updateLocationCmd.Parameters.AddWithValue("@Shelf", location.Shelf);
+            updateLocationCmd.Parameters.AddWithValue("@Row", location.Row);
+            updateLocationCmd.Parameters.AddWithValue("@LocationID", location.LocationID);
+
+            updateLocationCmd.ExecuteNonQuery();
         }
-        
+
 
         // Remove a product from the database
         public void RemoveProduct(Product product)

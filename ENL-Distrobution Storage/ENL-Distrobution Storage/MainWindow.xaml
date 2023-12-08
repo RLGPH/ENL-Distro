@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
-        Title="MainWindow" Height="190" Width="150">
+        Title="MainWindow" Height="230" Width="250">
     <Grid>
-        <Button x:Name="BTN_Products" Content="Products" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Products_Click"/>
-        <Button x:Name="BTN_Workers" Content="Workers" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Workers_Click"/>
-        <Button x:Name="BTN_Orders" Content="Orders" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Orders_Click"/>
+        <Button x:Name="BTN_Products" Content="Products" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Products_Click"/>
+        <Button x:Name="BTN_Workers" Content="Workers" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Workers_Click"/>
+        <Button x:Name="BTN_Orders" Content="Orders" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Orders_Click"/>
         <Label Content="ENL-Distrobution" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="32" Width="105"/>
         <Label Content="Manegement Software" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="29" Width="133"/>
     </Grid>
