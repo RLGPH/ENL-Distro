@@ -10,8 +10,8 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Product_add_window : Window
     {
-        
-        Database database = new();
+
+        readonly Database database = new();
         public Product_add_window(Location location)
         {
             InitializeComponent();
@@ -19,7 +19,7 @@ namespace ENL_Distrobution_Storage
             {
                
                 List<Location> locations = database.GetPlocation(location);
-                var extractedLocation = locations.Select(location => new { Row = location.Row, Shelf = location.Shelf, LocationID = location.LocationID }).ToList();
+                var extractedLocation = locations.Select(location => new { location.Row, location.Shelf, location.LocationID }).ToList();
 
                 int row = extractedLocation.First().Row;
                 int shelf = extractedLocation.First().Shelf;
@@ -62,7 +62,7 @@ namespace ENL_Distrobution_Storage
             int Row = int.Parse(row);
             int Shelf = int.Parse(shelf);
             
-            Location location = new Location(Row, Shelf, 0);
+            Location location = new(Row, Shelf, 0);
             database.AddPLocation(location);
 
             Product Newproduct = new(0,Amount,name, description, location);
@@ -92,7 +92,7 @@ namespace ENL_Distrobution_Storage
             string Id = TB_ID.Text;
             int ID = int.Parse(Id);
 
-            Location location = new Location(Row, Shelf, ID);
+            Location location = new(Row, Shelf, ID);
 
             Product Updateproduct = new(ID, Amount, name, description, location);
             

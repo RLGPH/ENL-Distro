@@ -19,22 +19,18 @@ namespace ENL_Distrobution_Storage
         //this is used to get all the product's and after used to show whats in the server in a datagrid 
         public void AddPLocation(Location location)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
+            using SqlConnection connection = new(connectionString);
+            connection.Open();
 
-                // Insert PLocation
-                string sql = "INSERT INTO PLocation (PShelf, PRow) VALUES (@PShelf, @PRow); SELECT SCOPE_IDENTITY()";
+            // Insert PLocation
+            string sql = "INSERT INTO PLocation (PShelf, PRow) VALUES (@PShelf, @PRow); SELECT SCOPE_IDENTITY()";
 
-                using (SqlCommand cmd = new SqlCommand(sql, connection))
-                {
-                    cmd.Parameters.AddWithValue("@PShelf", location.Shelf);
-                    cmd.Parameters.AddWithValue("@PRow", location.Row);
+            using SqlCommand cmd = new(sql, connection);
+            cmd.Parameters.AddWithValue("@PShelf", location.Shelf);
+            cmd.Parameters.AddWithValue("@PRow", location.Row);
 
-                    // Execute the query and get the last inserted identity
-                    int lastInsertedId = Convert.ToInt32(cmd.ExecuteScalar());
-                }
-            }
+            // Execute the query and get the last inserted identity
+            int lastInsertedId = Convert.ToInt32(cmd.ExecuteScalar());
         }
 
         public List<Location> GetPlocation(Location location)
@@ -46,7 +42,7 @@ namespace ENL_Distrobution_Storage
                 locationlist.Clear();
                 string sql = "SELECT * FROM PLocation WHERE PlocationID = @ID";
 
-                using SqlCommand cmd = new SqlCommand(sql, connection);
+                using SqlCommand cmd = new(sql, connection);
                 cmd.Parameters.AddWithValue("@ID", location.LocationID);
 
                 using SqlDataReader reader = cmd.ExecuteReader();
@@ -97,9 +93,9 @@ namespace ENL_Distrobution_Storage
                     int pRow = (int)reader["PRow"];
                     int pShelf = (int)reader["PShelf"];
 
-                    Location location = new Location(pRow, pShelf, 0);
+                    Location location = new(pRow, pShelf, 0);
 
-                    Product product = new Product(productId, amount, productName, description, location);
+                    Product product = new(productId, amount, productName, description, location);
                     products.Add(product);
                 }
             }
@@ -110,7 +106,9 @@ namespace ENL_Distrobution_Storage
 
         public Product GetProductById(int productId)
         {
+#pragma warning disable CS8603 // Possible null reference return.
             return products.FirstOrDefault(product => product.ProductID == productId);
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         // Adds a new product to the database
@@ -146,13 +144,13 @@ namespace ENL_Distrobution_Storage
         //to be edited(is going to update the product in the database)
         public void UpdateProductandlocation(Product product,Location location)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             // Update Products table
             string updateProductSql = "UPDATE Products SET Amount = @Amount, ProductName = @ProductName, Description = @Description WHERE ID = @ProductID";
 
-            using SqlCommand updateProductCmd = new SqlCommand(updateProductSql, connection);
+            using SqlCommand updateProductCmd = new(updateProductSql, connection);
             updateProductCmd.Parameters.AddWithValue("@Amount", product.ProductAmount);
             updateProductCmd.Parameters.AddWithValue("@ProductName", product.ProductName);
             updateProductCmd.Parameters.AddWithValue("@Description", product.ProductDescription);
@@ -163,7 +161,7 @@ namespace ENL_Distrobution_Storage
             // Update PLocation table
             string updateLocationSql = "UPDATE PLocation SET PShelf = @Shelf, PRow = @Row WHERE PLocationID = @LocationID";
 
-            using SqlCommand updateLocationCmd = new SqlCommand(updateLocationSql, connection);
+            using SqlCommand updateLocationCmd = new(updateLocationSql, connection);
             updateLocationCmd.Parameters.AddWithValue("@Shelf", location.Shelf);
             updateLocationCmd.Parameters.AddWithValue("@Row", location.Row);
             updateLocationCmd.Parameters.AddWithValue("@LocationID", location.LocationID);

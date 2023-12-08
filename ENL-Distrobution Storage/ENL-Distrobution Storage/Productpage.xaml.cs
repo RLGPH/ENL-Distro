@@ -12,7 +12,7 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Productpage : Window
     {
-        Location location;
+        readonly Location location;
         public Database database = new();
         public Productpage()
         {
@@ -72,7 +72,7 @@ namespace ENL_Distrobution_Storage
             string EditID = TB_ID_Select.Text;
             int id = Convert.ToInt32(EditID);
 
-            Location location = new Location(0, 0, id);
+            Location location = new(0, 0, id);
             database.GetPlocation(location);
 
             Product_add_window product_Add_Window = new(location);
