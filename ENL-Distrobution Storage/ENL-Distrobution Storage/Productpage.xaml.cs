@@ -50,9 +50,7 @@ namespace ENL_Distrobution_Storage
             if (DTG_products.SelectedItem is Product selectedProduct)
             {
                 int id = selectedProduct.ProductID;
-                MessageBox.Show($"Selected ID: {id}");
-
-                // Call the RemoveProduct method directly from the Database class
+                
                 database.RemoveProduct(selectedProduct);
 
                 database.GetAllProducts();

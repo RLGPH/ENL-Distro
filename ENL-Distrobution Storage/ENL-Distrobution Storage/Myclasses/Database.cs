@@ -4,6 +4,7 @@ using System.Data;
 using System.Windows.Controls;
 using System.Data.SqlClient;
 using System.Linq;
+using System.ComponentModel;
 
 namespace ENL_Distrobution_Storage
 {
@@ -15,6 +16,10 @@ namespace ENL_Distrobution_Storage
         //contains list for products
         public List<Product> products = new();
         public List<Location> locationlist = new();
+        public List<Employee> employees = new();
+        public List<Employee> oneEmployees = new();
+        //---------------------------------------------------------------------//
+        //-----------------------START OF PRODUCTT METHODS---------------------//
 
         //this is used to get all the product's and after used to show whats in the server in a datagrid 
         public void AddPLocation(Location location)
@@ -182,42 +187,89 @@ namespace ENL_Distrobution_Storage
             cmd.ExecuteNonQuery();
         }
         // Remove a product from the database
+        //-----------------------END OF PRODUCTS METHODS-----------------------//
+        //---------------------------------------------------------------------//
 
-
-        public Employee? GetEmployeeById(int employeeId)
+        //---------------------------------------------------------------------//
+        //-----------------------START OF EMPLOYEE METHODS---------------------//
+        public List<Employee> GetEmployeeById(Employee employee)
         {
-            using SqlConnection connection = new(connectionString);
+            using SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
-
-            string sql = "SELECT * FROM Employees WHERE WorkerID = @EmployeeId";
+            List<Employee> oneEmployees = new();
+            oneEmployees.Clear();
+            string sql = "SELECT * FROM Employees WHERE WorkerID = @workerId";
             using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@EmployeeId", employeeId);
+            cmd.Parameters.AddWithValue("@WorkerId", employee.WorkerID);
 
             using SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                Employee employee = new(
-                    (int)reader["WorkerID"],
-                    (int)reader["Amount"],
-                    (string)reader["Tlf"],
-                    (string)reader["FirstName"],
-                    (string)reader["LastName"],
-                    (string)reader["Email"],
-                    (string)reader["Jobtitel"]
+                Employee employe = new(
+                (int)reader["WorkerID"],
+                (int)reader["Amount"],
+                (string)reader["Tlf"],
+                (string)reader["FirstName"],
+                (string)reader["LastName"],
+                (string)reader["Email"],
+                (string)reader["Jobtitel"],
+                (Employee.WorkStatus)reader["WStatus"]
                 );
-                return employee;
+                oneEmployees.Add( employe );
             }
 
-            return null; // Employee not found
+            return oneEmployees; // Employee not found
         }
 
-        public void InsertEmployee(Employee employee)
+        public List<Employee> GetAllEmployees()
         {
-            using SqlConnection connection = new(connectionString);
+            if (employees == null)
+            {
+                employees = new List<Employee>();
+            }
+            else
+            {
+                employees.Clear();
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                //opens connection between server and the script
+                connection.Open();
+
+                string sql = "SELECT * FROM Employees";
+
+                using SqlCommand cmd = new(sql, connection);
+                using SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int Id = (int)reader["WorkerID"];
+                    int amountOrdersDone = (int)reader["Amount"];
+                    int workStatus = (int)reader["WStatus"];
+                    string Tlf = (string)reader["Tlf"];
+                    string FirstName = (string)reader["FirstName"];
+                    string LastName = (string)reader["LastName"];
+                    string Email = (string)reader["Email"];
+                    string Jobtitel = (string)reader["Jobtitel"];
+
+                    Employee.WorkStatus status = (Employee.WorkStatus)workStatus;
+
+                    Employee employee = new Employee(Id, amountOrdersDone, Tlf, FirstName, LastName, Email, Jobtitel, status);
+                    employees.Add(employee);
+                }
+            }
+
+            return employees;
+        }
+
+        public void ADDEmployee(Employee employee)
+        {
+            using SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string sql = "INSERT INTO Employees (Amount, Tlf, FirstName, LastName, Email, Jobtitel) " +
-                         "VALUES (@Amount, @Tlf, @FirstName, @LastName, @Email, @Jobtitel)";
+            string sql = "INSERT INTO Employees (Amount, Tlf, FirstName, LastName, Email, Jobtitel, WStatus) " +
+                         "VALUES (@Amount, @Tlf, @FirstName, @LastName, @Email, @Jobtitel, @WStatus)";
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@Amount", employee.Amount);
             cmd.Parameters.AddWithValue("@Tlf", employee.Tlf);
@@ -225,27 +277,30 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@LastName", employee.LastName);
             cmd.Parameters.AddWithValue("@Email", employee.Email);
             cmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
-            cmd.ExecuteNonQuery();
+            cmd.Parameters.AddWithValue("@WStatus", (int)employee.Status);
+
+            int lastInsertedId = Convert.ToInt32(cmd.ExecuteScalar());
         }
 
-        public void DeleteEmployee(int employeeId)
+        public void DeleteEmployee(Employee employee)
         {
-            using SqlConnection connection = new(connectionString);
+            using SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
-            string sql = "DELETE FROM Employees WHERE WorkerID = @EmployeeId";
+            string sql = "DELETE FROM Employees WHERE WorkerID = @WorkerID";
             using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@EmployeeId", employeeId);
+            cmd.Parameters.AddWithValue("@WorkerID", employee.WorkerID);
             cmd.ExecuteNonQuery();
         }
 
         public void UpdateEmployee(Employee employee)
         {
-            using SqlConnection connection = new(connectionString);
+            using SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 
             string sql = "UPDATE Employees " +
-                         "SET Amount = @Amount, Tlf = @Tlf, FirstName = @FirstName, LastName = @LastName, Email = @Email, Jobtitel = @Jobtitel " +
+                         "SET Amount = @Amount, Tlf = @Tlf, FirstName = @FirstName, LastName = @LastName, " +
+                         "Email = @Email, Jobtitel = @Jobtitel, WStatus = @WStatus " +
                          "WHERE WorkerID = @EmployeeId";
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@EmployeeId", employee.WorkerID);
@@ -255,9 +310,14 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@LastName", employee.LastName);
             cmd.Parameters.AddWithValue("@Email", employee.Email);
             cmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
+            cmd.Parameters.AddWithValue("@WStatus", (int)employee.Status);
             cmd.ExecuteNonQuery();
         }
+        //-----------------------END OF EMPLOYEE METHODS---------------------//
+        //-------------------------------------------------------------------//
 
+        //-------------------------------------------------------------------//
+        //-----------------------START OF ORDERS METHODS---------------------//
         public Order_s? GetOrder_sByID(int OrdersId)
         {
             using SqlConnection connection = new(connectionString);
@@ -324,43 +384,7 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@Status", order_S.Status);
             cmd.Parameters.AddWithValue("@Worker", order_S.Worker);
         }
-        public void InsertProductAndAddToList(Product product)
-        {
-            using SqlConnection connection = new(connectionString);
-            connection.Open();
-
-            string sql = "INSERT INTO Products (Amount, PLocation, ProductName, Description) " +
-                         "VALUES (@Amount, @PLocation, @ProductName, @Description)";
-            using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@Amount", product.ProductAmount);
-            cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
-            cmd.Parameters.AddWithValue("@Description", product.ProductDescription);
-            cmd.ExecuteNonQuery();
-
-            // After inserting into the database, add the product to the local list
-            products.Add(product);
-        }
-
-        public void InsertEmployeeAndAddToList(Employee employee)
-        {
-            using SqlConnection connection = new(connectionString);
-            connection.Open();
-
-            string sql = "INSERT INTO Employees (Amount, Tlf, FirstName, LastName, Email, Jobtitel) " +
-                         "VALUES (@Amount, @Tlf, @FirstName, @LastName, @Email, @Jobtitel)";
-            using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@Amount", employee.Amount);
-            cmd.Parameters.AddWithValue("@Tlf", employee.Tlf);
-            cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", employee.LastName);
-            cmd.Parameters.AddWithValue("@Email", employee.Email);
-            cmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
-            cmd.ExecuteNonQuery();
-
-            // After inserting into the database, add the employee to the local list
-            //employees.Add(employee);
-        }
-
+        
         public void InsertOrder_sAndAddToList(Order_s order_S)
         {
             using SqlConnection connection = new(connectionString);
@@ -374,9 +398,8 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@Status", order_S.Status);
             cmd.Parameters.AddWithValue("@Worker", order_S.Worker);
             cmd.ExecuteNonQuery();
-
-            // After inserting into the database, add the order to the local list
-            //orders.Add(order_S);
         }
+        //-------END-------END-------END-------END-------END-------END-------//
+        //-------------------------------------------------------------------//
     }
 }

@@ -68,9 +68,6 @@ namespace ENL_Distrobution_Storage
             Product Newproduct = new(0,Amount,name, description, location);
             database.AddProduct(Newproduct);
             
-
-
-            database.GetAllProducts();
             DialogResult = true;
             Close();
         }
