@@ -24,30 +24,30 @@ namespace ENL_Distrobution_Storage
         public EmployeeAddwindow(Employee employees)
         {
             InitializeComponent();
-            database.GetEmployeeById(employees);
-            if (employees.WorkerID > 0)
+            if (employees != null)
             {
-                List<Employee> oneEmployees = database.oneEmployees;
-                var extemployee = oneEmployees.Select(employee => new
+                if (employees.WorkerID > 0)
                 {
-                    employee.WorkerID,
-                    employee.FirstName,
-                    employee.LastName,
-                    employee.Tlf,
-                    employee.Amount,
-                    employee.Email,
-                    employee.Jobtitel,
-                    employee.Status
-                }).ToList();
+                    int id = employees.WorkerID;
+                    int amount = employees.Amount;
+                    string FName = employees.FirstName;
+                    string LName = employees.LastName;
+                    string TLF = employees.Tlf;
+                    string Mail = employees.Email;
+                    string titel = employees.Jobtitel;
 
-                TB_First_name.Text = extemployee.First().FirstName;
-                TB_Last_Name.Text = extemployee.First().LastName;
-                TB_Job_Tital.Text = extemployee.First().Jobtitel;
-                TB_Mail.Text = extemployee.First().Email;
-                TB_Tlf_number.Text = extemployee.First().Tlf;
-                int WorkID =extemployee.First().WorkerID;
-                TB_ID.Text = WorkID.ToString();
-                
+                    int statusint = (int)employees.Status;
+
+                    CB_Status.SelectedIndex = statusint;
+
+                    TB_First_name.Text = FName;
+                    TB_Last_Name.Text = LName;
+                    TB_Job_Tital.Text = titel;
+                    TB_Mail.Text = Mail;
+                    TB_Tlf_number.Text = TLF;
+                    TB_ID.Text = id.ToString();
+                    TB_Completed_oreders.Text = amount.ToString();
+                }
             }
         }
 
@@ -72,16 +72,27 @@ namespace ENL_Distrobution_Storage
         }
 
         private void BTN_Save_Change_Click(object sender, RoutedEventArgs e)
-        {
+        {        
             string FName = TB_First_name.Text;
             string LName = TB_Last_Name.Text;
+
             string TLF = TB_Tlf_number.Text;
             string mail = TB_Mail.Text;
+            
             string Jobtitel = TB_Job_Tital.Text;
             int ID = int.Parse(TB_ID.Text);
+            int amount = int.Parse(TB_Completed_oreders.Text);
 
-            Employee editemployee = new(ID,Employee.Amount,TLF,FName,LName,mail,Jobtitel,0);
+            ComboBoxItem employeeStatus = (ComboBoxItem)CB_Status.SelectedItem;
+            int statusint = Convert.ToInt32(employeeStatus.Tag);
 
+            Employee.WorkStatus status = (Employee.WorkStatus)statusint;
+
+            Employee editemployee = new Employee(ID, amount, TLF, FName, LName, mail, Jobtitel, status);
+            database.UpdateEmployee(editemployee);
+
+            DialogResult = true;
+            Close();
         }
     }
 }

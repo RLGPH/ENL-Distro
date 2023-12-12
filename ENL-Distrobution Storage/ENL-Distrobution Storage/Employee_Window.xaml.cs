@@ -48,9 +48,25 @@ namespace ENL_Distrobution_Storage
                 int employeeID = int.Parse(EditID);
                 if (employeeID > 0)
                 {
-                    Employee employees = new(employeeID, 0, "a", "a","a","a","a",0); 
+                    Employee employee = (Employee)DTG_Employee.SelectedItem;
+                    int amount = employee.Amount;
+                    string tlf = employee.Tlf;
+                    string FName = employee.FirstName;
+                    string LName = employee.LastName;
+                    string Mail = employee.Email;
+                    string titel = employee.Jobtitel;
+                    var status = employee.Status;
+
+                    Employee employees = new(employeeID, amount, tlf, FName, LName, Mail, titel, status);
                     EmployeeAddwindow employeeAddwindow = new(employees);
-                    employeeAddwindow.Show();
+                    bool? resault = employeeAddwindow.ShowDialog();
+                    if (resault == true)
+                    {
+                        List<Employee> employe = database.employees;
+                        database.GetAllEmployees();
+                        DTG_Employee.ItemsSource = null;
+                        DTG_Employee.ItemsSource = employe;
+                    }
                 }
                 else
                 {
@@ -75,7 +91,7 @@ namespace ENL_Distrobution_Storage
                 // Handle the case where no item is selected
                 MessageBox.Show("No item selected.");
             }
-            database.GetAllProducts();
+            database.GetAllEmployees();
             DTG_Employee.ItemsSource = null;
             DTG_Employee.ItemsSource = employees;
         }
