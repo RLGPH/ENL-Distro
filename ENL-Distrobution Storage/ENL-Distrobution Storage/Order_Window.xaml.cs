@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ENL_Distrobution_Storage
 {
@@ -65,6 +66,32 @@ namespace ENL_Distrobution_Storage
                 int selectedOrderId = selectedOrder.OrdersID;
                 TB_ID_Select.Text = selectedOrderId.ToString();
             }
+        }
+
+        private void BTN_remove_Click(object sender, RoutedEventArgs e)
+        {
+            List<Order_s> orders = database.order_s;
+            if (DTG_Orders.SelectedItem is Order_s selectedOrder)
+            {
+                int id = selectedOrder.WorkerID;
+                MessageBox.Show($"Selected ID: {id}");
+
+
+                database.DeleteOrder_sByID(selectedOrder);
+            }
+            else
+            {
+                // Handle the case where no item is selected
+                MessageBox.Show("No item selected.");
+            }
+            database.GetAllEmployees();
+            DTG_Orders.ItemsSource = null;
+            DTG_Orders.ItemsSource = orders;
+        }
+
+        private void BTN_close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

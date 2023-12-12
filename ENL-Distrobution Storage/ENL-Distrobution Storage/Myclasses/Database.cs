@@ -334,14 +334,14 @@ namespace ENL_Distrobution_Storage
 
             return order_s;
         }
-        public void DeleteOrder_sByID(int order_ID)
+        public void DeleteOrder_sByID(Order_s order_S)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "DELETE FROM Orders WHERE OrdersID = @OrdersID";
             using SqlCommand cmd = new(sql, connection);
-            cmd.Parameters.AddWithValue("@OrdersID", order_ID);
+            cmd.Parameters.AddWithValue("@OrdersID", order_S.OrdersID);
             cmd.ExecuteNonQuery();
         }
 
