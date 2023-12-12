@@ -1,6 +1,4 @@
 # ENL-Distro
 projeckt about a company "ENL-Distorbution"
 
-so far all of the classes of DM1 to DM4 has been added the names of the classes are Product(has to do with the products ENL Sells), 
-location(has to do with where the products are located in storage), Employee(handles the information of the employees),
-orders(this will handle the orders coming in for certin goods) and the database has been added to the programe but currently doesnt intract with it
+it currently has all neccesary UI and comunicates between the SQL database and the Programme with no problems there is not that many safty nets so some places if you use a string instead of an int the Programe dies instead of saying that its not an number try again but other then that it show everything need in the database and in the datagrids meant to show them every eventhandler has been attached to some code 
