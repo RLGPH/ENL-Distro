@@ -19,8 +19,8 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class EmployeeAddwindow : Window
     {
-        Database database = new();
-        Employee Employee;
+        readonly Database database = new();
+
         public EmployeeAddwindow(Employee employees)
         {
             InitializeComponent();
@@ -88,7 +88,7 @@ namespace ENL_Distrobution_Storage
 
             Employee.WorkStatus status = (Employee.WorkStatus)statusint;
 
-            Employee editemployee = new Employee(ID, amount, TLF, FName, LName, mail, Jobtitel, status);
+            Employee editemployee = new(ID, amount, TLF, FName, LName, mail, Jobtitel, status);
             database.UpdateEmployee(editemployee);
 
             DialogResult = true;

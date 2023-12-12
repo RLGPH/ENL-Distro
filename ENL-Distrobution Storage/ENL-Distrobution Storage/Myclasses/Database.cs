@@ -206,7 +206,7 @@ namespace ENL_Distrobution_Storage
                 employees.Clear();
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new(connectionString))
             {
                 //opens connection between server and the script
                 connection.Open();
@@ -229,7 +229,7 @@ namespace ENL_Distrobution_Storage
 
                     Employee.WorkStatus status = (Employee.WorkStatus)workStatus;
 
-                    Employee employee = new Employee(Id, amountOrdersDone, Tlf, FirstName, LastName, Email, Jobtitel, status);
+                    Employee employee = new(Id, amountOrdersDone, Tlf, FirstName, LastName, Email, Jobtitel, status);
                     employees.Add(employee);
                 }
             }
@@ -239,7 +239,7 @@ namespace ENL_Distrobution_Storage
 
         public void ADDEmployee(Employee employee)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "INSERT INTO Employees (Amount, Tlf, FirstName, LastName, Email, Jobtitel, WStatus) " +
@@ -258,7 +258,7 @@ namespace ENL_Distrobution_Storage
 
         public void DeleteEmployee(Employee employee)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "DELETE FROM Employees WHERE WorkerID = @WorkerID";
@@ -269,7 +269,7 @@ namespace ENL_Distrobution_Storage
 
         public void UpdateEmployee(Employee employee)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string updateEmployeeSql = "UPDATE Employees " +
@@ -277,7 +277,7 @@ namespace ENL_Distrobution_Storage
                                        "Email = @Email, Jobtitel = @Jobtitel, WStatus = @WStatus " +
                                        "WHERE WorkerID = @EmployeeId";
 
-            using SqlCommand updateEmployeeCmd = new SqlCommand(updateEmployeeSql, connection);
+            using SqlCommand updateEmployeeCmd = new(updateEmployeeSql, connection);
             updateEmployeeCmd.Parameters.AddWithValue("@EmployeeId", employee.WorkerID);
             updateEmployeeCmd.Parameters.AddWithValue("@Amount", employee.Amount);
             updateEmployeeCmd.Parameters.AddWithValue("@Tlf", employee.Tlf);
@@ -305,7 +305,7 @@ namespace ENL_Distrobution_Storage
                 order_s.Clear();
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new(connectionString))
             {
                 //opens connection between server and the script
                 connection.Open();
@@ -327,7 +327,7 @@ namespace ENL_Distrobution_Storage
 
 
                     Order_s.OrderStatus status = (Order_s.OrderStatus)orderStatus;
-                    Order_s order = new Order_s(orderId, productid, quantity, pname, wname, status,WorkerID);
+                    Order_s order = new(orderId, productid, quantity, pname, wname, status,WorkerID);
                     order_s.Add(order);
                 }
             }
@@ -336,7 +336,7 @@ namespace ENL_Distrobution_Storage
         }
         public void DeleteOrder_sByID(int order_ID)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "DELETE FROM Orders WHERE OrdersID = @OrdersID";
@@ -347,7 +347,7 @@ namespace ENL_Distrobution_Storage
 
         public void UpdateOrdersByID(Order_s order_S)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "UPDATE Orders " +
@@ -367,7 +367,7 @@ namespace ENL_Distrobution_Storage
 
         public void AddOrder_s(Order_s order_S)
         {
-            using SqlConnection connection = new SqlConnection(connectionString);
+            using SqlConnection connection = new(connectionString);
             connection.Open();
 
             string sql = "INSERT INTO Orders (ProductID, OrderAmount, WName, NProduct, WStatus, WorkerID) " +

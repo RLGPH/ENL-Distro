@@ -8,8 +8,8 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Order_Window : Window
     {
-        Order_s order;
-        Database database = new();
+        readonly Order_s order;
+        readonly Database database = new();
         public Order_Window()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_Order_Click(object sender, RoutedEventArgs e)
         {
-            OrderesAddWindow orderesAddWindow = new OrderesAddWindow(order);
+            OrderesAddWindow orderesAddWindow = new(order);
             bool? resault = orderesAddWindow.ShowDialog();
             if (resault == true) 
             {
@@ -45,7 +45,7 @@ namespace ENL_Distrobution_Storage
                 var status = order.OStatus;
 
                 Order_s orders = new(orderid, ProductID, quantity, ProductN, WorkerN, status, workerID);
-                OrderesAddWindow orderesAddWindow = new OrderesAddWindow(orders);
+                OrderesAddWindow orderesAddWindow = new(orders);
                 bool? resault = orderesAddWindow.ShowDialog();
                 if (resault == true)
                 {

@@ -20,8 +20,7 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class OrderesAddWindow : Window
     {
-        Order_s orders;
-        Database database = new();
+        readonly Database database = new();
         public OrderesAddWindow(Order_s order)
         {
             InitializeComponent();

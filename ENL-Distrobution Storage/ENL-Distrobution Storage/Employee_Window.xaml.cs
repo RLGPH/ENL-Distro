@@ -11,8 +11,8 @@ namespace ENL_Distrobution_Storage
     /// </summary>
     public partial class Employee_Window : Window
     {
-        Employee employee;
-        Database database = new();
+        readonly Employee employee;
+        readonly Database database = new();
         public Employee_Window()
         {
             InitializeComponent();

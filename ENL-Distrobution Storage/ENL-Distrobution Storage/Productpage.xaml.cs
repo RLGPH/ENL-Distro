@@ -49,8 +49,6 @@ namespace ENL_Distrobution_Storage
             List<Product> products = database.products;
             if (DTG_products.SelectedItem is Product selectedProduct)
             {
-                int id = selectedProduct.ProductID;
-                
                 database.RemoveProduct(selectedProduct);
 
                 database.GetAllProducts();
