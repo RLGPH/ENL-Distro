@@ -16,7 +16,7 @@ namespace ENL_Distrobution_Storage
         public Employee_Window()
         {
             InitializeComponent();
-
+            //used to get the employees list from the database
             List<Employee> employee = database.employees;
             database.GetAllEmployees();
             DTG_Employee.ItemsSource = employee;
@@ -24,10 +24,12 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_add_Click(object sender, RoutedEventArgs e)
         {
+            //opens the employee window and waits for it to send a true or false
             EmployeeAddwindow employeeaddwindow = new(employee);
             bool? resault = employeeaddwindow.ShowDialog();
             if (resault == true) 
             {
+                //if its true then it gets to data from the database and redoes the list then gives it back to the DTG
                 List<Employee> employee = database.employees;
                 database.GetAllEmployees();
                 DTG_Employee.ItemsSource = null;
@@ -37,17 +39,20 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_close_window_Click(object sender, RoutedEventArgs e)
         {
+            //just a button for the people that are nervus about just closeing the page
             Close();
         }
 
         private void BTN_edit_Click(object sender, RoutedEventArgs e)
         {
+            //takes id from the Text box and checks if there is anything in it
             string EditID = TB_ID_Select.Text;
             if (EditID != null)
             {
-                int employeeID = int.Parse(EditID);
-                if (employeeID > 0)
+                //if there its changed to an int maybe should give it a safety net 
+                if (int.TryParse(EditID, out int employeeID ) && employeeID > 0)
                 {
+                    //splits everything from the selected item
                     Employee employee = (Employee)DTG_Employee.SelectedItem;
                     int amount = employee.Amount;
                     string tlf = employee.Tlf;
@@ -57,6 +62,7 @@ namespace ENL_Distrobution_Storage
                     string titel = employee.Jobtitel;
                     var status = employee.Status;
 
+                    //gives the split item to the employeeaddwindow
                     Employee employees = new(employeeID, amount, tlf, FName, LName, Mail, titel, status);
                     EmployeeAddwindow employeeAddwindow = new(employees);
                     bool? resault = employeeAddwindow.ShowDialog();
@@ -70,8 +76,13 @@ namespace ENL_Distrobution_Storage
                 }
                 else
                 {
-                    MessageBox.Show($"Selected ID: {employeeID} please select ID");
+                    MessageBox.Show("Bad ID please select a different ID");
                 }
+            }
+            else 
+            {
+                MessageBox.Show("if your trying to edit one the employees you might need to " +
+                                "either write an ID or click on an employee");
             }
         }
 
@@ -99,6 +110,8 @@ namespace ENL_Distrobution_Storage
         {
             if (DTG_Employee.SelectedItem != null)
             {
+                //this is so can click on an employee but its not needed for the operation of editing with the ID
+                //its just here for options 
                 Employee selectedEmplyee = (Employee)DTG_Employee.SelectedItem;
                 int selectedEmployeeId = selectedEmplyee.WorkerID;
                 TB_ID_Select.Text = selectedEmployeeId.ToString();
