@@ -44,8 +44,6 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_remove_Click(object sender, RoutedEventArgs e)
         {
-            // Assuming DTG_products is the name of your DataGrid
-
             List<Product> products = database.products;
             if (DTG_products.SelectedItem is Product selectedProduct)
             {
@@ -56,8 +54,7 @@ namespace ENL_Distrobution_Storage
                 DTG_products.ItemsSource = products;
             }
             else
-            {
-                // Handle the case where no item is selected
+            { 
                 MessageBox.Show("No item selected.");
             }
 

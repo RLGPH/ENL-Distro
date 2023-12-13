@@ -88,7 +88,6 @@ namespace ENL_Distrobution_Storage
             }
             else
             {
-                // Handle the case where no item is selected
                 MessageBox.Show("No item selected.");
             }
             database.GetAllEmployees();
