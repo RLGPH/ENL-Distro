@@ -53,23 +53,31 @@ namespace ENL_Distrobution_Storage
             string name = TB_name.Text;
             string description = TB_description.Text;
             
-            string amount = TB_amount.Text;
-            int Amount = int.Parse(amount);
-            
+            string amountString = TB_amount.Text;
             string row = TB_row.Text;
             string shelf = TB_shelf.Text;
-            
-            int Row = int.Parse(row);
-            int Shelf = int.Parse(shelf);
-            
-            Location location = new(Row, Shelf, 0);
-            database.AddPLocation(location);
+            if (int.TryParse(amountString, out int Amount))
+            {
+                if (int.TryParse(row, out int Row) && int.TryParse(shelf, out int Shelf))
+                {
+                    Location location = new(Row, Shelf, 0);
+                    database.AddPLocation(location);
 
-            Product Newproduct = new(0,Amount,name, description, location);
-            database.AddProduct(Newproduct);
-            
-            DialogResult = true;
-            Close();
+                    Product Newproduct = new(0, Amount, name, description, location);
+                    database.AddProduct(Newproduct);
+
+                    DialogResult = true;
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show($"Invalid input. Please enter a number for either Row and Shelf:{row}.{shelf}");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Invalid input. Please enter only Numbers:{amountString}");
+            }
         }
 
         private void BTN_save_Click(object sender, RoutedEventArgs e)
@@ -77,23 +85,32 @@ namespace ENL_Distrobution_Storage
             string name = TB_name.Text;
             string description = TB_description.Text;
 
-            string amount = TB_amount.Text;
-            int Amount = int.Parse(amount);
-
+            string amountString = TB_amount.Text;
             string row = TB_row.Text;
             string shelf = TB_shelf.Text;
 
-            int Row = int.Parse(row);
-            int Shelf = int.Parse(shelf);
+            if (int.TryParse(amountString, out int Amount))
+            {
+                if (int.TryParse(row, out int Row) && int.TryParse(shelf, out int Shelf))
+                {
+                    string Id = TB_ID.Text;
+                    int ID = int.Parse(Id);
 
-            string Id = TB_ID.Text;
-            int ID = int.Parse(Id);
+                    Location location = new(Row, Shelf, ID);
 
-            Location location = new(Row, Shelf, ID);
+                    Product Updateproduct = new(ID, Amount, name, description, location);
 
-            Product Updateproduct = new(ID, Amount, name, description, location);
-            
-            database.UpdateProductandlocation(Updateproduct,location);
+                    database.UpdateProductandlocation(Updateproduct, location);
+                }
+                else
+                { 
+                    MessageBox.Show($"Invalid input. Please enter a number for either Row and Shelf:{row}.{shelf}");   
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Invalid input. Please enter only Numbers:{amountString}");
+            }
         }
     }
 }

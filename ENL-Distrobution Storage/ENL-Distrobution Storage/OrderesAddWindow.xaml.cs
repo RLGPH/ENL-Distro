@@ -107,14 +107,20 @@ namespace ENL_Distrobution_Storage
 
             int WorkerID = int.Parse(TB_workerID.Text);
             int productid = int.Parse(TB_productID.Text);
+            string amountString = TB_Quantity.Text;
+            if (int.TryParse(amountString, out int Quantity))
+            {
 
-            int Quantity = int.Parse( TB_Quantity.Text );
+                Order_s order_S = new(0, productid, Quantity, Productname, name, 0, WorkerID);
+                database.AddOrder_s(order_S);
 
-            Order_s order_S = new(0,productid,Quantity,Productname,name,0,WorkerID);
-            database.AddOrder_s(order_S);
-
-            DialogResult = true;
-            Close();
+                DialogResult = true;
+                Close();
+            }
+            else 
+            {
+                MessageBox.Show($"Invalid input. Please enter only Numbers:{amountString}");
+            }
         }
         private void BTN_save_change_Click(object sender, RoutedEventArgs e)
         { 

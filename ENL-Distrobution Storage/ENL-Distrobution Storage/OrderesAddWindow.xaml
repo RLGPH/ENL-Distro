@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
         Title="Product_add_window" Height="400" Width="680">
-    <Grid x:Name="CB_product_or_employee">
+    <Grid x:Name="CB_product_or_employee" RenderTransformOrigin="0.501,0.504">
         <Button x:Name="BTN_Complete_order" Content="Complete Order" HorizontalAlignment="Left" Margin="356,248,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="BTN_Complete_order_Click"/>
         <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="253,291,0,0" Width="54" Click="BTN_Cancel_Click" Height="37" VerticalAlignment="Top"/>
         <DataGrid x:Name="DTG_things_to_order_and_who" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,52,0,0" HorizontalAlignment="Left" Width="238" Height="275" VerticalAlignment="Top"/>
@@ -15,17 +15,17 @@
             <ComboBoxItem Content="Employees" Tag="1"/>
         </ComboBox>
         <Button x:Name="BTN_add" Content="ADD To Order" HorizontalAlignment="Left" Margin="253,248,0,0" VerticalAlignment="Top" Height="38" Width="88" Click="BTN_add_Click"/>
-        <TextBox x:Name="TB_nworker" HorizontalAlignment="Left" Margin="346,56,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_nworker" HorizontalAlignment="Left" Margin="346,56,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="White"/>
         <Label Content="Workers Name" HorizontalAlignment="Left" Margin="253,52,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TB_workerID" HorizontalAlignment="Left" Margin="346,82,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_workerID" HorizontalAlignment="Left" Margin="346,82,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="White"/>
         <Label Content="WorkerID" HorizontalAlignment="Left" Margin="253,77,0,0" VerticalAlignment="Top" Width="88"/>
-        <TextBox x:Name="TB_nproduct" HorizontalAlignment="Left" Margin="346,108,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_nproduct" HorizontalAlignment="Left" Margin="346,108,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="White"/>
         <Label Content="Product Name" HorizontalAlignment="Left" Margin="253,104,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TB_productID" HorizontalAlignment="Left" Margin="346,131,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_productID" HorizontalAlignment="Left" Margin="346,131,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="White"/>
         <Label Content="Product ID" HorizontalAlignment="Left" Margin="258,127,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TB_Order_Status" HorizontalAlignment="Left" Margin="346,192,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_Order_Status" HorizontalAlignment="Left" Margin="346,192,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="White"/>
         <Label Content="Order status" HorizontalAlignment="Left" Margin="258,188,0,0" VerticalAlignment="Top" Width="81"/>
-        <TextBox x:Name="TB_OrderID" HorizontalAlignment="Left" Margin="346,215,0,0" TextWrapping="Wrap" Text="New order" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBox x:Name="TB_OrderID" HorizontalAlignment="Left" Margin="346,215,0,0" TextWrapping="Wrap" Text="New order" VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="White"/>
         <Label Content="Order ID" HorizontalAlignment="Left" Margin="259,211,0,0" VerticalAlignment="Top"/>
         <Label Content="Quantity" HorizontalAlignment="Left" Margin="261,158,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TB_Quantity" HorizontalAlignment="Left" Margin="346,162,0,0" TextWrapping="Wrap" Text="Please add a quantity
