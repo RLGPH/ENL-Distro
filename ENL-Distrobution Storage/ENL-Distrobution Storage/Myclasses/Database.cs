@@ -8,12 +8,14 @@ using System.ComponentModel;
 using System.Windows.Documents;
 using System.Xml.Linq;
 using static ENL_Distrobution_Storage.Order_s;
+using Microsoft.SqlServer.Server;
 
 namespace ENL_Distrobution_Storage
 {
     public class Database
     {
-        //connecting string used to get a connection to a specifik server/database
+        //connecting string used to get a connection to a specifik server/database since its a local database this 
+        //will probly be needed to be changed if it was used on some other laptop/PC/server
         public string connectionString = "Data Source=LAPTOP-BOMR24KV;Initial Catalog=ENL-Distrobution;Integrated Security=True;User ID=\"LAPTOP-BOMR24KV\\Casper s. jensen\"";
 
         //contains list for products
@@ -23,14 +25,13 @@ namespace ENL_Distrobution_Storage
         public List<Order_s> order_s = new();
         //---------------------------------------------------------------------//
         //-----------------------START OF PRODUCTT METHODS---------------------//
-
-        //this is used to get all the product's and after used to show whats in the server in a datagrid 
+        //used to add Location to the database
         public void AddPLocation(Location location)
         {
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            // Insert PLocation
+            
             string sql = "INSERT INTO PLocation (PShelf, PRow) VALUES (@PShelf, @PRow); SELECT SCOPE_IDENTITY()";
 
             using SqlCommand cmd = new(sql, connection);
@@ -40,7 +41,7 @@ namespace ENL_Distrobution_Storage
             // Execute the query and get the last inserted identity
             int lastInsertedId = Convert.ToInt32(cmd.ExecuteScalar());
         }
-
+        //used to get the location
         public List<Location> GetPlocation(Location location)
         {
             using (SqlConnection connection = new(connectionString))
@@ -67,11 +68,10 @@ namespace ENL_Distrobution_Storage
             }
             return locationlist;
         }
-        
-
+        //used to get all products
         public List<Product> GetAllProducts()
         {
-            // checks if the list products if it does clear the list
+            // checks if the list has anything it clears it just in case
             if (products == null)
             {
                 products = new List<Product>();
@@ -110,8 +110,7 @@ namespace ENL_Distrobution_Storage
 
             return products;
         }
-        //this is used to get all the products and after used to show whats in the server in a datagrid
-
+        //used along side some other code for editing products to get a single product 
         public Product GetProductById(int productId)
         {
 #pragma warning disable CS8603 // Possible null reference return.
@@ -147,9 +146,7 @@ namespace ENL_Distrobution_Storage
             product.ProductID = productId;
         }
 
-        // Adds a new product to the database
-
-        //to be edited(is going to update the product in the database)
+        //it update the product and the location together 
         public void UpdateProductandlocation(Product product,Location location)
         {
             using SqlConnection connection = new(connectionString);
@@ -189,12 +186,12 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@ProductId", product.ProductID);
             cmd.ExecuteNonQuery();
         }
-        // Remove a product from the database
         //-----------------------END OF PRODUCTS METHODS-----------------------//
         //---------------------------------------------------------------------//
 
         //---------------------------------------------------------------------//
         //-----------------------START OF EMPLOYEE METHODS---------------------//
+        //gets all employees allready in the databasse
         public List<Employee> GetAllEmployees()
         {
             if (employees == null)
@@ -208,7 +205,6 @@ namespace ENL_Distrobution_Storage
 
             using (SqlConnection connection = new(connectionString))
             {
-                //opens connection between server and the script
                 connection.Open();
 
                 string sql = "SELECT * FROM Employees";
@@ -236,7 +232,7 @@ namespace ENL_Distrobution_Storage
 
             return employees;
         }
-
+        //adds employee to the database
         public void ADDEmployee(Employee employee)
         {
             using SqlConnection connection = new(connectionString);
@@ -255,7 +251,7 @@ namespace ENL_Distrobution_Storage
 
             int lastInsertedId = Convert.ToInt32(cmd.ExecuteScalar());
         }
-
+        //used in deleting employees from the database
         public void DeleteEmployee(Employee employee)
         {
             using SqlConnection connection = new(connectionString);
@@ -266,7 +262,7 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@WorkerID", employee.WorkerID);
             cmd.ExecuteNonQuery();
         }
-
+        //used to update the employees database after they have been editted 
         public void UpdateEmployee(Employee employee)
         {
             using SqlConnection connection = new(connectionString);
@@ -294,6 +290,7 @@ namespace ENL_Distrobution_Storage
 
         //-------------------------------------------------------------------//
         //-----------------------START OF ORDERS METHODS---------------------//
+        //used to get all Orders and then put them in a list
         public List<Order_s> GetAllOrders()
         {
             if (order_s == null)
@@ -307,7 +304,7 @@ namespace ENL_Distrobution_Storage
 
             using (SqlConnection connection = new(connectionString))
             {
-                //opens connection between server and the script
+                
                 connection.Open();
 
                 string sql = "SELECT * FROM Orders";
@@ -334,6 +331,7 @@ namespace ENL_Distrobution_Storage
 
             return order_s;
         }
+        //used to delete orders
         public void DeleteOrder_sByID(Order_s order_S)
         {
             using SqlConnection connection = new(connectionString);
@@ -344,7 +342,7 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@OrdersID", order_S.OrdersID);
             cmd.ExecuteNonQuery();
         }
-
+        //used to update orders after they have been editted
         public void UpdateOrdersByID(Order_s order_S)
         {
             using SqlConnection connection = new(connectionString);
@@ -364,7 +362,7 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@WorkerID", order_S.WorkerID);
             cmd.ExecuteNonQuery();
         }
-
+        //is used to add orders to the database
         public void AddOrder_s(Order_s order_S)
         {
             using SqlConnection connection = new(connectionString);
