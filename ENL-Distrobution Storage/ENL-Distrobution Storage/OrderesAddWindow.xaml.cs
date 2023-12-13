@@ -129,9 +129,21 @@ namespace ENL_Distrobution_Storage
 
             int WorkerID = int.Parse(TB_workerID.Text);
             int productid = int.Parse(TB_productID.Text);
-
-            int Quantity = int.Parse(TB_Quantity.Text);
             int OrderID = int.Parse(TB_OrderID.Text);
+            string amountString = TB_Quantity.Text;
+            if (int.TryParse(amountString, out int Quantity))
+            {
+
+                Order_s order_S = new(0, productid, Quantity, Productname, name, 0, WorkerID);
+                database.AddOrder_s(order_S);
+
+                DialogResult = true;
+                Close();
+            }
+            else
+            {
+                MessageBox.Show($"Invalid input. Please enter only Numbers:{amountString}");
+            }
 
             ComboBoxItem orderStatus = (ComboBoxItem)CB_Status.SelectedItem;
             if (orderStatus != null)

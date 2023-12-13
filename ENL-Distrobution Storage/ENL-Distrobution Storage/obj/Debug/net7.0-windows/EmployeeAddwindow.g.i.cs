@@ -149,7 +149,7 @@ namespace ENL_Distrobution_Storage {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ENL-Distrobution Storage;component/employeeaddwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ENL-Distrobution Storage;V1.0.0.0;component/employeeaddwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\EmployeeAddwindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
