@@ -10,7 +10,7 @@
         <TextBox x:Name="TB_name" Margin="130,17,0,0" TextWrapping="Wrap" Text="insert name" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Background="White" Foreground="Black"/>
         <Label x:Name="dev_here_pls_kill_me" Content="Product name" Margin="41,13,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84" Foreground="White"/>
         <TextBox x:Name="TB_shelf" Margin="130,44,0,0" TextWrapping="Wrap" Text="insert Shelf" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204"/>
-        <Label Content="location" Margin="10,52,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52" Foreground="White"/>
+        <Label Content="location" Margin="31,52,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52" Foreground="White"/>
         <TextBox x:Name="TB_row" Margin="130,68,0,0" TextWrapping="Wrap" Text="insert Row" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204"/>
         <TextBox x:Name="TB_amount" Margin="130,92,0,0" TextWrapping="Wrap" Text="insert amount" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" />
         <Label Content="Amount of product" Margin="13,89,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112" Foreground="White"/>
