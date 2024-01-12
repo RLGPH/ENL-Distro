@@ -104,7 +104,7 @@ namespace ENL_Distrobution_Storage
                 }
                 else
                 { 
-                    MessageBox.Show($"Invalid input. Please enter a number for either Row and Shelf:{row}.{shelf}");   
+                    MessageBox.Show($"Invalid input. Please enter a number for Both Row and Shelf:{row}.{shelf}");   
                 }
             }
             else

@@ -12,7 +12,7 @@
         <Button x:Name="BTN_Orders" Content="Orders" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Orders_Click"/>
         <Label Content="ENL-Distrobution" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="32" Width="105" Foreground="White"/>
         <Label Content="Manegement Software" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="29" Width="133" Foreground="White"/>
-        <Image x:Name="IMG_Main_page" HorizontalAlignment="Left" Height="102" Margin="108,60,0,0" VerticalAlignment="Top" Width="132" Source="/Images for background/lagger baggrund.png" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="IMG_Main_page" HorizontalAlignment="Left" Height="92" Margin="108,97,0,0" VerticalAlignment="Top" Width="132" Source="/Images for background/lagger baggrund.png" RenderTransformOrigin="0.5,0.5">
         </Image>
     </Grid>
 </Window>
