@@ -6,21 +6,21 @@
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
         Title="Product_add_window" Height="340" Width="390">
-    <Grid>
-        <TextBox x:Name="TB_name" Margin="130,17,0,0" TextWrapping="Wrap" Text="insert name" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204"/>
-        <Label x:Name="dev_here_pls_kill_me" Content="Product name" Margin="41,13,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84"/>
+    <Grid Background="Black">
+        <TextBox x:Name="TB_name" Margin="130,17,0,0" TextWrapping="Wrap" Text="insert name" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Background="White" Foreground="Black"/>
+        <Label x:Name="dev_here_pls_kill_me" Content="Product name" Margin="41,13,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84" Foreground="White"/>
         <TextBox x:Name="TB_shelf" Margin="130,44,0,0" TextWrapping="Wrap" Text="insert Shelf" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204"/>
-        <Label Content="location" Margin="10,52,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52"/>
+        <Label Content="location" Margin="10,52,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52" Foreground="White"/>
         <TextBox x:Name="TB_row" Margin="130,68,0,0" TextWrapping="Wrap" Text="insert Row" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204"/>
         <TextBox x:Name="TB_amount" Margin="130,92,0,0" TextWrapping="Wrap" Text="insert amount" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" />
-        <Label Content="Amount of product" Margin="13,89,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112"/>
-        <Label Content="Description" Margin="47,120,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78"/>
+        <Label Content="Amount of product" Margin="13,89,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112" Foreground="White"/>
+        <Label Content="Description" Margin="47,120,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Foreground="White"/>
         <TextBox x:Name="TB_description" Margin="130,128,0,0" TextWrapping="Wrap" Text="Descripetion" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204"/>
         <Button x:Name="BTN_Add" Content="Add New Product" Margin="10,199,0,0" Click="BTN_Add_Click" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="107"/>
         <Button x:Name="BTN_cancel" Content="Cancel" Margin="152,242,0,0" Click="BTN_Cancel_Click" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="43"/>
         <Button x:Name="BTN_save" Content="Update product" Margin="10,242,0,0" Click="BTN_save_Click" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="107"/>
-        <Label Content="Shelf" HorizontalAlignment="Left" Margin="90,39,0,0" VerticalAlignment="Top"/>
-        <Label Content="Row" HorizontalAlignment="Left" Margin="86,61,0,0" VerticalAlignment="Top"/>
+        <Label Content="Shelf" HorizontalAlignment="Left" Margin="90,39,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Row" HorizontalAlignment="Left" Margin="92,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,0.525" Foreground="White"/>
         <Label Content="Working on" HorizontalAlignment="Left" Margin="174,193,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Margin="251,199,0,0" TextWrapping="Wrap" Text="New Product" VerticalAlignment="Top" Height="26" Width="93" Foreground="Black" BorderBrush="White" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"/>
     </Grid>

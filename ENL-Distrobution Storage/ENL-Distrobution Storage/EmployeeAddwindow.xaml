@@ -6,28 +6,28 @@
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
         Title="Product_add_window" Height="340" Width="440">
-    <Grid>
+    <Grid Background="Black">
         <TextBox x:Name="TB_First_name" HorizontalAlignment="Left" Margin="98,15,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Height="22" Width="204"/>
-        <Label x:Name="dev_here_pls_kill_me" Content="First Name" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="dev_here_pls_kill_me" Content="First Name" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="TB_Last_Name" HorizontalAlignment="Left" Margin="98,41,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="204" Height="19"/>
         <TextBox x:Name="TB_Mail" HorizontalAlignment="Left" Margin="98,68,0,0" TextWrapping="Wrap" Text="Exampl@mail.com" VerticalAlignment="Top" Width="204" Height="19"/>
         <TextBox x:Name="TB_Tlf_number" HorizontalAlignment="Left" Margin="98,98,0,0" TextWrapping="Wrap" Text="Example +45 12345678" VerticalAlignment="Top" Width="204" Height="19" />
         <TextBox x:Name="TB_Job_Tital" HorizontalAlignment="Left" Margin="98,122,0,0" TextWrapping="Wrap" Text="Job Tital" Width="204" Height="19" VerticalAlignment="Top"/>
         <Button x:Name="BTN_ADD" Content="ADD Employee" HorizontalAlignment="Left" Margin="17,217,0,0" VerticalAlignment="Top" Height="32" Width="139" Click="BTN_ADD_Click"/>
         <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="22,180,0,0" VerticalAlignment="Top" Height="32" Width="44" Click="BTN_Cancel_Click"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="33,37,0,0" Width="65" Height="26" VerticalAlignment="Top"/>
-        <Label Content="Mail" HorizontalAlignment="Left" Margin="61,67,0,0" VerticalAlignment="Top" Width="65"/>
-        <Label Content="TLF" HorizontalAlignment="Left" Margin="61,91,0,0" VerticalAlignment="Top" Width="65"/>
-        <Label Content="Job Tital" Margin="42,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="33,37,0,0" Width="65" Height="26" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Mail" HorizontalAlignment="Left" Margin="61,67,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
+        <Label Content="TLF" HorizontalAlignment="Left" Margin="61,91,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
+        <Label Content="Job Tital" Margin="42,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67" Foreground="White"/>
         <ComboBox x:Name="CB_Status" HorizontalAlignment="Left" Margin="182,151,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Free" Tag="0"/>
             <ComboBoxItem Content="Working on order" Tag="1"/>
             <ComboBoxItem Content="Busy" Tag="2"/>
         </ComboBox>
-        <Label Content="Status" Margin="114,150,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="42"/>
+        <Label Content="Status" Margin="114,150,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="42" Foreground="White"/>
         <Button x:Name="BTN_Save_Change" Content="Save Change" HorizontalAlignment="Left" Margin="17,254,0,0" VerticalAlignment="Top" Height="32" Width="139" Click="BTN_Save_Change_Click"/>
-        <Label Content="Working on Employee ID :" HorizontalAlignment="Left" Margin="180,192,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.505"/>
-        <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Margin="324,195,0,0" TextWrapping="Wrap" Text="New Employee" VerticalAlignment="Top" Height="26" Width="93" Foreground="Black" BorderBrush="White" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Working on Employee ID :" HorizontalAlignment="Left" Margin="180,192,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.505" Foreground="White"/>
+        <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Margin="324,195,0,0" TextWrapping="Wrap" Text="New Employee" VerticalAlignment="Top" Height="26" Width="93" Foreground="#FFFCFCFC" BorderBrush="Black" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Background="Black"/>
         <Label Content="Orders complete :" HorizontalAlignment="Left" Margin="182,223,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TB_Completed_oreders" HorizontalAlignment="Left" Margin="291,226,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="26" Width="93" Foreground="Black" BorderBrush="White" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"/>
     </Grid>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Order_Window" Height="450" Width="800">
-    <Grid>
+    <Grid Background="Black">
         <DataGrid x:Name="DTG_Orders" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,143" HorizontalAlignment="Center" Width="780" AutoGenerateColumns="False" Height="281" VerticalAlignment="Bottom" SelectionChanged="DTG_Orders_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order ID" Binding="{Binding OrdersID}"/>
@@ -21,7 +21,7 @@
         <Button x:Name="BTN_Order" Content="Order" HorizontalAlignment="Right" Margin="0,0,565,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_Order_Click"/>
         <Button x:Name="BTN_remove" Content="REMOVE" HorizontalAlignment="Right" Margin="0,0,444,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_remove_Click"/>
         <Button x:Name="BTN_edit_Order" Content="Edit" HorizontalAlignment="Right" Margin="0,0,565,45" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_edit_Order_Click"/>
-        <TextBox x:Name="TB_ID_Select" HorizontalAlignment="Left" Height="23" Margin="572,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" Background="Black" Foreground="White" BorderBrush="#FF898989"/>
-        <Label Content="Use ID to select" HorizontalAlignment="Left" Margin="475,318,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TB_ID_Select" HorizontalAlignment="Left" Height="23" Margin="572,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" Background="#FF616161" Foreground="White" BorderBrush="#FF898989"/>
+        <Label Content="Use ID to select" HorizontalAlignment="Left" Margin="475,318,0,0" VerticalAlignment="Top" Foreground="White"/>
     </Grid>
 </Window>
