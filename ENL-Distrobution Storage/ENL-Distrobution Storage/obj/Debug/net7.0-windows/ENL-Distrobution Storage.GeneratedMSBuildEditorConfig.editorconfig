@@ -9,3 +9,5 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ENL_Distrobution_Storage
 build_property.ProjectDir = C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

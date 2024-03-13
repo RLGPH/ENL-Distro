@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8gbqQUg8RxYHr8iWR/hX5Fca33811Qy7pPYlCllh6dbjT2lQ6XPBlr9Sd39oRQYDzKZn3JLJQYNVR/IhxpBTYg==",
+  "dgSpecHash": "jA9HO+jVhyx6aJQV5iTAXpq7KP/2VQFbpvRQ9q+vyy2cVhnq9BIlrTzrAe1Madse+b3accvgAflBhAwt6BWP1A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Casper s. jensen\\source\\repos\\ENL-Distro\\ENL-Distrobution Storage\\ENL-Distrobution Storage\\ENL-Distrobution Storage.csproj",
   "expectedPackageFiles": [
@@ -14,5 +14,16 @@
     "C:\\Users\\Casper s. jensen\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Casper s. jensen\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Data.SqlClient' 4.8.5 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net7.0-windows7.0"
+      ]
+    }
+  ]
 }

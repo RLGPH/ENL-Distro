@@ -24,8 +24,8 @@ namespace ENL_Distrobution_Storage
         public EmployeeAddwindow(Employee employees)
         {
             InitializeComponent();
-            //makes sure only truly intialize this data when the if state meants have been forfilled since if the if
-            //state meants wasnt here the programe would just die
+            //makes sure only truly intialize this data when the if statemeants have been forfilled since if the if
+            //statemeants wasnt here the programe would just die
             if (employees != null)
             {
                 if (employees.WorkerID > 0)

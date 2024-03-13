@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Windows.Controls;
 using System.Data.SqlClient;
 using System.Linq;
-using System.ComponentModel;
-using System.Windows.Documents;
-using System.Xml.Linq;
-using static ENL_Distrobution_Storage.Order_s;
-using Microsoft.SqlServer.Server;
+
 
 namespace ENL_Distrobution_Storage
 {
@@ -160,6 +154,7 @@ namespace ENL_Distrobution_Storage
             updateProductCmd.Parameters.AddWithValue("@ProductName", product.ProductName);
             updateProductCmd.Parameters.AddWithValue("@Description", product.ProductDescription);
             updateProductCmd.Parameters.AddWithValue("@ProductID", product.ProductID);
+
 
             updateProductCmd.ExecuteNonQuery();
 
