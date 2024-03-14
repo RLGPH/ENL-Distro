@@ -217,10 +217,13 @@ namespace ENL_Distrobution_Storage
                     string LastName = (string)reader["LastName"];
                     string Email = (string)reader["Email"];
                     string Jobtitel = (string)reader["Jobtitel"];
+                    string UserName = "";
+                    string Password = "";
+                    string AdminPassword = "";
 
                     Employee.WorkStatus status = (Employee.WorkStatus)workStatus;
 
-                    Employee employee = new(Id, amountOrdersDone, Tlf, FirstName, LastName, Email, Jobtitel, status);
+                    Employee employee = new(Id, amountOrdersDone, Tlf, FirstName, LastName, Email, Jobtitel, status, UserName, Password, AdminPassword);
                     employees.Add(employee);
                 }
             }
