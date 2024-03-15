@@ -20,54 +20,58 @@
             <ColumnDefinition Width="14*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Margin="18,0,135,0">
-            <StackPanel Orientation="Horizontal" Margin="48,0,0,0">
-                <Label x:Name="LB_First_name" Content="First Name" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_First_name" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Height="22" Width="204" Grid.Column="1"/>
-            </StackPanel>
+            <Border >
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="48,0,0,0">
+                        <Label x:Name="LB_First_name" Content="First Name" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
+                        <TextBox x:Name="TB_First_name" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Height="22" Width="204" Grid.Column="1"/>
+                    </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                <Label Content="Last Name" HorizontalAlignment="Left" Margin="0,0,0,0" Width="65" Height="26" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_Last_Name" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1"/>
-            </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <Label Content="Last Name" HorizontalAlignment="Left" Margin="0,0,0,0" Width="65" Height="26" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
+                        <TextBox x:Name="TB_Last_Name" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1"/>
+                    </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                <Label Content="Mail" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="65" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_Mail" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Exampl@mail.com" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1"/>
-            </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <Label Content="Mail" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="65" Foreground="White" Grid.Column="1"/>
+                        <TextBox x:Name="TB_Mail" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Exampl@mail.com" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1"/>
+                    </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                <Label Content="TLF" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="65" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_Tlf_number" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Example +45 12345678" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1" />
-            </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <Label Content="TLF" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="65" Foreground="White" Grid.Column="1"/>
+                        <TextBox x:Name="TB_Tlf_number" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Example +45 12345678" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1" />
+                    </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                <Label Content="Job Tital" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_Job_Tital" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Job Tital" Width="204" Height="19" VerticalAlignment="Top" Grid.Column="1"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="76,0,0,0">
-                <Label Content="Status" Margin="0,0,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="42" Foreground="White"/>
-                <ComboBox x:Name="CB_Status" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.Row="1">
-                    <ComboBoxItem Content="Free" Tag="0"/>
-                    <ComboBoxItem Content="Working on order" Tag="1"/>
-                    <ComboBoxItem Content="Busy" Tag="2"/>
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                <Label Content="UserName" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="65" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_UserName" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                <Label Content="User PassWord" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="90" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_UserPassWord" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Height="19" Grid.Column="1" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                <Label Content="Give Admin?" Margin="0,0,0,0" Foreground="White"/>
-                <CheckBox x:Name="CHB_ADMIN" Content="Admin" Margin="0,6,0,0" Foreground="White" Click="CHB_ADMIN_Click"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
-                <Label Content="Admin PassWord" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_AdminPassWord" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" Height="19" Grid.Column="1" />
-            </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <Label Content="Job Tital" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="67" Foreground="White" Grid.Column="1"/>
+                        <TextBox x:Name="TB_Job_Tital" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Job Tital" Width="204" Height="19" VerticalAlignment="Top" Grid.Column="1"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="76,0,0,0">
+                        <Label Content="Status" Margin="0,0,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="42" Foreground="White"/>
+                        <ComboBox x:Name="CB_Status" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.Row="1">
+                            <ComboBoxItem Content="Free" Tag="0"/>
+                            <ComboBoxItem Content="Working on order" Tag="1"/>
+                            <ComboBoxItem Content="Busy" Tag="2"/>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <Label Content="UserName" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="65" Foreground="White" Grid.Column="1"/>
+                        <TextBox x:Name="TB_UserName" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <Label Content="User PassWord" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="90" Foreground="White" Grid.Column="1"/>
+                        <TextBox x:Name="TB_UserPassWord" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="178" Height="19" Grid.Column="1" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <Label Content="Give Admin?" Margin="0,0,0,0" Foreground="White"/>
+                        <CheckBox x:Name="CHB_ADMIN" Content="Admin" Margin="0,6,0,0" Foreground="White" Click="CHB_ADMIN_Click"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,0">
+                        <Label Content="Admin PassWord" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Foreground="White" Grid.Column="1"/>
+                        <TextBox x:Name="TB_AdminPassWord" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170" Height="19" Grid.Column="1" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
             <StackPanel Margin="0,0,0,0" Grid.RowSpan="3">
