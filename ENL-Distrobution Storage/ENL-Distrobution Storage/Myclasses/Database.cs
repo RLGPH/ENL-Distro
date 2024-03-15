@@ -217,13 +217,14 @@ namespace ENL_Distrobution_Storage
                     string LastName = (string)reader["LastName"];
                     string Email = (string)reader["Email"];
                     string Jobtitel = (string)reader["Jobtitel"];
-                    string UserName = "";
-                    string Password = "";
-                    string AdminPassword = "";
+                    string UserName = (string)reader["UserName"];
+                    string Password = (string)reader["UserPassWord"];
+                    string AdminPassword = (string)reader["AdminPassWord"];
+                    string UserRank = (string)reader["UserRank"];
 
                     Employee.WorkStatus status = (Employee.WorkStatus)workStatus;
 
-                    Employee employee = new(Id, amountOrdersDone, Tlf, FirstName, LastName, Email, Jobtitel, status, UserName, Password, AdminPassword);
+                    Employee employee = new(Id, amountOrdersDone, Tlf, FirstName, LastName, Email, Jobtitel, status, UserName, Password, AdminPassword, UserRank);
                     employees.Add(employee);
                 }
             }
@@ -236,8 +237,8 @@ namespace ENL_Distrobution_Storage
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            string sql = "INSERT INTO Employees (Amount, Tlf, FirstName, LastName, Email, Jobtitel, WStatus) " +
-                         "VALUES (@Amount, @Tlf, @FirstName, @LastName, @Email, @Jobtitel, @WStatus)";
+            string sql = "INSERT INTO Employees (Amount, Tlf, FirstName, LastName, Email, Jobtitel, WStatus, UserName, UserPassWord, AdminPassWord, UserRank)" +
+                         "VALUES (@Amount, @Tlf, @FirstName, @LastName, @Email, @Jobtitel, @WStatus, @UserName, @UserPassWord, @AdminPassWord, @UserRank)";
             using SqlCommand cmd = new(sql, connection);
             cmd.Parameters.AddWithValue("@Amount", employee.Amount);
             cmd.Parameters.AddWithValue("@Tlf", employee.Tlf);
@@ -246,6 +247,10 @@ namespace ENL_Distrobution_Storage
             cmd.Parameters.AddWithValue("@Email", employee.Email);
             cmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
             cmd.Parameters.AddWithValue("@WStatus", (int)employee.Status);
+            cmd.Parameters.AddWithValue("@UserName", employee.Username);
+            cmd.Parameters.AddWithValue("@UserPassWord", employee.Password);
+            cmd.Parameters.AddWithValue("@AdminPassWord", employee.AdminPassword);
+            cmd.Parameters.AddWithValue("@UserRank", employee.UserRank);
 
             int lastInsertedId = Convert.ToInt32(cmd.ExecuteScalar());
         }
@@ -268,7 +273,8 @@ namespace ENL_Distrobution_Storage
 
             string updateEmployeeSql = "UPDATE Employees " +
                                        "SET Amount = @Amount, Tlf = @Tlf, FirstName = @FirstName, LastName = @LastName, " +
-                                       "Email = @Email, Jobtitel = @Jobtitel, WStatus = @WStatus " +
+                                       "Email = @Email, Jobtitel = @Jobtitel, WStatus = @WStatus, UserName = @UserName, " +
+                                       "UserPassWord = @UserPassWord, AdminPassWord = @AdminPassWord, UserRank = @UserRank, " +
                                        "WHERE WorkerID = @EmployeeId";
 
             using SqlCommand updateEmployeeCmd = new(updateEmployeeSql, connection);
@@ -280,6 +286,10 @@ namespace ENL_Distrobution_Storage
             updateEmployeeCmd.Parameters.AddWithValue("@Email", employee.Email);
             updateEmployeeCmd.Parameters.AddWithValue("@Jobtitel", employee.Jobtitel);
             updateEmployeeCmd.Parameters.AddWithValue("@WStatus", (int)employee.Status);
+            updateEmployeeCmd.Parameters.AddWithValue("@UserName", employee.Username);
+            updateEmployeeCmd.Parameters.AddWithValue("@UserPassWord", employee.Password);
+            updateEmployeeCmd.Parameters.AddWithValue("@AdminPassWord", employee.AdminPassword);
+            updateEmployeeCmd.Parameters.AddWithValue("@UserRank", employee.UserRank);
 
             updateEmployeeCmd.ExecuteNonQuery();
         }

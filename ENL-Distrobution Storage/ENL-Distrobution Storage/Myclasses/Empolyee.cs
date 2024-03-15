@@ -15,6 +15,7 @@ namespace ENL_Distrobution_Storage
         public string Username { get; set; } 
         public string Password { get; set; }
         public string AdminPassword {  get; set; }
+        public string UserRank {  get; set; }
 
         public enum WorkStatus
         {
@@ -23,7 +24,7 @@ namespace ENL_Distrobution_Storage
             Busy
         }
 
-        public Employee(int workerID, int amount, string tlf, string firstName, string lastName, string email, string jobtitel, WorkStatus status, string username, string password, string adminPassword)
+        public Employee(int workerID, int amount, string tlf, string firstName, string lastName, string email, string jobtitel, WorkStatus status, string username, string password, string adminPassword, string userRank)
         {
             WorkerID = workerID;
             Amount = amount;
@@ -33,9 +34,10 @@ namespace ENL_Distrobution_Storage
             Email = email;
             Jobtitel = jobtitel;
             Status = status;
-            Username= username;
+            Username = username;
             Password = password;
             AdminPassword = adminPassword;
+            UserRank = userRank;
         }
     }
 }
