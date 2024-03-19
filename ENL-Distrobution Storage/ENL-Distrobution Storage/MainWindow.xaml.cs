@@ -1,33 +1,45 @@
-﻿using System.Windows;
+﻿using ENL_Distrobution_Storage.Images_for_background;
+using System.Windows;
 
 namespace ENL_Distrobution_Storage
 {
     public partial class MainWindow : Window
     {
+        readonly Database database = new();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void BTN_Orders_Click(object sender, RoutedEventArgs e)
+        private void BTN_Login_Click(object sender, RoutedEventArgs e)
         {
-            //opens oreder window
-            Order_Window order_Window = new();
-            order_Window.Show();
+            string APassword = "no";
+            string seclevel = "User";
+            string password = TB_Password.Text;
+            string user = TB_User.Text;
+            bool Pass = database.Login(password, user, APassword, seclevel);
+            if (Pass == true)
+            {
+                Main_page mainMenu = new(seclevel);
+                mainMenu.Show();
+                Close();
+            }
+            if (Pass == false)
+            {
+                MessageBox.Show("Using the Admin login menu theres a \"Backdoor\" because security is not top priority when testing");
+            }
         }
 
-        private void BTN_Workers_Click(object sender, RoutedEventArgs e)
+        private void BTN_Admin_Login_Click(object sender, RoutedEventArgs e)
         {
-            //opens employee window
-            Employee_Window employee_Window = new();
-            employee_Window.Show();
+            Admin_Login admin = new();
+            admin.Show();
+            Close();
         }
 
-        private void BTN_Products_Click(object sender, RoutedEventArgs e)
+        private void BTN_Close_Click(object sender, RoutedEventArgs e)
         {
-            //open productpage window
-            Productpage productPage = new();
-            productPage.Show();
+            Close();
         }
     }
 }

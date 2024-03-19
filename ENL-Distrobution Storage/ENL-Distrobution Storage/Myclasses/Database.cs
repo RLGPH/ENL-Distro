@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Windows;
 
 
 namespace ENL_Distrobution_Storage
@@ -292,6 +293,58 @@ namespace ENL_Distrobution_Storage
             updateEmployeeCmd.Parameters.AddWithValue("@UserRank", employee.UserRank);
 
             updateEmployeeCmd.ExecuteNonQuery();
+        }
+        public bool Login(string Password, string Username, string APassword, string seclevel)
+        {
+            using SqlConnection sqlConnection = new(connectionString);
+            sqlConnection.Open();
+
+            string SQL = "SELECT UserName, UserPassWord, AdminPassWord, ProfileRank FROM Employees WHERE UserName = @UserName";
+
+            using SqlCommand cmd = new(SQL, sqlConnection);
+            cmd.Parameters.AddWithValue("@UserName", Username);
+
+            using SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                string username = reader["UserName"].ToString();
+                string UserPassword = reader["UserPassWord"].ToString();
+                string AdminPassword = reader["AdminPassWord"].ToString();
+                string UserRank = reader["ProfileRank"].ToString();
+                if (Username == username && Password == UserPassword && seclevel == "User")
+                {
+                    return true;
+                }
+                else if (Username == username && Password != UserPassword)
+                {
+                    MessageBox.Show("Password is Wrong");
+                    return false;
+                }
+
+                if (Username == username && APassword == AdminPassword && Password == UserPassword && seclevel == "Admin" && UserRank == "Admin")
+                {
+                    return true;
+                }
+                else if (UserRank != "Admin")
+                {
+                    MessageBox.Show("what did you thing would happen when your account is User rank");
+                    return false;
+                }
+                else if (Username == username && APassword != AdminPassword || Password != UserPassword)
+                {
+                    MessageBox.Show("Password is Wrong");
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("UserName is Wrong");
+                return false;
+            }
         }
         //-----------------------END OF EMPLOYEE METHODS---------------------//
         //-------------------------------------------------------------------//

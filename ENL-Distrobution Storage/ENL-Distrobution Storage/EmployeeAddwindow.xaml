@@ -5,48 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
-        Title="Product_add_window" Height="500" Width="500">
+        Title="Product_add_window" Height="600" Width="500">
     <Grid Background="Black">
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="291*"/>
-            <RowDefinition Height="127*"/>
-            <RowDefinition Height="51*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="340*"/>
+            <RowDefinition Height="130*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="16*"/>
-            <ColumnDefinition Width="291*"/>
-            <ColumnDefinition Width="119*"/>
-            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="350*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Margin="18,0,135,0">
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="18,0,100,0">
             <Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="0,0,0,0">
                 <StackPanel Margin="0,8,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="13,5,0,7">
                         <Label x:Name="LB_First_name" Content="First Name" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_First_name" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="22" Width="200" Grid.Column="1"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="10,0,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="Last Name" HorizontalAlignment="Left" Margin="0,0,0,0" Width="65" Height="26" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_Last_Name" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="19" Grid.Column="1"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="42,0,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="Mail" Margin="0,0,0,0" VerticalAlignment="Top" Width="34" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_Mail" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="19" Grid.Column="1"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="50,0,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="TLF" Margin="0,0,0,0" VerticalAlignment="Top" Width="26" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_Tlf_number" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="+45 12345678" VerticalAlignment="Top" Width="200" Height="19" Grid.Column="1" />
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="20,0,0,7" HorizontalAlignment="Center">
                         <Label Content="Job Tital" Margin="0,0,0,0" VerticalAlignment="Top" Width="57" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_Job_Tital" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" Width="200" Height="19" VerticalAlignment="Top" Grid.Column="1"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,4,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="-46,4,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="Status" Margin="0,0,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="42" Foreground="White"/>
                         <ComboBox x:Name="CB_Status" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.Row="1">
                             <ComboBoxItem Content="Free" Tag="0"/>
@@ -54,19 +54,19 @@
                             <ComboBoxItem Content="Busy" Tag="2"/>
                         </ComboBox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="16,10,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="UserName" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="65" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_UserName" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="-10,0,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="User PassWord" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="90" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_UserPassWord" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,4" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="-146,0,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="Give Admin?" Margin="0,0,0,0" Foreground="White"/>
                         <CheckBox x:Name="CHB_ADMIN" Content="Admin" Margin="0,6,0,0" Foreground="White" Click="CHB_ADMIN_Click"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="-20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="Admin PassWord" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_AdminPassWord" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="19" Grid.Column="1" />
                     </StackPanel>
@@ -80,7 +80,7 @@
                 <Button x:Name="BTN_Save_Change" Content="Save Change" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="139" Click="BTN_Save_Change_Click" Grid.Column="1" Grid.Row="2"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="230,-115,0,0">
+            <StackPanel Orientation="Horizontal" Margin="186,-115,0,0">
                 <Label Content="Working on Employee ID :" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.516,0.505" Foreground="White" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1"/>
                 <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Margin="0,5,0,0" TextWrapping="Wrap" Text="New Employee" VerticalAlignment="Top" Height="26" Width="93" Foreground="#FFFCFCFC" BorderBrush="Black" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Background="Black" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1"/>
             </StackPanel>
