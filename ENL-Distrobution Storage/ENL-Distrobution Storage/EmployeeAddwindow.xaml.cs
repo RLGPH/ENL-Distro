@@ -65,7 +65,7 @@ namespace ENL_Distrobution_Storage
             string Jobtitel = TB_Job_Tital.Text;
 
             //combinds and then uses the addemployee method and gives that data to it 
-            Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0);
+            Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, );
             database.ADDEmployee(newemployee);
 
             //give the true result to the previus page so it can reload the DTG then closes the page
