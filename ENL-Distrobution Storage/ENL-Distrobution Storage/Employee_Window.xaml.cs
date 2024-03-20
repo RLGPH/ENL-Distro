@@ -61,9 +61,13 @@ namespace ENL_Distrobution_Storage
                     string Mail = employee.Email;
                     string titel = employee.Jobtitel;
                     var status = employee.Status;
+                    string user = employee.Username;
+                    string Password = employee.Password;
+                    string AdminPassword = employee.AdminPassword;
+                    string userrank = employee.UserRank;
 
                     //gives the split item to the employeeaddwindow
-                    Employee employees = new(employeeID, amount, tlf, FName, LName, Mail, titel, status);
+                    Employee employees = new(employeeID, amount, tlf, FName, LName, Mail, titel, status, user, Password, AdminPassword, userrank);
                     EmployeeAddwindow employeeAddwindow = new(employees);
                     bool? resault = employeeAddwindow.ShowDialog();
                     if (resault == true)

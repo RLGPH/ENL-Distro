@@ -19,7 +19,7 @@ namespace ENL_Distrobution_Storage.Images_for_background
     /// </summary>
     public partial class Main_page : Window
     {
-        public Main_page()
+        public Main_page(String rank)
         {
             InitializeComponent();
         }

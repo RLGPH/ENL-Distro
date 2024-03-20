@@ -38,3 +38,8 @@ C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-D
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\OrderesAddWindow.g.cs
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\EmployeeAddwindow.baml
 C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\OrderesAddWindow.baml
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Admin Login.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Images for background\Main page.g.cs
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Admin Login.baml
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\Images for background\Main page.baml
+C:\Users\Casper s. jensen\source\repos\ENL-Distro\ENL-Distrobution Storage\ENL-Distrobution Storage\obj\Debug\net7.0-windows\ENL-Distrobution Storage.sourcelink.json

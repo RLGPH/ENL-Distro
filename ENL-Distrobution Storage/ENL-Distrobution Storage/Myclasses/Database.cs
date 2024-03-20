@@ -4,7 +4,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
 
-
 namespace ENL_Distrobution_Storage
 {
     public class Database

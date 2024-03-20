@@ -51,7 +51,25 @@ namespace ENL_Distrobution_Storage
                     TB_Tlf_number.Text = TLF;
                     TB_ID.Text = id.ToString();
                     TB_Completed_oreders.Text = amount.ToString();
+
+                    if(employees.UserRank == "Admin")
+                    {
+                        CHB_ADMIN.IsChecked = true;
+                        TB_AdminPassWord.Text = employees.AdminPassword;
+                    }
+                    else
+                    {
+                        SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
+                    }
                 }
+                else
+                {
+                    SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -63,10 +81,29 @@ namespace ENL_Distrobution_Storage
             string TLF = TB_Tlf_number.Text;
             string mail = TB_Mail.Text;
             string Jobtitel = TB_Job_Tital.Text;
+            string username = TB_UserName.Text;
+            string password = TB_UserPassWord.Text;
 
-            //combinds and then uses the addemployee method and gives that data to it 
-            Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, );
-            database.ADDEmployee(newemployee);
+            bool AdminOrUser = (bool)CHB_ADMIN.IsChecked;
+
+            if (AdminOrUser == true)
+            {
+                string AdminPassword = TB_AdminPassWord.Text;
+                string rank = "Admin";
+
+                //combinds and then uses the addemployee method and gives that data to it 
+                Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                database.ADDEmployee(newemployee);
+            }
+            else if (AdminOrUser == false)
+            {
+                string AdminPassword = TB_AdminPassWord.Text;
+                string rank = "Admin";
+
+                //combinds and then uses the addemployee method and gives that data to it 
+                Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                database.ADDEmployee(newemployee);
+            }
 
             //give the true result to the previus page so it can reload the DTG then closes the page
             DialogResult = true;
@@ -99,14 +136,47 @@ namespace ENL_Distrobution_Storage
 
             Employee.WorkStatus status = (Employee.WorkStatus)statusint;
 
-            //this joins the data back together and then sends it to the update method which then
-            //sends it to the database
-            Employee editemployee = new(ID, amount, TLF, FName, LName, mail, Jobtitel, status);
-            database.UpdateEmployee(editemployee);
+            string username = TB_UserName.Text;
+            string password = TB_UserPassWord.Text;
+
+            bool AdminOrUser = (bool)CHB_ADMIN.IsChecked;
+
+            if (AdminOrUser == true)
+            {
+                string AdminPassword = TB_AdminPassWord.Text;
+                string rank = "Admin";
+
+                //combinds and then uses the addemployee method and gives that data to it 
+                Employee editemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                database.UpdateEmployee(editemployee);
+            }
+            else if (AdminOrUser == false)
+            {
+                string AdminPassword = TB_AdminPassWord.Text;
+                string rank = "User";
+
+                //combinds and then uses the addemployee method and gives that data to it 
+                Employee editemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                database.UpdateEmployee(editemployee);
+            }
 
             //dialog true to reload the page from before
             DialogResult = true;
             Close();
+        }
+        private void CHB_ADMIN_Click(object sender, RoutedEventArgs e)
+        {
+            bool AdminYesNo = (bool)CHB_ADMIN.IsChecked;
+            if (AdminYesNo == true)
+            {
+                SP_TB_AdminPassWord.Visibility = Visibility.Visible;
+                TB_AdminPassWord.Text = null;
+            }
+            else
+            {
+                SP_TB_AdminPassWord.Visibility = Visibility.Collapsed;
+                TB_AdminPassWord.Text = null;
+            }
         }
     }
 }
