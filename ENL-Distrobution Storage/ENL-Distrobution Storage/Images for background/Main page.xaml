@@ -7,12 +7,31 @@
         mc:Ignorable="d"
         Title="Main_page" Height="230" Width="250">
     <Grid Background="Black">
-        <Button x:Name="BTN_Products" Content="Products" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Products_Click"/>
-        <Button x:Name="BTN_Workers" Content="Workers" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Workers_Click"/>
-        <Button x:Name="BTN_Orders" Content="Orders" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Orders_Click"/>
-        <Label Content="ENL-Distrobution" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="32" Width="105" Foreground="White"/>
-        <Label Content="Manegement Software" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Height="29" Width="133" Foreground="White"/>
-        <Image x:Name="IMG_Main_page" HorizontalAlignment="Left" Height="92" Margin="108,97,0,0" VerticalAlignment="Top" Width="132" Source="/Images for background/lagger baggrund.png" RenderTransformOrigin="0.5,0.5">
-        </Image>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="137*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="BTN_Products" Content="Products" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Products_Click" />
+            <Button x:Name="BTN_Workers" Content="Workers" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Workers_Click" />
+            <Button x:Name="BTN_Orders" Content="Orders" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" Height="27" Width="78" Click="BTN_Orders_Click" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label Content="ENL-Distrobution" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="30" Width="105" Foreground="White"/>
+            <Label Content="Manegement Software" HorizontalAlignment="Left" Margin="0,-16,0,0" VerticalAlignment="Top" Height="30" Width="133" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image x:Name="IMG_Main_page" HorizontalAlignment="Left" Height="87" Margin="0,0,0,0" VerticalAlignment="Top" Width="130" Source="/Images for background/lagger baggrund.png" RenderTransformOrigin="0.5,0.5"/>
+        </StackPanel>
     </Grid>
 </Window>
