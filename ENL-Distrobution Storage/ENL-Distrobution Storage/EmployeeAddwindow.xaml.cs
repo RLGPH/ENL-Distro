@@ -38,6 +38,8 @@ namespace ENL_Distrobution_Storage
                     string TLF = employees.Tlf;
                     string Mail = employees.Email;
                     string titel = employees.Jobtitel;
+                    string username = employees.Username;
+                    string password = employees.Password;
 
                     //makes sure status combobox is indexed to the right tag
                     int statusint = (int)employees.Status;
@@ -51,6 +53,8 @@ namespace ENL_Distrobution_Storage
                     TB_Tlf_number.Text = TLF;
                     TB_ID.Text = id.ToString();
                     TB_Completed_oreders.Text = amount.ToString();
+                    TB_UserName.Text = username;
+                    TB_UserPassWord.Text = password;
 
                     if(employees.UserRank == "Admin")
                     {
@@ -147,7 +151,7 @@ namespace ENL_Distrobution_Storage
                 string rank = "Admin";
 
                 //combinds and then uses the addemployee method and gives that data to it 
-                Employee editemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                Employee editemployee = new(ID, amount, TLF, FName, LName, mail, Jobtitel, status, username, password, AdminPassword, rank);
                 database.UpdateEmployee(editemployee);
             }
             else if (AdminOrUser == false)
@@ -156,7 +160,7 @@ namespace ENL_Distrobution_Storage
                 string rank = "User";
 
                 //combinds and then uses the addemployee method and gives that data to it 
-                Employee editemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                Employee editemployee = new(ID, amount, TLF, FName, LName, mail, Jobtitel, status, username, password, AdminPassword, rank);
                 database.UpdateEmployee(editemployee);
             }
 

@@ -13,13 +13,21 @@ namespace ENL_Distrobution_Storage
     {
         readonly Employee employee;
         readonly Database database = new();
+
+        private readonly string userRank;
         public Employee_Window(string rank)
         {
             InitializeComponent();
+            userRank = rank;
             //used to get the employees list from the database
             List<Employee> employee = database.employees;
             database.GetAllEmployees();
             DTG_Employee.ItemsSource = employee;
+
+            if(userRank == "Mod")
+            {
+               
+            }
         }
 
         private void BTN_add_Click(object sender, RoutedEventArgs e)

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
-        Title="Employee_Window" Height="450" Width="800">
+        Title="Employee_Window" Height="450" Width="1000">
     <Grid Background="Black">
-        <DataGrid x:Name="DTG_Employee" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,143" HorizontalAlignment="Center" Width="780" AutoGenerateColumns="False" Height="281" VerticalAlignment="Bottom" SelectionChanged="DTG_Employee_SelectionChanged">
+        <DataGrid x:Name="DTG_Employee" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,143" HorizontalAlignment="Center" Width="900" AutoGenerateColumns="False" Height="281" VerticalAlignment="Bottom" SelectionChanged="DTG_Employee_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding WorkerID}"/>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
@@ -17,6 +17,10 @@
                 <DataGridTextColumn Header="Mail" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Amount Of Orders" Binding="{Binding Amount}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                <DataGridTextColumn Header="User Name" Binding="{Binding Username}"/>
+                <DataGridTextColumn Header="User Rank" Binding="{Binding UserRank}"/>
+                <DataGridTextColumn Header="UserPassword" Binding="{Binding Password}"/>
+                <DataGridTextColumn Header="AdminPassword" Binding="{Binding AdminPassword}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BTN_close_window" Content="close" HorizontalAlignment="Right" Margin="0,0,691,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_close_window_Click"/>

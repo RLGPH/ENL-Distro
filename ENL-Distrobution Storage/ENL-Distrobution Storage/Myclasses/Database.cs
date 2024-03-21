@@ -271,11 +271,10 @@ namespace ENL_Distrobution_Storage
             using SqlConnection connection = new(connectionString);
             connection.Open();
 
-            string updateEmployeeSql = "UPDATE Employees " +
-                                       "SET Amount = @Amount, Tlf = @Tlf, FirstName = @FirstName, LastName = @LastName, " +
-                                       "Email = @Email, Jobtitel = @Jobtitel, WStatus = @WStatus, UserName = @UserName, " +
-                                       "UserPassWord = @UserPassWord, AdminPassWord = @AdminPassWord, UserRank = @UserRank, " +
-                                       "WHERE WorkerID = @EmployeeId";
+            string updateEmployeeSql = "UPDATE Employees SET Amount = @Amount, Tlf = @Tlf, FirstName = @FirstName, LastName = @LastName, " +
+                           "Email = @Email, Jobtitel = @Jobtitel, WStatus = @WStatus, UserName = @UserName, " +
+                           "UserPassWord = @UserPassWord, AdminPassWord = @AdminPassWord, UserRank = @UserRank " +
+                           "WHERE WorkerID = @EmployeeId";
 
             using SqlCommand updateEmployeeCmd = new(updateEmployeeSql, connection);
             updateEmployeeCmd.Parameters.AddWithValue("@EmployeeId", employee.WorkerID);
