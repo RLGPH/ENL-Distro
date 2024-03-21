@@ -298,7 +298,7 @@ namespace ENL_Distrobution_Storage
             using SqlConnection sqlConnection = new(connectionString);
             sqlConnection.Open();
 
-            string SQL = "SELECT UserName, UserPassWord, AdminPassWord, ProfileRank FROM Employees WHERE UserName = @UserName";
+            string SQL = "SELECT UserName, UserPassWord, AdminPassWord, UserRank FROM Employees WHERE UserName = @UserName";
 
             using SqlCommand cmd = new(SQL, sqlConnection);
             cmd.Parameters.AddWithValue("@UserName", Username);
@@ -309,7 +309,7 @@ namespace ENL_Distrobution_Storage
                 string username = reader["UserName"].ToString();
                 string UserPassword = reader["UserPassWord"].ToString();
                 string AdminPassword = reader["AdminPassWord"].ToString();
-                string UserRank = reader["ProfileRank"].ToString();
+                string UserRank = reader["UserRank"].ToString();
                 if (Username == username && Password == UserPassword && seclevel == "User")
                 {
                     return true;

@@ -23,5 +23,6 @@
         <Button x:Name="BTN_edit" Content="Edit" HorizontalAlignment="Right" Margin="0,0,565,45" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_edit_Click"/>
         <TextBox x:Name="TB_ID_Select" HorizontalAlignment="Left" Height="23" Margin="572,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" Background="#FF616161" Foreground="White" BorderBrush="#FF898989"/>
         <Label Content="Use ID to select" HorizontalAlignment="Left" Margin="475,318,0,0" VerticalAlignment="Top" Foreground="White"/>
+
     </Grid>
 </Window>

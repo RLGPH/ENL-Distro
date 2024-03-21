@@ -1,4 +1,4 @@
-﻿using ENL_Distrobution_Storage.Images_for_background;
+﻿using ENL_Distrobution_Storage;
 using System.Windows;
 
 namespace ENL_Distrobution_Storage
@@ -20,7 +20,7 @@ namespace ENL_Distrobution_Storage
             bool Pass = database.Login(password, user, APassword, seclevel);
             if (Pass == true)
             {
-                Main_page mainMenu = new(seclevel);
+                Main_Page mainMenu = new(seclevel);
                 mainMenu.Show();
                 Close();
             }

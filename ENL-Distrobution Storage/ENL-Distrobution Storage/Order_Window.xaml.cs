@@ -11,7 +11,7 @@ namespace ENL_Distrobution_Storage
     {
         readonly Order_s order;
         readonly Database database = new();
-        public Order_Window()
+        public Order_Window(string rank)
         {
             InitializeComponent();
             //initialize the datagrid with info from the database

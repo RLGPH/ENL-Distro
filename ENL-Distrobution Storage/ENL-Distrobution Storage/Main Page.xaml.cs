@@ -12,36 +12,38 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ENL_Distrobution_Storage.Images_for_background
+namespace ENL_Distrobution_Storage
 {
     /// <summary>
-    /// Interaction logic for Main_page.xaml
+    /// Interaction logic for Main_Page.xaml
     /// </summary>
-    public partial class Main_page : Window
+    public partial class Main_Page : Window
     {
-        public Main_page(String rank)
+        private readonly string userRank;
+        public Main_Page(string rank)
         {
             InitializeComponent();
+            userRank = rank;
         }
 
         private void BTN_Orders_Click(object sender, RoutedEventArgs e)
         {
             //opens oreder window
-            Order_Window order_Window = new();
+            Order_Window order_Window = new(userRank);
             order_Window.Show();
         }
 
         private void BTN_Workers_Click(object sender, RoutedEventArgs e)
         {
             //opens employee window
-            Employee_Window employee_Window = new();
+            Employee_Window employee_Window = new(userRank);
             employee_Window.Show();
         }
 
         private void BTN_Products_Click(object sender, RoutedEventArgs e)
         {
             //open productpage window
-            Productpage productPage = new();
+            Productpage productPage = new(userRank);
             productPage.Show();
         }
     }

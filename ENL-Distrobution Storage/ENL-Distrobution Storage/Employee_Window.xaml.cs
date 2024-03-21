@@ -13,7 +13,7 @@ namespace ENL_Distrobution_Storage
     {
         readonly Employee employee;
         readonly Database database = new();
-        public Employee_Window()
+        public Employee_Window(string rank)
         {
             InitializeComponent();
             //used to get the employees list from the database

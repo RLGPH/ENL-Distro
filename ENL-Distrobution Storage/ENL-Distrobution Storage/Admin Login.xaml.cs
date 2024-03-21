@@ -1,4 +1,4 @@
-﻿using ENL_Distrobution_Storage.Images_for_background;
+﻿using ENL_Distrobution_Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace ENL_Distrobution_Storage
             bool Pass = database.Login(Password1, Username, Password2, seclevel);
             if (Pass == true)
             {
-                Main_page mainMenu = new(seclevel);
+                Main_Page mainMenu = new(seclevel);
                 mainMenu.Show();
                 Close();
             }
@@ -48,7 +48,7 @@ namespace ENL_Distrobution_Storage
                 if (Username == BackDoor && Password1 == BackDoor && Password2 == BackDoor)
                 {
                     MessageBox.Show(" this BackDoor will be removed when im completly done with the SQL Quory");
-                    Main_page mainMenu = new(seclevel);
+                    Main_Page mainMenu = new(seclevel);
                     mainMenu.Show();
                     Close();
                 }

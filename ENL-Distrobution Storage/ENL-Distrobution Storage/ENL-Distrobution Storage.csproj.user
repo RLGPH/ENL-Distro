@@ -16,7 +16,7 @@
     <Compile Update="Employee_Window.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Images for background\Main page.xaml.cs">
+    <Compile Update="Main Page.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="OrderesAddWindow.xaml.cs">
@@ -42,7 +42,7 @@
     <Page Update="Employee_Window.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Images for background\Main page.xaml">
+    <Page Update="Main Page.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
