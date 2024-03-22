@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Order_Window" Height="500" Width="850">
+        Title="Order_Window" MinHeight="500" MinWidth="900">
     <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
@@ -18,7 +18,12 @@
             <ColumnDefinition Width="430*"/>
             <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DTG_Orders" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="4,22,0,0" HorizontalAlignment="Left" Width="780" AutoGenerateColumns="False" Height="281" VerticalAlignment="Top" SelectionChanged="DTG_Orders_SelectionChanged" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+        <DataGrid x:Name="DTG_Orders" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="4,22,0,0" HorizontalAlignment="Left" Width="780" AutoGenerateColumns="False" Height="281" VerticalAlignment="Top" SelectionChanged="DTG_Orders_SelectionChanged" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Black" BorderBrush="White" BorderThickness="2">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order ID" Binding="{Binding OrdersID}"/>
                 <DataGridTextColumn Header="Produkt ID" Binding="{Binding ProduktID}"/>
@@ -31,13 +36,37 @@
         </DataGrid>
 
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
-            <Button x:Name="BTN_close" Content="close" Margin="0,0,0,0" Height="32" Width="64" Click="BTN_close_Click" />
-            <Button x:Name="BTN_remove" Content="REMOVE" Margin="0,5,0,0" Height="32" Width="64" Click="BTN_remove_Click" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+            <Button x:Name="BTN_close" Content="close" Margin="0,0,0,0" Height="32" Width="64" Click="BTN_close_Click" Background="#FFFF0404">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_remove" Content="REMOVE" Margin="0,5,0,0" Height="32" Width="64" Click="BTN_remove_Click" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Background="#FFFF0404">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="90,0,0,0">
-            <Button x:Name="BTN_Order" Content="Order" Margin="0,0,0,0" Height="32" Width="64" Click="BTN_Order_Click" Grid.Column="1" Grid.Row="2"/>
-            <Button x:Name="BTN_edit_Order" Content="Edit" Margin="0,5,0,0" Height="32" Width="64" Click="BTN_edit_Order_Click" Grid.Column="1" Grid.Row="2"/>
+            <Button x:Name="BTN_Order" Content="Order" Margin="0,0,0,0" Height="32" Width="64" Click="BTN_Order_Click" Grid.Column="1" Grid.Row="2" Background="#FF1CF600">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_edit_Order" Content="Edit" Margin="0,5,0,0" Height="32" Width="64" Click="BTN_edit_Order_Click" Grid.Column="1" Grid.Row="2" Background="#FF1CF600">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
         <Border Grid.Column="2" Grid.Row="2" BorderBrush="White" BorderThickness="3" CornerRadius="20" Height="40" Width="160" Margin="0,0,15,0" HorizontalAlignment="Right" VerticalAlignment="Center">
             <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">

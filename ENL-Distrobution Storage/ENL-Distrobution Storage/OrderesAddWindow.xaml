@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ENL_Distrobution_Storage"
         mc:Ignorable="d"
-        Title="Product_add_window" Height="400" Width="680">
+        Title="Product_add_window" Height="500" Width="680">
     <Grid x:Name="CB_product_or_employee" RenderTransformOrigin="0.501,0.504" Background="Black">
         <Button x:Name="BTN_Complete_order" Content="Complete Order" HorizontalAlignment="Left" Margin="356,248,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="BTN_Complete_order_Click"/>
         <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="253,291,0,0" Width="54" Click="BTN_Cancel_Click" Height="37" VerticalAlignment="Top"/>
