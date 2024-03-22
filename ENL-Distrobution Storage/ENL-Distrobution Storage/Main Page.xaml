@@ -35,7 +35,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0">
-            <Image Source="/Images for background/laggerbaggrund.png" MinHeight="230" MinWidth="340" MaxWidth="473" MaxHeight="315" Stretch="Fill" Grid.Row="3" Grid.Column="2"/>
+            <Image Source="/Images for background/laggerbaggrund.png" MinHeight="230" MinWidth="340" Stretch="Fill" Grid.Row="3" Grid.Column="2"/>
         </StackPanel>
     </Grid>
 </Window> 

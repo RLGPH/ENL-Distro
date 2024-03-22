@@ -14,9 +14,14 @@ namespace ENL_Distrobution_Storage
     {
         readonly Location location;
         public Database database = new();
+
+        private readonly string userRank;
         public Productpage(string rank)
         {
             InitializeComponent();
+
+            userRank = rank;
+
             database.GetAllProducts();
             List<Product> products = database.GetAllProducts();
 
@@ -38,6 +43,9 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_close_window_Click_1(object sender, RoutedEventArgs e)
         {
+            Main_Page main_page = new(userRank);
+            main_page.Show();
+
             Close();
         }
 

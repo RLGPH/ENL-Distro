@@ -4,9 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Order_Window" Height="450" Width="800">
+        Title="Order_Window" Height="500" Width="850">
     <Grid Background="Black">
-        <DataGrid x:Name="DTG_Orders" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,143" HorizontalAlignment="Center" Width="780" AutoGenerateColumns="False" Height="281" VerticalAlignment="Bottom" SelectionChanged="DTG_Orders_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="320*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="360*"/>
+            <ColumnDefinition Width="430*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DTG_Orders" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="4,22,0,0" HorizontalAlignment="Left" Width="780" AutoGenerateColumns="False" Height="281" VerticalAlignment="Top" SelectionChanged="DTG_Orders_SelectionChanged" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order ID" Binding="{Binding OrdersID}"/>
                 <DataGridTextColumn Header="Produkt ID" Binding="{Binding ProduktID}"/>
@@ -17,11 +29,27 @@
                 <DataGridTextColumn Header="Amount" Binding="{Binding OrderAmount}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="BTN_close" Content="close" HorizontalAlignment="Right" Margin="0,0,691,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_close_Click"/>
-        <Button x:Name="BTN_Order" Content="Order" HorizontalAlignment="Right" Margin="0,0,565,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_Order_Click"/>
-        <Button x:Name="BTN_remove" Content="REMOVE" HorizontalAlignment="Right" Margin="0,0,444,82" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_remove_Click"/>
-        <Button x:Name="BTN_edit_Order" Content="Edit" HorizontalAlignment="Right" Margin="0,0,565,45" VerticalAlignment="Bottom" Height="32" Width="64" Click="BTN_edit_Order_Click"/>
-        <TextBox x:Name="TB_ID_Select" HorizontalAlignment="Left" Height="23" Margin="572,320,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" Background="#FF616161" Foreground="White" BorderBrush="#FF898989"/>
-        <Label Content="Use ID to select" HorizontalAlignment="Left" Margin="475,318,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+            <Button x:Name="BTN_close" Content="close" Margin="0,0,0,0" Height="32" Width="64" Click="BTN_close_Click" />
+            <Button x:Name="BTN_remove" Content="REMOVE" Margin="0,5,0,0" Height="32" Width="64" Click="BTN_remove_Click" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="90,0,0,0">
+            <Button x:Name="BTN_Order" Content="Order" Margin="0,0,0,0" Height="32" Width="64" Click="BTN_Order_Click" Grid.Column="1" Grid.Row="2"/>
+            <Button x:Name="BTN_edit_Order" Content="Edit" Margin="0,5,0,0" Height="32" Width="64" Click="BTN_edit_Order_Click" Grid.Column="1" Grid.Row="2"/>
+        </StackPanel>
+        <Border Grid.Column="2" Grid.Row="2" BorderBrush="White" BorderThickness="3" CornerRadius="20" Height="40" Width="160" Margin="0,0,15,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Use ID to select" Margin="0,0,0,0" Foreground="White"/>
+                <TextBox x:Name="TB_ID_Select" Height="23" Margin="0,0,10,0" TextWrapping="Wrap" Text="" Width="52" Background="#FF616161" Foreground="White" BorderBrush="#FF898989">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

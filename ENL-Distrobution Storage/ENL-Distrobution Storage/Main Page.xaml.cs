@@ -35,6 +35,7 @@ namespace ENL_Distrobution_Storage
             //opens oreder window
             Order_Window order_Window = new(userRank);
             order_Window.Show();
+            Close();
         }
         
         private void BTN_Workers_Click(object sender, RoutedEventArgs e)
@@ -42,6 +43,7 @@ namespace ENL_Distrobution_Storage
             //opens employee window
             Employee_Window employee_Window = new(userRank);
             employee_Window.Show();
+            Close();
         }
 
         private void BTN_Products_Click(object sender, RoutedEventArgs e)
@@ -49,6 +51,7 @@ namespace ENL_Distrobution_Storage
             //open productpage window
             Productpage productPage = new(userRank);
             productPage.Show();
+            Close();
         }
 
         private void BTN_Logout_Click(object sender, RoutedEventArgs e)

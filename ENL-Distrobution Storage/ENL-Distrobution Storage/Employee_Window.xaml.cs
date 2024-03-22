@@ -47,6 +47,8 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_close_window_Click(object sender, RoutedEventArgs e)
         {
+            Main_Page main_page = new(userRank);
+            main_page.Show();
             //just a button for the people that are nervus about just closeing the page
             Close();
         }

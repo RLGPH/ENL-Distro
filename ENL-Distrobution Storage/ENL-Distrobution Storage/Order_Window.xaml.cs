@@ -11,9 +11,14 @@ namespace ENL_Distrobution_Storage
     {
         readonly Order_s order;
         readonly Database database = new();
+
+        private readonly string userRank;
         public Order_Window(string rank)
         {
             InitializeComponent();
+
+            userRank = rank;
+
             //initialize the datagrid with info from the database
             List<Order_s> order_s = database.order_s;
             database.GetAllOrders();
@@ -103,6 +108,8 @@ namespace ENL_Distrobution_Storage
 
         private void BTN_close_Click(object sender, RoutedEventArgs e)
         {
+            Main_Page main_page = new(userRank);
+            main_page.Show();
             //close button for nervus people
             Close();
         }
