@@ -15,10 +15,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="192*"/>
-            <RowDefinition Height="131*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="93*"/>
             <RowDefinition Height="30*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,0,0,0">
+        <StackPanel Margin="29,10,29,22" Grid.ColumnSpan="3" Grid.RowSpan="3">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="4,8,0,0">
                 <Label Content="Product name" Margin="0,0,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84" Foreground="White" Grid.Column="1"/>
                 <TextBox x:Name="TB_name" Margin="0,0,0,0" TextWrapping="Wrap" Text="insert name" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Background="White" Foreground="Black" Grid.Column="1"/>
@@ -42,10 +43,15 @@
                 <TextBox x:Name="TB_description" Margin="0,0,0,0" TextWrapping="Wrap" Text="Descripetion" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Grid.Column="1"/>
             </StackPanel>
         </StackPanel>
-        <Button x:Name="BTN_Add" Content="Add New Product" Margin="10,189,0,0" Click="BTN_Add_Click" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="107" Grid.RowSpan="2" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Button x:Name="BTN_cancel" Content="Cancel" Margin="130,41,0,0" Click="BTN_Cancel_Click" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="43" Grid.Row="2" Grid.Column="1"/>
-        <Button x:Name="BTN_save" Content="Update product" Margin="10,41,0,0" Click="BTN_save_Click" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="107" Grid.Row="2" Grid.ColumnSpan="2"/>
-        <Label Content="Working on" HorizontalAlignment="Left" Margin="152,183,0,0" VerticalAlignment="Top" Foreground="White" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1"/>
-        <TextBox x:Name="TB_ID" HorizontalAlignment="Left" Margin="229,189,0,0" TextWrapping="Wrap" Text="New Product" VerticalAlignment="Top" Height="26" Width="93" Foreground="Black" BorderBrush="White" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1"/>
+        <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="29,0,0,0" Height="74" Width="117">
+            <Button x:Name="BTN_Add" Content="Add New Product" Margin="0,0,10,0" Click="BTN_Add_Click" Height="32" Width="107"/>
+            <Button x:Name="BTN_save" Content="Update product" Margin="0,10,10,0" Click="BTN_save_Click" Height="32" Width="107"/>
+        </StackPanel>
+        <Button x:Name="BTN_cancel" Content="Cancel" Margin="144,52,0,0" Click="BTN_Cancel_Click" Height="32" Width="107" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Margin="157,0,0,0" Height="26" Width="165">
+            <Label Content="Working on" Margin="0,0,0,0" Foreground="White"/>
+            <TextBox x:Name="TB_ID" Margin="0,0,0,0" TextWrapping="Wrap" Text="New Product" Height="26" Width="93" Foreground="Black" BorderBrush="White" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"/>
+        </StackPanel>
     </Grid>
 </Window>
