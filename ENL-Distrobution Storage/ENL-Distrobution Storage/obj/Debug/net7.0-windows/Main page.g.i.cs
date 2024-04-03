@@ -85,7 +85,7 @@ namespace ENL_Distrobution_Storage {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ENL-Distrobution Storage;component/main%20page.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ENL-Distrobution Storage;V1.0.0.0;component/main%20page.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Main Page.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

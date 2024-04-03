@@ -7,34 +7,74 @@
         mc:Ignorable="d"
         Title="Product_add_window" Height="500" Width="680">
     <Grid x:Name="CB_product_or_employee" RenderTransformOrigin="0.501,0.504" Background="Black">
-        <Button x:Name="BTN_Complete_order" Content="Complete Order" HorizontalAlignment="Left" Margin="356,248,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="BTN_Complete_order_Click"/>
-        <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="253,291,0,0" Width="54" Click="BTN_Cancel_Click" Height="37" VerticalAlignment="Top"/>
-        <DataGrid x:Name="DTG_things_to_order_and_who" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,52,0,0" HorizontalAlignment="Left" Width="238" Height="275" VerticalAlignment="Top"/>
-        <ComboBox x:Name="CB_Products_Employees" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CB_Selection_SelectionChanged">
-            <ComboBoxItem Content="Products" Tag="0"/>
-            <ComboBoxItem Content="Employees" Tag="1"/>
-        </ComboBox>
-        <Button x:Name="BTN_add" Content="ADD To Order" HorizontalAlignment="Left" Margin="253,248,0,0" VerticalAlignment="Top" Height="38" Width="88" Click="BTN_add_Click"/>
-        <TextBox x:Name="TB_nworker" HorizontalAlignment="Left" Margin="346,56,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Foreground="White" Background="Black"/>
-        <Label Content="Workers Name" HorizontalAlignment="Left" Margin="253,52,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="TB_workerID" HorizontalAlignment="Left" Margin="346,82,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White"/>
-        <Label Content="WorkerID" HorizontalAlignment="Left" Margin="253,77,0,0" VerticalAlignment="Top" Width="88" Foreground="White"/>
-        <TextBox x:Name="TB_nproduct" HorizontalAlignment="Left" Margin="346,108,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White"/>
-        <Label Content="Product Name" HorizontalAlignment="Left" Margin="253,104,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="TB_productID" HorizontalAlignment="Left" Margin="346,131,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White"/>
-        <Label Content="Product ID" HorizontalAlignment="Left" Margin="258,127,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="TB_Order_Status" HorizontalAlignment="Left" Margin="346,192,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White"/>
-        <Label Content="Order status" HorizontalAlignment="Left" Margin="258,188,0,0" VerticalAlignment="Top" Width="81" Foreground="White"/>
-        <TextBox x:Name="TB_OrderID" HorizontalAlignment="Left" Margin="346,215,0,0" TextWrapping="Wrap" Text="New order" VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White"/>
-        <Label Content="Order ID" HorizontalAlignment="Left" Margin="259,211,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Quantity" HorizontalAlignment="Left" Margin="261,158,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="TB_Quantity" HorizontalAlignment="Left" Margin="346,162,0,0" TextWrapping="Wrap" Text="Please add a quantity
-                 " VerticalAlignment="Top" Width="120" Foreground="White" Background="Black" BorderBrush="#FFB8B8B8"/>
-        <Button x:Name="BTN_save_change" Content="Save change" HorizontalAlignment="Left" Margin="356,291,0,0" VerticalAlignment="Top" Height="37" Width="100" Click="BTN_save_change_Click"/>
-        <ComboBox x:Name="CB_Status" HorizontalAlignment="Left" Margin="486,192,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Pending_Work" Tag="0"/>
-            <ComboBoxItem Content="Being_Worked_On" Tag="1"/>
-            <ComboBoxItem Content="Finished" Tag="2"/>
-        </ComboBox>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="335*"/>
+            <RowDefinition Height="115*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="250*"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="210*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="Stackpanel_TB" Grid.Column="3" Grid.Row="1" Margin="0,40,0,0">
+            <TextBox x:Name="TB_nworker" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Foreground="White" Background="Black" Grid.Column="2" Grid.Row="1"/>
+            <Label Content="Workers Name" HorizontalAlignment="Left" Margin="0,-22,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="TB_workerID" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White" Grid.Column="2" Grid.Row="1"/>
+            <Label Content="WorkerID" HorizontalAlignment="Left" Margin="0,-22,0,0" VerticalAlignment="Top" Width="88" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="TB_nproduct" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White" Grid.Column="2" Grid.Row="1"/>
+            <Label Content="Product Name" HorizontalAlignment="Left" Margin="0,-22,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="TB_productID" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White" Grid.Column="2" Grid.Row="1"/>
+            <Label Content="Product ID" HorizontalAlignment="Left" Margin="0,-22,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="TB_Order_Status" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White" Grid.Column="2" Grid.Row="1"/>
+            <Label Content="Order status" HorizontalAlignment="Left" Margin="0,-22,0,0" VerticalAlignment="Top" Width="81" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="TB_OrderID" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="New order" VerticalAlignment="Top" Width="120" IsReadOnly="True" BorderBrush="Black" Background="Black" Foreground="White" Grid.Column="2" Grid.Row="1"/>
+            <Label Content="Order ID" HorizontalAlignment="Left" Margin="0,-22,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <Label Content="Quantity" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="TB_Quantity" HorizontalAlignment="Left" Margin="90,-22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Background="#FF3C3C3C" BorderBrush="#FFB8B8B8" Grid.Column="2" Grid.Row="1"/>
+        </StackPanel>
+        
+        <StackPanel x:Name="Buttons" Grid.Column="1" Grid.Row="2" Margin="50,0,0,0">
+            <Button x:Name="BTN_save_change" Content="Save change" HorizontalAlignment="Left" Margin="0,0,0,10" VerticalAlignment="Top" Height="37" Width="100" Click="BTN_save_change_Click" Background="#FF1CF600">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_Complete_order" Content="Complete Order" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="BTN_Complete_order_Click" Background="#FF1CF600">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="110,-37,0,0" Width="100" Click="BTN_Cancel_Click" Height="37" VerticalAlignment="Top" Background="#FFFF0404">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_add" Content="ADD To Order" HorizontalAlignment="Left" Margin="110,-85,0,0" VerticalAlignment="Top" Height="38" Width="100" Click="BTN_add_Click" Background="#FF1CF600">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        
+        <StackPanel x:Name="Stackpanel_DTG_order_parts" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+            <ComboBox x:Name="CB_Products_Employees" HorizontalAlignment="Left" Margin="10,10,0,10" VerticalAlignment="Top" Width="120" SelectionChanged="CB_Selection_SelectionChanged" Grid.ColumnSpan="2" Grid.Row="1">
+                <ComboBoxItem Content="Products" Tag="0"/>
+                <ComboBoxItem Content="Employees" Tag="1"/>
+            </ComboBox>
+            <DataGrid x:Name="DTG_things_to_order_and_who" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,0" HorizontalAlignment="Left" Width="420" Height="275" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1"/>
+        </StackPanel>
     </Grid>
 </Window>
