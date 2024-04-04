@@ -75,9 +75,27 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
             <StackPanel Margin="0,0,0,0" Grid.RowSpan="3">
-                <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="32" Width="44" Click="BTN_Cancel_Click" Grid.Column="1" Grid.Row="1"/>
-                <Button x:Name="BTN_ADD" Content="ADD Employee" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="139" Click="BTN_ADD_Click" Grid.Column="1" Grid.Row="2"/>
-                <Button x:Name="BTN_Save_Change" Content="Save Change" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="139" Click="BTN_Save_Change_Click" Grid.Column="1" Grid.Row="2"/>
+                <Button x:Name="BTN_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Height="32" Width="139" Click="BTN_Cancel_Click" Grid.Column="1" Grid.Row="1" Background="#FFFF0404">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BTN_ADD" Content="ADD Employee" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="139" Click="BTN_ADD_Click" Grid.Column="1" Grid.Row="2" Background="#FF1CF600">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="BTN_Save_Change" Content="Save Change" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="32" Width="139" Click="BTN_Save_Change_Click" Grid.Column="1" Grid.Row="2" Background="#FF1CF600">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="186,-115,0,0">

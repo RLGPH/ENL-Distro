@@ -14,44 +14,65 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="192*"/>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="93*"/>
+            <RowDefinition Height="190*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="90*"/>
             <RowDefinition Height="30*"/>
         </Grid.RowDefinitions>
-        <StackPanel Margin="29,10,29,22" Grid.ColumnSpan="3" Grid.RowSpan="3">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="4,8,0,0">
-                <Label Content="Product name" Margin="0,0,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_name" Margin="0,0,0,0" TextWrapping="Wrap" Text="insert name" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Background="White" Foreground="Black" Grid.Column="1"/>
-            </StackPanel>
+        <Border Grid.ColumnSpan="3" Grid.RowSpan="3" BorderBrush="White" BorderThickness="2" Margin="25,10,25,40" CornerRadius="10">
+            <StackPanel Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="6,8,0,0">
+                    <Label Content="Product name :" Margin="0,0,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="89" Foreground="White" Grid.Column="1"/>
+                    <TextBox x:Name="TB_name" Margin="0,0,0,0" TextWrapping="Wrap" Text="insert name" Height="22" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Background="White" Foreground="Black" Grid.Column="1"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,4,0,0">
-                <Label Content="location" Margin="0,10,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52" Foreground="White" Grid.Column="1"/>
-                <Label Content="Shelf" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_shelf" Margin="0,0,0,0" TextWrapping="Wrap" Text="insert Shelf" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Grid.Column="1"/>
-                <Label Content="Row" HorizontalAlignment="Left" Margin="-238,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,0.525" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_row" Margin="-204,24,0,0" TextWrapping="Wrap" Text="insert Row" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Grid.Column="1"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="2,4,0,0">
+                    <Label Content="location" Margin="0,10,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="52" Foreground="White" Grid.Column="1"/>
+                    <Label Content="Shelf :" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1"/>
+                    <TextBox x:Name="TB_shelf" Margin="0,0,0,0" TextWrapping="Wrap" Text="insert Shelf" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Grid.Column="1"/>
+                    <Label Content="Row :" HorizontalAlignment="Left" Margin="-243,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.836,0.525" Foreground="White" Grid.Column="1"/>
+                    <TextBox x:Name="TB_row" Margin="-204,24,0,0" TextWrapping="Wrap" Text="insert Row" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Grid.Column="1"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2,20,0">
-                <Label Content="Amount of product" Margin="0,0,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112" Foreground="White" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="TB_amount" Margin="0,0,0,0" TextWrapping="Wrap" Text="insert amount" Height="19" VerticalAlignment="Center" HorizontalAlignment="Left" Width="208" Grid.Column="1" />
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2,20,0">
+                    <Label Content="Amount of product:" Margin="0,0,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="114" Foreground="White" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="TB_amount" Margin="0,0,0,0" TextWrapping="Wrap" Text="insert amount" Height="19" VerticalAlignment="Center" HorizontalAlignment="Left" Width="204" Grid.Column="1" />
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,4,0,0">
-                <Label Content="Description" Margin="0,0,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="78" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="TB_description" Margin="0,0,0,0" TextWrapping="Wrap" Text="Descripetion" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Grid.Column="1"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,4,0,0">
+                    <Label Content="Description :" Margin="0,0,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Foreground="White" Grid.Column="1"/>
+                    <TextBox x:Name="TB_description" Margin="0,0,0,0" TextWrapping="Wrap" Text="Descripetion" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Width="204" Grid.Column="1"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
+        </Border>
+        
         <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="29,0,0,0" Height="74" Width="117">
-            <Button x:Name="BTN_Add" Content="Add New Product" Margin="0,0,10,0" Click="BTN_Add_Click" Height="32" Width="107"/>
-            <Button x:Name="BTN_save" Content="Update product" Margin="0,10,10,0" Click="BTN_save_Click" Height="32" Width="107"/>
+            <Button x:Name="BTN_Add" Content="Add New Product" Margin="0,0,10,0" Click="BTN_Add_Click" Height="32" Width="107" Background="#FF1CF600">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="BTN_save" Content="Update product" Margin="0,10,10,0" Click="BTN_save_Click" Height="32" Width="107" Background="#FF1CF600">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5" />
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
-        <Button x:Name="BTN_cancel" Content="Cancel" Margin="144,52,0,0" Click="BTN_Cancel_Click" Height="32" Width="107" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button x:Name="BTN_cancel" Content="Cancel" Margin="144,50,0,0" Click="BTN_Cancel_Click" Height="32" Width="107" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFF0404">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Button.Resources>
+        </Button>
 
         <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal" Margin="157,0,0,0" Height="26" Width="165">
-            <Label Content="Working on" Margin="0,0,0,0" Foreground="White"/>
-            <TextBox x:Name="TB_ID" Margin="0,0,0,0" TextWrapping="Wrap" Text="New Product" Height="26" Width="93" Foreground="Black" BorderBrush="White" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"/>
+            <Label Content="Working on :" Margin="0,0,0,0" Foreground="White"/>
+            <TextBox x:Name="TB_ID" Margin="0,0,0,0" TextWrapping="Wrap" Text="New Product" Height="20" Width="93" Foreground="Black" BorderBrush="White" SelectionBrush="White" IsReadOnly="True" RenderTransformOrigin="0.5,0.5"/>
         </StackPanel>
     </Grid>
 </Window>
