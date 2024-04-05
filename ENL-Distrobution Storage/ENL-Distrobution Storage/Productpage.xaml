@@ -68,7 +68,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0">
-            <Border BorderBrush="White" BorderThickness="3" Height="40" Width="160" CornerRadius="20">
+            <Border BorderBrush="White" BorderThickness="3" Height="40" Width="160" CornerRadius="15">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                     <Label Content="Use ID to select" Margin="0,0,0,0" Foreground="White"/>
                     <TextBox x:Name="TB_ID_Select" Height="23" Margin="0,0,8,0" TextWrapping="Wrap" Text="" Width="52" Background="#FF616161" Foreground="White" BorderBrush="#FF898989">
