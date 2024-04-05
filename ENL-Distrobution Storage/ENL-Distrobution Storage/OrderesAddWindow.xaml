@@ -20,7 +20,7 @@
             <ColumnDefinition Width="210*"/>
             <ColumnDefinition Width="15*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="3" Grid.Row="1" Margin="0,40,8,130" BorderBrush="White" BorderThickness="2" CornerRadius="5">
+        <Border Grid.Column="3" Grid.Row="1" Margin="0,40,8,100" BorderBrush="White" BorderThickness="2" CornerRadius="5">
             <StackPanel x:Name="Stackpanel_TB" Grid.Column="3" Grid.Row="1" Margin="0,0,0,0">
                 <TextBox x:Name="TB_nworker" HorizontalAlignment="Left" Margin="120,0,0,0" TextWrapping="Wrap" Text="Pending..." VerticalAlignment="Top" Width="70" IsReadOnly="True" BorderBrush="Black" Foreground="White" Background="Black" Grid.Column="2" Grid.Row="1"/>
                 <Label Content="Workers Name" HorizontalAlignment="Left" Margin="0,-22,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
@@ -36,6 +36,12 @@
                 <Label Content="Order ID" HorizontalAlignment="Left" Margin="0,-22,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
                 <Label Content="Quantity" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
                 <TextBox x:Name="TB_Quantity" HorizontalAlignment="Left" Margin="100,-22,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Foreground="White" Background="#FF3C3C3C" BorderBrush="#FFB8B8B8" Grid.Column="2" Grid.Row="1"/>
+                <Label Content="Status" Foreground="White" Width="44" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <ComboBox x:Name="CB_Status" HorizontalAlignment="Left" Margin="80,-24,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBoxItem Content="Pending_Work" Tag="0"/>
+                    <ComboBoxItem Content="Being_Worked_On" Tag="1"/>
+                    <ComboBoxItem Content="Finished" Tag="2"/>
+                </ComboBox>
             </StackPanel>
         </Border>
 
