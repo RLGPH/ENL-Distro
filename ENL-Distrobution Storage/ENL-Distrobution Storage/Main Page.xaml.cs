@@ -27,6 +27,11 @@ namespace ENL_Distrobution_Storage
             if (userRank == "User") 
             {
                 BTN_Workers.Visibility = Visibility.Collapsed;
+                BTN_Products.Visibility = Visibility.Collapsed;
+            }
+            else if (userRank == "Inventory") 
+            { 
+                BTN_Workers.Visibility = Visibility.Collapsed; 
             }
         }
 

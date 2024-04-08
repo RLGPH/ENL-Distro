@@ -99,10 +99,30 @@ namespace ENL_Distrobution_Storage
                 Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
                 database.ADDEmployee(newemployee);
             }
-            else if (AdminOrUser == false)
+            bool InventoryYesNo = (bool)CHB_Inventory.IsChecked;
+            if (InventoryYesNo == true) 
             {
                 string AdminPassword = TB_AdminPassWord.Text;
-                string rank = "Admin";
+                string rank = "Inventory";
+
+                //combinds and then uses the addemployee method and gives that data to it 
+                Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                database.ADDEmployee(newemployee);
+            }
+            bool ManagmentYesNo = (bool)CHB_Managment.IsChecked;
+            if (ManagmentYesNo == true)
+            {
+                string AdminPassword = TB_AdminPassWord.Text;
+                string rank = "Managment";
+
+                //combinds and then uses the addemployee method and gives that data to it 
+                Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                database.ADDEmployee(newemployee);
+            }
+            else if (ManagmentYesNo == false && InventoryYesNo == false && AdminOrUser == false)
+            {
+                string AdminPassword = TB_AdminPassWord.Text;
+                string rank = "User";
 
                 //combinds and then uses the addemployee method and gives that data to it 
                 Employee newemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
@@ -154,13 +174,33 @@ namespace ENL_Distrobution_Storage
                 Employee editemployee = new(ID, amount, TLF, FName, LName, mail, Jobtitel, status, username, password, AdminPassword, rank);
                 database.UpdateEmployee(editemployee);
             }
-            else if (AdminOrUser == false)
+            bool InventoryYesNo = (bool)CHB_Inventory.IsChecked;
+            if (InventoryYesNo == true)
+            {
+                string AdminPassword = TB_AdminPassWord.Text;
+                string rank = "Inventory";
+
+                //combinds and then uses the addemployee method and gives that data to it 
+                Employee editemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                database.UpdateEmployee(editemployee);
+            }
+            bool ManagmentYesNo = (bool)CHB_Managment.IsChecked;
+            if (ManagmentYesNo == true)
+            {
+                string AdminPassword = TB_AdminPassWord.Text;
+                string rank = "Managment";
+
+                //combinds and then uses the addemployee method and gives that data to it 
+                Employee editemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
+                database.UpdateEmployee(editemployee);
+            }
+            else if (ManagmentYesNo == false && InventoryYesNo == false && AdminOrUser == false)
             {
                 string AdminPassword = TB_AdminPassWord.Text;
                 string rank = "User";
 
                 //combinds and then uses the addemployee method and gives that data to it 
-                Employee editemployee = new(ID, amount, TLF, FName, LName, mail, Jobtitel, status, username, password, AdminPassword, rank);
+                Employee editemployee = new(0, 0, TLF, FName, LName, mail, Jobtitel, 0, username, password, AdminPassword, rank);
                 database.UpdateEmployee(editemployee);
             }
 

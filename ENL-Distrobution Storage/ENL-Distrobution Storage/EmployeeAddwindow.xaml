@@ -62,9 +62,11 @@
                         <Label Content="User PassWord" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="90" Foreground="White" Grid.Column="1"/>
                         <TextBox x:Name="TB_UserPassWord" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204" Height="19" Grid.Column="1" />
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Margin="-146,0,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label Content="Give Admin?" Margin="0,0,0,0" Foreground="White"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,7" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Content="Give A Rank?" Margin="-4,0,0,0" Foreground="White"/>
                         <CheckBox x:Name="CHB_ADMIN" Content="Admin" Margin="0,6,0,0" Foreground="White" Click="CHB_ADMIN_Click"/>
+                        <CheckBox x:Name="CHB_Inventory" Content="Inventory" Foreground="White" Margin="6,6,0,0"/>
+                        <CheckBox x:Name="CHB_Managment" Content="Managment" Foreground="White" Margin="6,6,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="SP_TB_AdminPassWord" Orientation="Horizontal" Margin="-20,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Label Content="Admin PassWord" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Foreground="White" Grid.Column="1"/>
