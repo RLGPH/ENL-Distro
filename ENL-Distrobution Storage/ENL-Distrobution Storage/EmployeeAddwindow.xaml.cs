@@ -88,7 +88,9 @@ namespace ENL_Distrobution_Storage
             string username = TB_UserName.Text;
             string password = TB_UserPassWord.Text;
 
+#pragma warning disable CS8629 // Nullable value type may be null.
             bool AdminOrUser = (bool)CHB_ADMIN.IsChecked;
+
 
             if (AdminOrUser == true)
             {

@@ -305,11 +305,12 @@ namespace ENL_Distrobution_Storage
             using SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                 string username = reader["UserName"].ToString();
                 string UserPassword = reader["UserPassWord"].ToString();
                 string AdminPassword = reader["AdminPassWord"].ToString();
                 string UserRank = reader["UserRank"].ToString();
-                if (Username == username && Password == UserPassword && seclevel == "User")
+                if (Username == username && Password == UserPassword && seclevel == "User" )
                 {
                     return true;
                 }
