@@ -24,7 +24,7 @@ namespace ENL_Distrobution_Storage
             database.GetAllEmployees();
             DTG_Employee.ItemsSource = employee;
 
-            if(userRank == "Mod")
+            if(userRank == "Managment")
             {
                
             }
